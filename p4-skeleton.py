@@ -37,6 +37,10 @@ data = open(temp_output_file,'r')
 #This loop repeats while openface is still running
 #Inside the loop, we read from the file that openface outputs to and check to see if there's anything new
 #We handle the data if there is any, and wait otherwise
+count = 0
+x = 0
+y = 0
+z = 0
 while(of2.poll() == None):
 	line = data.readline().strip()
 	
@@ -56,12 +60,19 @@ while(of2.poll() == None):
 		#********************************************
 		# Most, maybe all, of your code will go here
 		#********************************************
-		
-		#Replace this line
-		print("time:", timestamp, "\tpitch:", pitch, "\tyaw:", yaw, "\troll:", roll)
-		
+		if(count%5 == 0):
+			if(abs(pitch-x) > 0.2):
+				print('Yes')
+			x = pitch
+			if(abs(roll - z) > 0.2):
+				print('Indian Nod')
+			z = roll
+			if(abs(yaw-y) > 0.2):
+				print('No')
+			y = yaw
 	else:
 		time.sleep(.01)
+	count+=1
 	
 #Reminder: press 'q' to exit openface
 
