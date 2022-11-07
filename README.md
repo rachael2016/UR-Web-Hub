@@ -9,7 +9,7 @@ Grant Yap
 
 Rachael He 
 
-#Startup
+# Startup
 
 Create the virtual environment, activate it, and install all required dependencies. If you do not know how to do this, follow in instructions at https://flask.palletsprojects.com/en/2.2.x/installation/
 
