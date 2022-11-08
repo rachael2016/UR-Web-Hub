@@ -21,7 +21,7 @@ def dietaryneedfinder():
 
 @app.route("/downdetector", methods = ["GET", "POST"])
 def downdetector():
-    return "html template to be added"
+    return render_template("downdetector.html")
 
 if __name__ == "__main__":
     app.run()
