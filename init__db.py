@@ -11,8 +11,15 @@ cur = connection.cursor()
 with open(r'csvfiles\buildings.csv') as fin:
     dr = csv.reader(fin)
     dr = list(dr)
+    count = 0
+
     for i in dr:
-        cur.execute("INSERT INTO Buildings(name) VALUES (?);", i)
+        if(count == 0):
+            count += 1
+            continue
+        else:
+            cur.execute("INSERT INTO Buildings(name) VALUES (?);", i)
+            count += 1
 
 print("complete")
 connection.commit()
