@@ -1,7 +1,7 @@
 from flask import Flask, render_template , json, redirect, url_for, request, flash, session, request
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, ValidationError, DateField
-from datetime import datetime
+from datetime import datetime, timedelta
 import sqlite3
 from csv import DictReader
 import json
@@ -27,9 +27,41 @@ def campusnavigator():
 def dietaryneedfinder():
     return "html template to be added"
 
-@app.route("/downdetector", methods = ["GET", "POST"])
-def downdetector():
-    return render_template("downdetector.html")
+@app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
+def downdetector(buildingid):
+    conn = getdbconnection()
+    name = conn.execute('SELECT * FROM Buildings WHERE buildingid = ?', (buildingid,)).fetchone()
+    reports = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ?', (buildingid,)).fetchall()
+    now = datetime.now()
+    previous = datetime.now() - timedelta(days=1)
+    recentrecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, previous, now)).fetchall()
+    conn.close()
+
+    if not name:
+        return "404"
+
+    allreports = []
+
+    for report in reports:
+        reportentry = {
+            "id": report['reportid'],
+            "datetime": report['datetime'],
+            "down": report['down']
+        }
+        allreports.append(reportentry)
+
+    allrecentrecords = []
+
+    for record in recentrecords:
+        recordentry = {
+            "id": record['reportid'],
+            "datetime": record['datetime'],
+            "down": record['down']
+        }
+        allrecentrecords.append(recordentry)
+    
+        
+    return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():
