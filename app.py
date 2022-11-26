@@ -74,6 +74,8 @@ def downdetector(buildingid):
         conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), form.status))
         conn.commit()
         conn.close()
+        status = form.status.data
+        form.status.data = None
     #else for debugging purposes
     else:
         print("form invalid")
