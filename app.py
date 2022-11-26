@@ -7,6 +7,8 @@ from csv import DictReader
 import json
 import os
 
+from forms import UserReport
+
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
 
@@ -29,6 +31,8 @@ def dietaryneedfinder():
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
+
+    #Connecting to the database, gets all records within 24 hours
     conn = getdbconnection()
     name = conn.execute('SELECT * FROM Buildings WHERE buildingid = ?', (buildingid,)).fetchone()
     reports = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ?', (buildingid,)).fetchall()
@@ -37,9 +41,11 @@ def downdetector(buildingid):
     recentrecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, previous, now)).fetchall()
     conn.close()
 
+    #Invalid building name
     if not name:
         return "404"
 
+    #taking all reports and recent reports and looping for formatting after being taken from database
     allreports = []
 
     for report in reports:
@@ -59,9 +65,20 @@ def downdetector(buildingid):
             "down": record['down']
         }
         allrecentrecords.append(recordentry)
+
+    #form for reports
+    status = None
+    form = UserReport()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), form.status))
+        conn.commit()
+        conn.close()
+    #else for debugging purposes
+    else:
+        print("form invalid")
     
-        
-    return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords)
+    return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():
