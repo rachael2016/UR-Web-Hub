@@ -3,9 +3,9 @@
 {% block content %}
 <head>
     <title>UR Web Hub</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
-
 <body>
     <div class="header">
       <header>
@@ -16,54 +16,39 @@
       <div class="container">
      	<nav class="menu">
             <ul>
-               <li><a href="urwebhub.html">Home</a></li>
-               <li><a href="">Dining</a></li>
-               <li><a href="">Maps</a></li>
-               <li><a href="">Academics</a></li>
-               <li><a href="">Down Detector</a></li>
-               <li><a href="">Contact us</a></li>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="dining.html">Dining</a></li>
+               <li><a href="ratemycourse.html">Academics</a></li>
+               <li><a href="downdetector.html">Down Detector</a></li>
+               <li><a href="contact.html">Contact us</a></li>
             </ul>
          </nav>
       <section class="lead">
-         <h2 class="full-width">Here you can learn about some of the features</h2>
-        <section class="lead inner-container">
-         <div class="slider">
-         </div>
-           <figure>
-                    <code>println!("Hello world");</code>
-                    <figcaption>Everyone starts with hello world!</figcaption>
-                </figure>
-       </section>
+         <h2 class="full-width">Learn more about some of the features</h2>
          <div id="accordion">
-              <h3><em>Down Detector</em></h3>
-            <p>There are many students on campus that rely on accessibility points on campus such as ramps and elevators. When an elevator is down, or a ramp is blocked off due to construction, this can completely alter the student’s route, or even prevent them from getting to a location in the first place. This is where the down detector comes in. Inspired by website down detectors and the frequent Anderson Hall elevator outages, the UR Hub will allow students to report blocked ramps or non-functional elevators. Then, students who rely on this information to get place-to-place can plan accordingly if they see a recent report has been made. While the current plan is to rely fully on crowdsourced data from students, if time permits, functionality to allow facilities to report maintenance in a particular area is a feature we would like to add. This feature can help speed up the rate in which mechanical problems are fixed, in addition to being an informative resource to users. <br><br><br>
-              Click here to learn more: <a href="downdetector.html">Down Detector</a></p>
-            <h3><em>Dining Resources<a href="dining.html"></a></em></h3>
-            <p>Continuing with the crowdsourcing theme, we would like to expand on the current Dining Menu Feature and allow for students to report inaccuracies in the dining menu published online. This feature would pull data from the UR Dining Services website to display what is available at different locations. Through our new feature, students will be able to filter by dietary restrictions to find places that will accommodate those needs. In addition, besides each dining option, there will be a section for students to report the accuracy of the current menu. Students will not only be able to report if a station does not have the menu items listed, but will be able to make comments to inform other students of what the station is actually offering. Our improved implementation of the dining menus will also include food items at locations that aren’t typically listed on the menu of the dining website. This is important because although the school lists some dietary restrictions, they don’t include a more expansive list, and they sometimes advertise a station as having food that isn't actually served since they often run out of certain menu items and don’t update. That can lead to a student with dietary restrictions paying to go to a dining hall and then not even being able to eat anything. In addition, we hope by expanding the list of menus to reach even more locations beyond the three major dining halls, we will enable more of the student body to feel confident obtaining food and drink at every location. <br><br><br>
-              Click here to learn more: <a href="dining.html">Dining</a></p>
-            <h3><em>Map and Locations<a href="locater.html"></a></em></h3>
-            <p>The university is a big campus and has complex buildings. Finding where to go on campus can be confusing when there aren’t any direct ways to find directions to where you need to go. Campus Navigation Feature will help that pain by detecting where the user is on campus and give directions from where they are currently within campus grounds. Interaction with the application would be more intuitive to use, since we use GPS navigation often in our everyday lives. The final new feature we’d like to have in the UR Hub is the Stacks Book Locator. Finding books in the stacks is a difficult task, and can be intimidating if you’ve never done so before. The Stacks Book Locator will take the call number of a book, and will show you how to reach the location. It will do so by providing the correct elevator to take, the floor number, and the general vicinity in which the book can be found. This is ambitious, but we can currently access the call number of books through the UR Libraries site, and including this feature would speed up the time it takes to locate and obtain a book.<br><br><br>
-              Click here to learn more: <a href="locater.html">Map and Location Finder</a></p>
-            <h3><em>Academics<a href="ratemyclass.html"></a></em></h3>
-            <p>One feature we would be interested in building a minor working beta for is a way for students to rate and discuss classes. Instead of being professor-specific like ratemyprofessor, this feature would enable students to discuss a general class and whether they think it is too difficult, too easy, how it has helped them learn (or not), helpful tips, overview of topics covered (so you don’t have to hunt down the syllabi anymore), etc., and may also contain general studying tips.<br><br><br><a href="ratemyclass.html">Learn more here: Academics</a></p>
-         </div>
+            <button onclick="openAccordion('downdetector')" class="w3-btn w3-block w3-aqua"><h3><em>Down Detector</em></h3></button>
+         <div id="downdetector" class="w3-hide w3-container w3-center w3-pale-blue">
+            <p>There are many students on campus that rely on accessibility points on campus such as ramps and elevators. When an elevator is down, or a ramp is blocked off due to construction, this can completely alter the student’s route, or even prevent them from getting to a location in the first place. This is where the down detector comes in. Inspired by website down detectors and the frequent Anderson Hall elevator outages, the UR Hub will allow students to report blocked ramps or non-functional elevators. Then, students who rely on this information to get place-to-place can plan accordingly if they see a recent report has been made. While the current plan is to rely fully on crowdsourced data from students, if time permits, functionality to allow facilities to report maintenance in a particular area is a feature we would like to add. This feature can help speed up the rate in which mechanical problems are fixed, in addition to being an informative resource to users. <br><br><br> Click here to learn more: <a href="downdetector.html">Down Detector</a></p>
+        </div>
+         <button onclick="openAccordion('dining')" class="w3-btn w3-block w3-aqua"><h3><em>Dining Resources</em></h3></button>
+         <div id="dining" class="w3-hide w3-container w3-center w3-pale-blue">
+            <p>Continuing with the crowdsourcing theme, we would like to expand on the current Dining Menu Feature and allow for students to report inaccuracies in the dining menu published online. This feature would pull data from the UR Dining Services website to display what is available at different locations. Through our new feature, students will be able to filter by dietary restrictions to find places that will accommodate those needs. In addition, besides each dining option, there will be a section for students to report the accuracy of the current menu. Students will not only be able to report if a station does not have the menu items listed, but will be able to make comments to inform other students of what the station is actually offering. Our improved implementation of the dining menus will also include food items at locations that aren’t typically listed on the menu of the dining website. This is important because although the school lists some dietary restrictions, they don’t include a more expansive list, and they sometimes advertise a station as having food that isn't actually served since they often run out of certain menu items and don’t update. That can lead to a student with dietary restrictions paying to go to a dining hall and then not even being able to eat anything. In addition, we hope by expanding the list of menus to reach even more locations beyond the three major dining halls, we will enable more of the student body to feel confident obtaining food and drink at every location. <br><br><br> Click here to learn more: <a href="dining.html">Dining</a></p>
+        </div>
+              <button onclick="openAccordion('ratemyclass')" class="w3-btn w3-block w3-aqua"><h3><em>Course Ratings</em></h3></button>
+         <div id="ratemyclass" class="w3-hide w3-container w3-center w3-pale-blue">
+            <p>One feature we would be interested in building a minor working beta for is a way for students to rate and discuss classes. Instead of being professor-specific like ratemyprofessor, this feature would enable students to discuss a general class and whether they think it is too difficult, too easy, how it has helped them learn (or not), helpful tips, overview of topics covered (so you don’t have to hunt down the syllabi anymore), etc., and may also contain general studying tips.<br><br><br>Learn more here: <a href="ratemyclass.html">Academics</a></p>
+        </div>
+    </div>
       </section>
    </div>
    <div class="home">
    <footer>
-      <h4>Sarah, Grant, Kelly, Rachael, Emersyn- CSC 210 Human Computer Interaction 👩🏻‍💻 👩‍💻 🧑🏻‍💻</h4>
+      <h4>Sarah, Grant, Kelly, Rachael, Emersyn- CSC 210 Human Computer Interaction 👩🏻‍💻 👩‍💻 👨🏻‍💻</h4>
    </footer>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="js/menu-highlighter.js"></script>
-   <script src="sss/sss.js"></script>
-   <script>
-      $('.slider').sss();
-   </script>
-   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   <script>
-      $( "#accordion" ).accordion();
-   </script>
+<script src="../js/script.js"></script>
 </body>
 
 {% endblock %}

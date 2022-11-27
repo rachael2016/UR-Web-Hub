@@ -1,5 +1,5 @@
 body {
-	background-color:#e6e6e7;
+	background-color:#f0f0f0;
 	color: #333333;
 }
 
@@ -34,13 +34,29 @@ li {
 }
 
 .lead {
-	background-color: #333333;
-	color: #d9d9d9;
+	background-color: #999999;
+	color: #323131;
 	padding: 30px;
 	border-radius: 15px;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.accordion div {
+	margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0px;
+}
+
+.w3-block {
+	display: inline-block;
+}
+
+.w3-pale-blue {
+	color:  #6f6e6e;
 }
 
 h2.full-width {
@@ -80,9 +96,9 @@ h1 {
 
 h2 {
 	font-weight: bold;
-	margin-bottom: 5px;
+	margin-bottom: 2em;
 	padding-left: 50px;
-	font-family: Tahoma;
+	font-family: "Century Gothic";
 	background-repeat: no-repeat;
 	text-align: center;
 	color: #9ef1f0;
@@ -94,17 +110,18 @@ h2 {
 
 
 h3 {
-	margin-top: 40px;
+	margin: 40px;
 	line-height: 1.5em;
-	font-family: "Courier New";
+	font-family: "Trebuchet MS";
 	text-align: center;
 	font-size: 30px;
-	color: #f30567;
+	color: #3c04b0;
 }
 
 p {
-	font-family: Helvetica;
+	font-family: "Century Gothic";
 	font-size: 20px;
+	font-weight: bold;
 }
 
 ol, ul {
