@@ -41,7 +41,7 @@ def downdetector(buildingid):
     recentrecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, previous, now)).fetchall()
     conn.close()
 
-    #Invalid building name
+    #Invalid building name/id
     if not name:
         return "404"
 
@@ -80,7 +80,8 @@ def downdetector(buildingid):
     else:
         print("form invalid")
     
-    return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form)
+    return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
+        name = name)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():

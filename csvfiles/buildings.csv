@@ -1,63 +1,64 @@
-name
-Anderson
-O'Brien
-Wilder
-Sage
-Slater
-Munro
-Kendrick
-Gale
-Fairchild
-Chambers
-Spurrier
-Susan B. Anthony Halls
-Genesee
-University Health Service
-Fauver Stadium
-Goergen Athletic Center
-Gilbert
-Hoeing
-Lovejoy
-Tiernan
-Burton
-Crosby
-Douglass Leadership House
-Drama House
-LeChase
-Wilson Commons
-Douglass Commons
-Rettner
-Morey
-Lattimore
-Todd
-Sloan
-Strong Auditorium
-Rush Rhees Library
-Meliora
-Bausch & Lomb
-Hoyt
-Dewey
-Carol G. Simon
-Schlegel
-Gleason
-Wallis
-Hopeman
-Wegmans
-Gavett
-Taylor
-Harkness
-Goergen
-Wilmot
-Computer Studies
-Carlson Library
-Hutchison
-Hylan
-Brooks Crossing
-Brooks Landing
-Riverview A
-Riverview B
-Riverview C
-Riverview D
-Riverview E
-Riverview F
-Interfaith Chapel
+name,x,y
+Anderson,593,231
+O'Brien,625,210
+Wilder,636,238
+Sage,610,258
+Slater,715,312
+Munro,740,317
+Kendrick,749,298
+Gale,745,268
+Fairchild,764,259
+Chambers,792,259
+Spurrier,542,289
+Susan B. Anthony Halls,557,342
+Genesee,499,339
+University Health Service,545,394
+Fauver Stadium,436,288
+Goergen Athletic Center,418,356
+Gilbert,322,289
+Hoeing,338,323
+Lovejoy,286,356
+Tiernan,267,316
+Burton,311,386
+Crosby,352,366
+Douglass Leadership House,278,402
+Drama House,295,427
+LeChase,334,438
+Wilson Commons,400,412
+Douglass Commons,435,339
+Rettner,380,438
+Morey,400,448
+Lattimore,352,473
+Todd,289,461
+Sloan,269,484
+Strong Auditorium,308,495
+Rush Rhees Library,446,454
+Meliora,484,493
+Bausch & Lomb,423,494
+Hoyt,409,523
+Dewey,377,519
+Carol G. Simon,393,550
+Schlegel,332,542
+Gleason,339,560
+Wallis,337,590
+Hopeman,388,585
+Wegmans,385,610
+Gavett,433,566
+Taylor,437,599
+Harkness,473,540
+Goergen,424,657
+Wilmot,430,639
+Computer Studies,395,687
+Carlson Library,376,691
+Hutchison,344,670
+Hylan,369,650
+Brooks Crossing,107,296
+Brooks Landing,81,209
+Riverview A,330,96
+Riverview B,368,61
+Riverview C,395,108
+Riverview D,450,105
+Riverview E,479,102
+Riverview F,315,110
+Riverview G,400,69
+Interfaith Chapel,264,551
