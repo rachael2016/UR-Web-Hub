@@ -4,6 +4,7 @@
 <head>
     <title>UR Web Hub</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
@@ -14,13 +15,16 @@
       </header>
    </div>
       <div class="container">
-     	<nav class="menu">
+     	<nav class="menu" id="navMenu">
             <ul>
-               <li><a href="index.html">Home</a></li>
+               <li><a href="index.html" class="active">Home</a></li>
                <li><a href="dining.html">Dining</a></li>
                <li><a href="ratemycourse.html">Academics</a></li>
                <li><a href="downdetector.html">Down Detector</a></li>
                <li><a href="contact.html">Contact us</a></li>
+               <a href="javascript:void(0);" class="icon" onclick="openResponsiveMenu()">
+                  <i class="fa fa bars"></i>
+               </a>
             </ul>
          </nav>
       <section class="lead">
