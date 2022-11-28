@@ -9,17 +9,9 @@ with open('schema.sql') as f:
 cur = connection.cursor()
 
 with open(r'csvfiles\buildings.csv') as fin:
-    dr = csv.reader(fin)
-    dr = list(dr)
-    count = 0
-
-    for i in dr:
-        if(count == 0):
-            count += 1
-            continue
-        else:
-            cur.execute("INSERT INTO Buildings(name) VALUES (?);", i)
-            count += 1
+    dr = csv.DictReader(fin)
+    todb = [(i['name'], i['x'], i['y']) for i in dr]
+cur.executemany("INSERT INTO Buildings (name, xcoord, ycoord) VALUES (?, ?, ?);", todb)
 
 print("complete")
 connection.commit()

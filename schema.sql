@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS "Buildings";
 CREATE TABLE "Buildings" (
     "buildingid" INTEGER NOT NULL,
     "name" TEXT NOT NULL,
+    "xcoord" INTEGER NOT NULL,
+    "ycoord" INTEGER NOT NULL,
     PRIMARY KEY("buildingid" AUTOINCREMENT)
 );
 
