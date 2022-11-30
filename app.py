@@ -90,7 +90,7 @@ def downdetectornav():
 
     buildingsData = []
     for building in buildings:
-        buildingsData.append({'name': building['name']})
+        buildingsData.append({'name': building['name'], 'xcoord' : building['xcoord'], 'ycoord' : ['ycoord']})
     
     conn.close()
     return render_template("downdetectornav.html", buildingsData = buildingsData)
