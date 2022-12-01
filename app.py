@@ -35,6 +35,7 @@ def downdetector(buildingid):
     #Connecting to the database, gets all records within 24 hours
     conn = getdbconnection()
     name = conn.execute('SELECT * FROM Buildings WHERE buildingid = ?', (buildingid,)).fetchone()
+    name = name['name']
     reports = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ?', (buildingid,)).fetchall()
     now = datetime.now()
     previous = datetime.now() - timedelta(days=1)
