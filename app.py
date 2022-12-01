@@ -48,8 +48,10 @@ def downdetector(buildingid):
 
     #taking all reports and recent reports and looping for formatting after being taken from database
     allreports = []
+    reportcount = 0
 
     for report in reports:
+        reportcount += 1
         reportentry = {
             "id": report['reportid'],
             "datetime": report['datetime'],
@@ -82,7 +84,7 @@ def downdetector(buildingid):
         print("form invalid")
     
     return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
-        name = name)
+        name = name, reportcount = reportcount)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():
