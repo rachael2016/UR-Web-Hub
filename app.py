@@ -76,7 +76,7 @@ def downdetector(buildingid):
         conn.close()
         status = form.status.data
         form.status.data = None
-    #else for debugging purposes
+    #for debugging purposes
     else:
         print("form invalid")
     
