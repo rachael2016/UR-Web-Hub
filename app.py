@@ -53,7 +53,7 @@ def downdetector(buildingid):
     for report in reports:
         reportcount += 1
         reportentry = {
-            "id": report['reportid'],
+            "id": report['recordid'],
             "datetime": report['datetime'],
             "down": report['down']
         }
@@ -63,7 +63,7 @@ def downdetector(buildingid):
 
     for record in recentrecords:
         recordentry = {
-            "id": record['reportid'],
+            "id": record['recordid'],
             "datetime": record['datetime'],
             "down": record['down']
         }
@@ -73,12 +73,16 @@ def downdetector(buildingid):
     status = None
     form = UserReport()
     if form.validate_on_submit():
+        status = form.status.data
         conn = getdbconnection()
-        conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), form.status))
+        conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), status))
         conn.commit()
         conn.close()
-        status = form.status.data
+        print("down detector report successfully recieved")
         form.status.data = None
+        status = None
+        return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
+        name = name, reportcount = reportcount)
     #for debugging purposes
     else:
         print("form invalid")

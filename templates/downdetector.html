@@ -12,7 +12,8 @@
     </br>
     <h3>Recent Reports: {{ reportcount }}</h3>
     </br>
-    <form>
+    <form method="post">
+        {{ form.csrf_token }}
         <input type="radio" id="down" name="status" value="true">
         <label for="down">This Elevator is Down</label>
         <input type="radio" id="up" name="status" value="false">
