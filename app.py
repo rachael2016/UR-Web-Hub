@@ -7,7 +7,7 @@ from csv import DictReader
 import json
 import os
 
-from forms import UserReport
+from forms import UserReport, FeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
@@ -102,7 +102,19 @@ def downdetectornav():
     conn.close()
     return render_template("downdetectornav.html", buildingsData = buildingsData)
 
+@app.route("/feedbackform", methods = ["GET", "POST"])
+def feedbackform():
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        form.name.data = ''
+        form.email.data = ''
+        form.subject.data = ''
+        form.message.data = ''
 
+    else:
+        print("form invalid")
+
+    return render_template("feedbackform.html", form = form)
 
 if __name__ == "__main__":
     app.run()
