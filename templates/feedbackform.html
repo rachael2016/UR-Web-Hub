@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+    <title>Down Detector</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <h3>Feedback Form</h3>
+    <br/>
+    <form method="POST">
+        {{ form.csrf_token }}
+        <h2 style="padding: 0px">{{form.name.label}}</h2>
+		<h2 style="padding: 0px">{{form.name}}</h2>
+		<br/>
+		<h2 style="padding: 0px">{{form.email.label}}</h2>
+		<h2 style="padding: 0px">{{form.email}}</h2>
+		<br/>
+		<h2 style="padding: 0px">{{form.subject.label}}</h2>
+		<h2 style="padding: 0px">{{form.subject}}</h2>
+		<br/>
+        <h2 style="padding: 0px">{{form.message.label}}</h2>
+		<h2 style="padding: 0px">{{form.message}}</h2>
+		<br/>
+		<br/>
+		{{form.submit}}
+    </form>
+</body>
+
+{% endblock %}
