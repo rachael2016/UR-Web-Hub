@@ -21,13 +21,13 @@ def getdbconnection():
 def index():
     return render_template("index.html")
 
-@app.route("/campusnavigator", methods = ["GET", "POST"])
-def campusnavigator():
-    return "html template to be added"
-
 @app.route("/dietaryneedfinder", methods = ["GET", "POST"])
 def dietaryneedfinder():
-    return "html template to be added"
+    return render_template("dining.html")
+
+@app.route("/ratemycourse", methods = ["GET", "POST"])
+def ratemycourse():
+    return render_template("ratemycourse.html")
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
