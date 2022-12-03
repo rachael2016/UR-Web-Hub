@@ -40,6 +40,38 @@ def downdetector(buildingid):
     now = datetime.now()
     previous = datetime.now() - timedelta(days=1)
     recentrecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, previous, now)).fetchall()
+    
+    #Getting data for graph
+    graphedrecords = []
+    iteratetime = datetime.now()
+    for i in range(0, 24):
+        minusHour = datetime.now() - timedelta(hours=1)
+        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
+        recordcount = 0
+        if temprecords:
+            for record in temprecords:
+                recordcount += 1
+
+        tographedrecords = {
+            "datetime": minusHour,
+            "reportAmount": recordcount
+        }
+        graphedrecords.append(tographedrecords)
+        iteratetime -= timedelta(hours=1)
+    
+    labels = []
+    values = []
+    for record in graphedrecords:
+        #commented out until datetime labeling issue with chart.js is resolved
+        #labels.append(record["datetime"])
+        values.append(record["reportAmount"])
+    
+    #current time minus i hours
+    i = -1
+    while i > -25:
+        labels.append(i)
+        i -= 1
+    
     conn.close()
 
     #Invalid building name/id
@@ -48,10 +80,8 @@ def downdetector(buildingid):
 
     #taking all reports and recent reports and looping for formatting after being taken from database
     allreports = []
-    reportcount = 0
 
     for report in reports:
-        reportcount += 1
         reportentry = {
             "id": report['recordid'],
             "datetime": report['datetime'],
@@ -60,8 +90,10 @@ def downdetector(buildingid):
         allreports.append(reportentry)
 
     allrecentrecords = []
+    reportcount = 0
 
     for record in recentrecords:
+        reportcount += 1
         recordentry = {
             "id": record['recordid'],
             "datetime": record['datetime'],
@@ -88,7 +120,7 @@ def downdetector(buildingid):
         print("form invalid")
     
     return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
-        name = name, reportcount = reportcount)
+        name = name, reportcount = reportcount, labels = labels, values = values)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():
@@ -106,6 +138,10 @@ def downdetectornav():
 def feedbackform():
     form = FeedbackForm()
     if form.validate_on_submit():
+        conn = getdbconnection()
+        now = datetime.now()
+        conn.execute('INSERT INTO GeneralFeedbackReceived (name, email, subject, message, datetime) VALUES (?, ?, ?, ?, ?)', (form.name.data, form.email.data, form.subject.data, form.message.data, now))
+        conn.close()
         form.name.data = ''
         form.email.data = ''
         form.subject.data = ''
