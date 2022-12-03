@@ -40,6 +40,23 @@ def downdetector(buildingid):
     now = datetime.now()
     previous = datetime.now() - timedelta(days=1)
     recentrecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, previous, now)).fetchall()
+    
+    #Getting data for graph
+    graphedrecords = []
+    iteratetime = datetime.now()
+    for i in range(0, 23):
+        minusHour = datetime.now() - timedelta(hours=1)
+        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
+        recordcount = 0
+        for record in temprecords:
+            recordcount += 1
+        tographedrecords = {
+            "datetime": record['datetime'],
+            "reports": recordcount
+        }
+        graphedrecords.append(tographedrecords)
+        iteratetime -= timedelta(hours=1)
+    
     conn.close()
 
     #Invalid building name/id
