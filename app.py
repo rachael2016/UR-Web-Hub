@@ -44,18 +44,33 @@ def downdetector(buildingid):
     #Getting data for graph
     graphedrecords = []
     iteratetime = datetime.now()
-    for i in range(0, 23):
+    for i in range(0, 24):
         minusHour = datetime.now() - timedelta(hours=1)
         temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
         recordcount = 0
-        for record in temprecords:
-            recordcount += 1
+        if temprecords:
+            for record in temprecords:
+                recordcount += 1
+
         tographedrecords = {
-            "datetime": record['datetime'],
-            "reports": recordcount
+            "datetime": minusHour,
+            "reportAmount": recordcount
         }
         graphedrecords.append(tographedrecords)
         iteratetime -= timedelta(hours=1)
+    
+    labels = []
+    values = []
+    for record in graphedrecords:
+        #commented out until datetime labeling issue with chart.js is resolved
+        #labels.append(record["datetime"])
+        values.append(record["reportAmount"])
+    
+    #current time minus i hours
+    i = -1
+    while i > -25:
+        labels.append(i)
+        i -= 1
     
     conn.close()
 
@@ -105,7 +120,7 @@ def downdetector(buildingid):
         print("form invalid")
     
     return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
-        name = name, reportcount = reportcount)
+        name = name, reportcount = reportcount, labels = labels, values = values)
 
 @app.route("/downdetectornav", methods = ["GET", "POST"])
 def downdetectornav():
