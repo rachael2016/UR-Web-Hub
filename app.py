@@ -48,10 +48,8 @@ def downdetector(buildingid):
 
     #taking all reports and recent reports and looping for formatting after being taken from database
     allreports = []
-    reportcount = 0
 
     for report in reports:
-        reportcount += 1
         reportentry = {
             "id": report['recordid'],
             "datetime": report['datetime'],
@@ -60,8 +58,10 @@ def downdetector(buildingid):
         allreports.append(reportentry)
 
     allrecentrecords = []
+    reportcount = 0
 
     for record in recentrecords:
+        reportcount += 1
         recordentry = {
             "id": record['recordid'],
             "datetime": record['datetime'],
