@@ -106,6 +106,10 @@ def downdetectornav():
 def feedbackform():
     form = FeedbackForm()
     if form.validate_on_submit():
+        conn = getdbconnection()
+        now = datetime.now()
+        conn.execute('INSERT INTO GeneralFeedbackReceived (name, email, subject, message, datetime) VALUES (?, ?, ?, ?, ?)', (form.name.data, form.email.data, form.subject.data, form.message.data, now))
+        conn.close()
         form.name.data = ''
         form.email.data = ''
         form.subject.data = ''
