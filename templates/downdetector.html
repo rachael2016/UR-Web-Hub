@@ -4,48 +4,72 @@
 
 <head>
     <title>Down Detector</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        div {
+            text-align: center;
+            font-size: 30px;
+            color: black;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            height: 900px;
+            width: 45%;
+        }
+
+        .one {
+            float: left;
+        }
+
+        .two {
+            float: left;
+        }
+    </style>
 </head>
 
 <body>
-    <h3>{{ name }}</h3>
-    </br>
-    <h3>Recent Reports: {{ reportcount }}</h3>
-    </br>
-    <form method="post">
-        {{ form.csrf_token }}
-        <input type="radio" id="down" name="status" value="true">
-        <label for="down">This Elevator is Down</label>
-        <input type="radio" id="up" name="status" value="false">
-        <label for="up">The Elevator is Working</label>
-        <input type="submit" value="Submit">
-    </form>
-    </br>
-    <canvas id="barChart" width="900" height="400"></canvas>
-    <script>
-        //IGNORE RED UNDERLINES, jinja will populate data before the js script runs
-        const ctx = document.getElementById('barChart');
-      
-        new Chart(ctx, {
-          type: 'bar',
-          options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+    <div class="one">
+        <h3>{{ name }}</h3>
+        </br>
+        <h3>Recent Reports: {{ reportcount }}</h3>
+        </br>
+        <form method="post">
+            {{ form.csrf_token }}
+            <input type="radio" id="down" name="status" value="true">
+            <label for="down">This Elevator is Down</label>
+            <input type="radio" id="up" name="status" value="false">
+            <label for="up">The Elevator is Working</label>
+            <input type="submit" value="Submit">
+        </form>
+        </br>
+    </div>
+    <div class="two">
+        <canvas id="barChart" width="450" height="200"></canvas>
+        <script>
+            //IGNORE RED UNDERLINES, jinja will populate data before the js script runs
+            const ctx = document.getElementById('barChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
-                }
-            },
-          data: {
-            labels: {{ labels | safe }},
-            datasets: [{
-              label: '# of Reports',
-              data: {{ values | safe}},
-              borderWidth: 1
+                },
+                data: {
+                    labels: {{ labels | safe }},
+                datasets: [{
+                    label: '# of Reports',
+                    data: {{ values | safe}},
+                borderWidth: 1
                 }]
             },
         });
-      </script>
+        </script>
+    </div>
 </body>
 
 {% endblock %}
