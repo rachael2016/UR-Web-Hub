@@ -45,7 +45,7 @@ def downdetector(buildingid):
     graphedrecords = []
     iteratetime = datetime.now()
     for i in range(0, 24):
-        minusHour = datetime.now() - timedelta(hours=1)
+        minusHour = iteratetime - timedelta(hours=1)
         temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
         recordcount = 0
         if temprecords:
@@ -58,19 +58,13 @@ def downdetector(buildingid):
         }
         graphedrecords.append(tographedrecords)
         iteratetime -= timedelta(hours=1)
-    
+
     labels = []
     values = []
     for record in graphedrecords:
-        #commented out until datetime labeling issue with chart.js is resolved
-        #labels.append(record["datetime"])
+        time = "%s:%s" % (record["datetime"].hour, record["datetime"].minute)
+        labels.append(time)
         values.append(record["reportAmount"])
-    
-    #current time minus i hours
-    i = -1
-    while i > -25:
-        labels.append(i)
-        i -= 1
     
     conn.close()
 
