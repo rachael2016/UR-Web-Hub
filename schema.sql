@@ -19,7 +19,7 @@ CREATE TABLE "ElevatorDownRecords" (
     FOREIGN KEY("buildingid") REFERENCES "Buildings"(buildingid) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS "GeneralFeedbackReceived"
+DROP TABLE IF EXISTS "GeneralFeedbackReceived";
 
 CREATE TABLE "GeneralFeedbackReceived" (
     "id" INTEGER NOT NULL,
@@ -31,12 +31,13 @@ CREATE TABLE "GeneralFeedbackReceived" (
     PRIMARY KEY("id" AUTOINCREMENT)
 );
 
-DROP TABLE IF EXISTS "CourseRatingReceived"
+DROP TABLE IF EXISTS "CourseRatingReceived";
 
 CREATE TABLE "CourseRatingsReceived" (
+    "id" INTEGER NOT NULL,
     "course" TEXT NOT NULL,
     "rating" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "tips" TEXT NOT NULL,
-    PRIMARY KEY("couse" AUTOINCREMENT)
+    PRIMARY KEY("id" AUTOINCREMENT)
 )
