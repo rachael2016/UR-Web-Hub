@@ -21,7 +21,7 @@ def getdbconnection():
 def index():
     return render_template("index.html")
 
-@app.route("/dietaryneedfinder", methods = ["GET", "POST"])
+@app.route("/dining", methods = ["GET", "POST"])
 def dining():
     return render_template("dining.html")
 
