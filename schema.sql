@@ -29,7 +29,9 @@ CREATE TABLE "GeneralFeedbackReceived" (
     "message" TEXT NOT NULL,
     "datetime" DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY("id" AUTOINCREMENT)
-)
+);
+
+DROP TABLE IF EXISTS "CourseRatingReceived"
 
 CREATE TABLE "CourseRatingsReceived" (
     "course" TEXT NOT NULL,
