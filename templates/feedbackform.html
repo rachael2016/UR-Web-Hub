@@ -1,32 +1,55 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <head>
-    <title>Down Detector</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <title>Feedback, Q&amp;A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="../static/styles.css">
 </head>
-
 <body>
-    <h3>Feedback Form</h3>
-    <br/>
-    <form method="POST">
-        {{ form.csrf_token }}
-        <h2 style="padding: 0px">{{form.name.label}}</h2>
-		<h2 style="padding: 0px">{{form.name}}</h2>
-		<br/>
-		<h2 style="padding: 0px">{{form.email.label}}</h2>
-		<h2 style="padding: 0px">{{form.email}}</h2>
-		<br/>
-		<h2 style="padding: 0px">{{form.subject.label}}</h2>
-		<h2 style="padding: 0px">{{form.subject}}</h2>
-		<br/>
-        <h2 style="padding: 0px">{{form.message.label}}</h2>
-		<h2 style="padding: 0px">{{form.message}}</h2>
-		<br/>
-		<br/>
-		{{form.submit}}
-    </form>
+	<div class="header">
+      <header>
+         <a href="urwebhub.html"><h1>UR Web Hub</h1></a>
+         <div class="intro">Campus Resources</div>
+      </header>
+   </div>
+    <nav class="menu" id="navMenu">
+            <ul>
+               <li><a href="index" class="active">Home</a></li>
+               <li><a href="dining.html">Dining</a></li>
+               <li><a href="ratemycourse.html">RateMyCourse</a></li>
+               <li><a href="downdetector.html">Down Detector</a></li>
+               <li><a href="feedbackform.html">Contact us</a></li>
+            </ul>
+         </nav>
+    <div class="container">
+      <section class="lead">
+    	<h2 class="full-width">Feedback Form</h2>
+    		<form action="" method="POST">
+        		{{ form.csrf_token }}
+        		<fieldset>
+		        	<label for="name">Your name:</label>
+		        	<input type="text" id="name" name="name">
+		       		<label for="email">Your email:</label>
+		        	<input type="email" id="email" name="email">
+		        	<label for="subject">Subject of Message</label>
+		        	<input type="text" id="subject" name="subject">
+		        	<label for="name">Your name:</label>
+		        	<textarea id="message" name="message"></textarea>
+		        	<label for="message">Message:</label><br/>
+		        	<input type="submit" id="submit" name="submit">
+					<label for="submit">Submit</label>
+				</fieldset>
+    		</form>
+	</section>
+</div>
+    <div class="home">
+   		<footer>
+      		<h4>Sarah, Grant, Kelly, Rachael, Emersyn- CSC 210 Human Computer Interaction 👩🏻‍💻 👩‍💻 👨🏻‍💻</h4>
+   		</footer>
+	</div>
 </body>
 
 {% endblock %}
