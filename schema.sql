@@ -30,3 +30,11 @@ CREATE TABLE "GeneralFeedbackReceived" (
     "datetime" DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY("id" AUTOINCREMENT)
 )
+
+CREATE TABLE "CourseRatingsReceived" (
+    "course" TEXT NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "message" TEXT NOT NULL,
+    "tips" TEXT NOT NULL,
+    PRIMARY KEY("couse" AUTOINCREMENT)
+)
