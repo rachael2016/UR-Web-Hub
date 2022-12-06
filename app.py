@@ -22,7 +22,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/dietaryneedfinder", methods = ["GET", "POST"])
-def dietaryneedfinder():
+def dining():
     return render_template("dining.html")
 
 @app.route("/ratemycourse", methods = ["GET", "POST"])
