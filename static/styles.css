@@ -175,7 +175,8 @@ ul {
 	font-size: 20px;
 	text-align: center;
 	padding-top: 2em;
-	padding-bottom: 2em;
+	padding-bottom: 1.5em;
+	padding-left: 0px;
 }
 
 figure {
@@ -274,10 +275,10 @@ img {
 }
 
 nav {
-	padding-top: 4em;
-  background-color: #484848;
-  overflow: hidden;
-  text-align: center;
+	padding-top: 3em;
+    background-color: #484848;
+  	overflow: hidden;
+  	text-align: center;
 }
 
 nav li {
@@ -291,6 +292,24 @@ nav li {
 }
 
 @media screen and (max-width: 550px) {
+	.menu {
+    text-align: center;
+	}
+
+	.menu a {
+    display: block;
+    padding: 1.5em;
+	}
+
+	.menu a:hover {
+    background-color: #ADD8E6;
+	}
+
+	ul {
+	padding-top: .25em;
+	padding-bottom: .25em;
+	}
+
 	.slider {
 		width:25vh;
 	}
@@ -319,4 +338,4 @@ nav li {
 	grid-gap: 25px;
 	}
 }
-
+}
