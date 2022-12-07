@@ -1,9 +1,27 @@
 <!doctype html>
 <html>
     <body>
-    {% include 'nav.html' %}
-
+        <div class="header">
+          <header>
+           <a href="urwebhub.html"><h1>UR Web Hub</h1></a>
+           <div class="intro">Campus Resources</div>
+         </header>
+   </div>
+    <nav class="menu" id="navMenu">
+            <ul>
+               <li><a href="/" class="active">Home</a></li>
+               <li><a href="/dining">Dining</a></li>
+               <li><a href="/ratemycourse">Academics</a></li>
+               <li><a href="/downdetectornav">Down Detector</a></li>
+               <li><a href="/feedbackform">Contact us</a></li>
+            </ul>
+         </nav>
     {% block content %}
     {% endblock %}
+       <div class="home">
+        <footer>
+         <h4>Sarah, Grant, Kelly, Rachael, Emersyn - CSC 210 Human Computer Interaction 👩🏻‍💻 👩‍💻 👨🏻‍💻</h4>
+       </footer>
+       </div>
     </body>
 </html>
