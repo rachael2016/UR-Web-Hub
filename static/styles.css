@@ -243,7 +243,7 @@ ul {
 	font-size: 20px;
 	text-align: center;
 	padding-top: 2em;
-	padding-bottom: 1.5em;
+	padding-bottom: 2em;
 	padding-left: 0px;
 }
 
@@ -394,7 +394,7 @@ nav li {
 	}
 	
 	.header {
-		margin-bottom: 10em;
+		margin-bottom: 12em;
 	}
 }
 
