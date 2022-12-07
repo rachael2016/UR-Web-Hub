@@ -8,7 +8,7 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-with open(r'csvfiles\buildings.csv') as fin:
+with open(r'csvfiles/buildings.csv') as fin:
     dr = csv.DictReader(fin)
     todb = [(i['name'], i['x'], i['y']) for i in dr]
 cur.executemany("INSERT INTO Buildings (name, xcoord, ycoord) VALUES (?, ?, ?);", todb)
