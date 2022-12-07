@@ -28,7 +28,7 @@ li {
 
 @media screen and (max-width: 500px) {
 	li {
-		font-size: 20px;
+		font-size: 30px;
 		text-align: center;
 	}
 }
@@ -45,10 +45,62 @@ li {
 	max-width: 60%;
 }
 
+/* form styles */
+
+.form h2 {
+	margin-bottom: .5em;
+}
+
+label {
+	font-family: "Century Gothic";
+	color: #ADD8E6;
+	/* font-weight: bold; */
+	font-size: 2em;
+}
+
+input {
+	margin-top: 2em;
+	background-color: #f0f0f0;
+}
+
+textarea {
+	margin-top: 2em;
+	resize: none;
+	overflow: hidden;
+	padding: 5em;
+}
+
+fieldset {
+	background-color: #003366;
+	border-radius: 15px;
+	padding: 5em;
+}
+
+input[type=submit] {
+	background-color: #333333;
+	color: #ffdb4d;
+	border-radius: 5px;
+	padding: .5em;
+	border-color: #333333;
+	margin-bottom: 1em;
+	font-size: 2em;
+}
+
+/* end of form styles */
+
 
 @media screen and (min-width: 550px) and (max-width: 1000px) {
 	.lead {
 		max-width: 90%;
+	}
+
+.form, form {
+	margin: 0 auto;
+}
+
+fieldset {
+	margin: 0 auto;
+	padding: 2em;
 	}
 }
 
@@ -56,6 +108,7 @@ li {
 	margin: 0 auto;
 	max-width: 90%;
 }
+
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
 	.lead {
@@ -73,6 +126,26 @@ li {
 	#accordion {
 		max-width: 100%;
 		width: 100%;
+	}
+
+	.form, form, fieldset {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	fieldset {
+		padding-top: 2em;
+		padding-bottom: 2em;
+		padding-right: 0em;
+		padding-left: 0em;
+	}
+
+	input {
+		margin-bottom: 2.5em;
+	}
+
+	textarea {
+		padding: 2em;
 	}
 }
 
@@ -291,9 +364,10 @@ nav li {
 	white-space:  normal;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 930px) {
 	.menu {
     text-align: center;
+    padding: 0em;
 	}
 
 	.menu a {
@@ -306,7 +380,6 @@ nav li {
 	}
 
 	ul {
-	padding-top: .25em;
 	padding-bottom: .25em;
 	}
 
@@ -314,8 +387,8 @@ nav li {
 		width:25vh;
 	}
 
-	li {
-		font-size: 20px;
+	nav li {
+		margin: 0em;
 	}
 }
 

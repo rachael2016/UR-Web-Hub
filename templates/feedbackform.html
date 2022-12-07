@@ -17,32 +17,33 @@
    </div>
     <nav class="menu" id="navMenu">
             <ul>
-               <li><a href="index" class="active">Home</a></li>
-               <li><a href="dining">Dining</a></li>
-               <li><a href="ratemycourse">RateMyCourse</a></li>
-               <li><a href="downdetector">Down Detector</a></li>
-               <li><a href="feedbackform">Contact us</a></li>
+               <li><a href="/" class="active">Home</a></li>
+               <li><a href="/dining">Dining</a></li>
+               <li><a href="/ratemycourse">RateMyCourse</a></li>
+               <li><a href="/downdetectornav">Down Detector</a></li>
+               <li><a href="/feedbackform">Contact us</a></li>
             </ul>
          </nav>
     <div class="container">
       <section class="lead">
-    	<h2 class="full-width">Feedback Form</h2>
+        <div class="form">
+            <h2 class="full-width">Feedback Form</h2>
     		<form action="" method="POST">
         		{{ form.csrf_token }}
         		<fieldset>
 		        	<label for="name">Your name:</label>
-		        	<input type="text" id="name" name="name">
+		        	<input type="text" id="name" name="name"><br><br>
 		       		<label for="email">Your email:</label>
-		        	<input type="email" id="email" name="email">
-		        	<label for="subject">Subject of Message</label>
-		        	<input type="text" id="subject" name="subject">
-		        	<label for="name">Your name:</label>
-		        	<textarea id="message" name="message"></textarea>
-		        	<label for="message">Message:</label><br/>
+		        	<input type="email" id="email" name="email"><br><br>
+		        	<label for="subject">Subject of Message:</label>
+		        	<input type="text" id="subject" name="subject"><br><br>
+                    		<label for="message">Message:</label><br>
+		        	<textarea id="message" name="message"></textarea><br><br>
 		        	<input type="submit" id="submit" name="submit">
-					<label for="submit">Submit</label>
+					<label for="submit"></label>
 				</fieldset>
     		</form>
+        </div>
 	</section>
 </div>
     <div class="home">
@@ -50,6 +51,8 @@
       		<h4>Sarah, Grant, Kelly, Rachael, Emersyn- CSC 210 Human Computer Interaction 👩🏻‍💻 👩‍💻 👨🏻‍💻</h4>
    		</footer>
 	</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 {% endblock %}

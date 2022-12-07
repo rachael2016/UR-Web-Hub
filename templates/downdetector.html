@@ -38,6 +38,7 @@
             {{ form.csrf_token }}
             <input type="radio" id="down" name="status" value="true">
             <label for="down">This Elevator is Down</label>
+        </br>
             <input type="radio" id="up" name="status" value="false">
             <label for="up">The Elevator is Working</label>
             <input type="submit" value="Submit">
@@ -53,7 +54,7 @@
             new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    scales: {
+                    scales: { 
                         y: {
                             beginAtZero: true
                         }

@@ -21,8 +21,8 @@ def getdbconnection():
 def index():
     return render_template("index.html")
 
-@app.route("/dietaryneedfinder", methods = ["GET", "POST"])
-def dietaryneedfinder():
+@app.route("/dining", methods = ["GET", "POST"])
+def dining():
     return render_template("dining.html")
 
 @app.route("/ratemycourse", methods = ["GET", "POST"])
@@ -46,7 +46,8 @@ def downdetector(buildingid):
     iteratetime = datetime.now()
     for i in range(0, 24):
         minusHour = iteratetime - timedelta(hours=1)
-        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
+        downstatus = True
+        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ? AND down = ?', (buildingid, minusHour, iteratetime, downstatus)).fetchall()
         recordcount = 0
         if temprecords:
             for record in temprecords:
@@ -105,10 +106,9 @@ def downdetector(buildingid):
         conn.commit()
         conn.close()
         print("down detector report successfully recieved")
-        form.status.data = None
-        status = None
-        return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
-        name = name, reportcount = reportcount)
+        form.status.data = ''
+        status = ''
+        return render_template("downdetectorrefresh.html", buildingid = buildingid)
     #for debugging purposes
     else:
         print("form invalid")
@@ -128,6 +128,22 @@ def downdetectornav():
     conn.close()
     return render_template("downdetectornav.html", buildingsData = buildingsData)
 
+@app.route("/buildinglist", methods = ["GET"])
+def buildinglist():
+    conn = getdbconnection()
+    buildings = conn.execute('SELECT * FROM Buildings').fetchall()
+
+    buildingsData = []
+    for building in buildings:
+        buildingsData.append({'name': building['name'], 'buildingid' : building['buildingid']})
+    
+    conn.close()
+    return render_template("buildinglist.html", buildings = buildingsData)
+
+@app.route("/thanksforreporting")
+def thanksforreporting():
+    return render_template("downdetectorrefresh.html")
+
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
     form = FeedbackForm()
@@ -140,11 +156,16 @@ def feedbackform():
         form.email.data = ''
         form.subject.data = ''
         form.message.data = ''
+        return redirect(url_for('feedbackthankyou'))
 
     else:
         print("form invalid")
 
     return render_template("feedbackform.html", form = form)
+
+@app.route("/feedbackthankyou")
+def feedbackthankyou():
+    return render_template("feedbackformthanks.html")
 
 if __name__ == "__main__":
     app.run()
