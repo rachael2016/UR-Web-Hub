@@ -46,7 +46,8 @@ def downdetector(buildingid):
     iteratetime = datetime.now()
     for i in range(0, 24):
         minusHour = iteratetime - timedelta(hours=1)
-        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ?', (buildingid, minusHour, iteratetime)).fetchall()
+        downstatus = True
+        temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ? AND down = ?', (buildingid, minusHour, iteratetime, downstatus)).fetchall()
         recordcount = 0
         if temprecords:
             for record in temprecords:
@@ -105,10 +106,9 @@ def downdetector(buildingid):
         conn.commit()
         conn.close()
         print("down detector report successfully recieved")
-        form.status.data = None
-        status = None
-        return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
-        name = name, reportcount = reportcount)
+        form.status.data = ''
+        status = ''
+        return render_template("downdetectorrefresh.html", buildingid = buildingid)
     #for debugging purposes
     else:
         print("form invalid")
@@ -139,6 +139,10 @@ def buildinglist():
     
     conn.close()
     return render_template("buildinglist.html", buildings = buildingsData)
+
+@app.route("/thanksforreporting")
+def thanksforreporting():
+    return render_template("downdetectorrefresh.html")
 
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
