@@ -45,10 +45,10 @@ DROP TABLE IF EXISTS "CourseRatingsReceived";
 
 CREATE TABLE "CourseRatingsReceived" (
     "reportid" INTEGER NOT NULL,
-    "course" TEXT NOT NULL,
+    "courseid" INTEGER NOT NULL,
     "rating" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "tips" TEXT NOT NULL,
     PRIMARY KEY("reportid" AUTOINCREMENT),
-    FOREIGN KEY("course") REFERENCES "Courses"(name) ON DELETE CASCADE
+    FOREIGN KEY("courseid") REFERENCES "Courses"(id) ON DELETE CASCADE
 );
