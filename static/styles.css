@@ -28,7 +28,7 @@ li {
 
 @media screen and (max-width: 500px) {
 	li {
-		font-size: 20px;
+		font-size: 30px;
 		text-align: center;
 	}
 }
@@ -67,6 +67,7 @@ textarea {
 	margin-top: 2em;
 	resize: none;
 	overflow: hidden;
+	padding: 5em;
 }
 
 fieldset {
@@ -92,6 +93,15 @@ input[type=submit] {
 	.lead {
 		max-width: 90%;
 	}
+
+.form, form {
+	margin: 0 auto;
+}
+
+fieldset {
+	margin: 0 auto;
+	padding: 2em;
+	}
 }
 
 #accordion {
@@ -99,14 +109,6 @@ input[type=submit] {
 	max-width: 90%;
 }
 
-.form, form {
-	margin: 0 auto;
-	max-width: 90%;
-}
-
-fieldset {
-	margin: 0 auto;
-}
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
 	.lead {
@@ -140,6 +142,10 @@ fieldset {
 
 	input {
 		margin-bottom: 2.5em;
+	}
+
+	textarea {
+		padding: 2em;
 	}
 }
 
@@ -358,9 +364,10 @@ nav li {
 	white-space:  normal;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 930px) {
 	.menu {
     text-align: center;
+    padding: 0em;
 	}
 
 	.menu a {
@@ -373,7 +380,6 @@ nav li {
 	}
 
 	ul {
-	padding-top: .25em;
 	padding-bottom: .25em;
 	}
 
@@ -381,8 +387,8 @@ nav li {
 		width:25vh;
 	}
 
-	li {
-		font-size: 20px;
+	nav li {
+		margin: 0em;
 	}
 }
 
