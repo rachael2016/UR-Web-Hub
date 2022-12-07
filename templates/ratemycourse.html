@@ -4,83 +4,42 @@
 <head>
     <title>Rate My Course</title>
 	<link rel="stylesheet" href="../static/styles.css">
-	<style type="text/css">
-		.dropbtn {
-			background-color: #003366;
-			color: white;
-			padding: 16px;
-			font-size: 16px;
-			border: none;
-		}
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f1f1f1;
-			min-width: 160px;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-		.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-		.dropdown:hover .dropdown-content {display: block;}
-	</style>
 </head>
 <body>
 	<center><h1>Rate My Course</h1></center>
 	<center>
-		<div class=search>
-			<h4>Department</h4>
-			<div class="dropdown">
-				<button onclick="dropFunction()" class="dropbtn">Dropdown</button>
-				<div id="dropMenu" class="dropdown-content">
-					<a href="#">Accounting</a>
-					<a href="#">Anthropology</a>
-					<a href="#">Art History</a>
-					<a href="#">Biology</a>
-					<a href="#">Brain & Cognitive Sciences</a>
-					<a href="#">Business</a>
-					<a href="#">Chemical Engineering</a>
-					<a href="#">Chemistry</a>
-					<a href="#">Computer Science</a>
-					<a href="#">Economics</a>
-					<a href="#">Education</a>
-					<a href="#">English</a>
-					<a href="#">Film</a>
-					<a href="#">Finance</a>
-					<a href="#">Fine Arts</a>
-					<a href="#">Geography</a>
-					<a href="#">Geology</a>
-					<a href="#">Graphic Arts</a>
-					<a href="#">History</a>
-					<a href="#">Information Science</a>
-					<a href="#">Linguistics</a>
-					<a href="#">Literature</a>
-					<a href="#">Marketing</a>
-					<a href="#">Mathematics</a>
-					<a href="#">Medicine</a>
-					<a href="#">Music</a>
-					<a href="#">Nursing</a>
-					<a href="#">Philosophy</a>
-					<a href="#">Physics</a>
-					<a href="#">Political Science</a>
-					<a href="#">Psychology</a>
-					<a href="#">Religion</a>
-					<a href="#">Sociology</a>
-					<a href="#">Theater</a>
-					<a href="#">Women's Studies</a>
-					<a href="#">Writing</a>
-				</div>
-			</div>
-			<input id="search" type="text" placeholder="Search">
-		</div>
+		<b>Department</b> <select id="dropMenu" class="dropdown-content">
+					<option value="Accounting">Accounting</option>
+					<option value="Anthropology">Anthropology</option>
+					<option value="Art History">Art History</option>
+					<option value="Biology">Biology</option>
+					<option value="Brain & Cognitive Sciences">Brain & Cognitive Sciences</option>
+					<option value="Business">Business</option>
+					<option value="Chemical Engineering">Chemical Engineering</option>
+					<option value="Chemistry">Chemistry</option>
+					<option value="Computer Science">Computer Science</option>
+					<option value="Economics">Economics</option>
+					<option value="Education">Education</option>
+					<option value="English">English</option>
+					<option value="Finance">Finance</option>
+					<option value="Studio Arts">Studio Arts</option>
+					<option value="Geography">Geography</option>
+					<option value="Geology">Geology</option>
+					<option value="History">History</option>
+					<option value="Linguistics">Linguistics</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Mathematics">Mathematics</option>
+					<option value="Music">Music</option>
+					<option value="Nursing">Nursing</option>
+					<option value="Philosophy">Philosophy</option>
+					<option value="Physics">Physics</option>
+					<option value="Political Science">Political Science</option>
+					<option value="Psychology">Psychology</option>
+					<option value="Theater">Theater</option>
+					<option value="Women's Studies">Women's Studies</option>
+					<option value="Writing">Writing</option>
+				</select>&nbsp;
+		<input id="search" type="text" placeholder="Search">
 	</center>
 
 	<div class="home">
