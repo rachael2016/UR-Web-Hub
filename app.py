@@ -156,11 +156,16 @@ def feedbackform():
         form.email.data = ''
         form.subject.data = ''
         form.message.data = ''
+        return redirect(url_for('feedbackthankyou'))
 
     else:
         print("form invalid")
 
     return render_template("feedbackform.html", form = form)
+
+@app.route("/feedbackthankyou")
+def feedbackthankyou():
+    return render_template("feedbackformthanks.html")
 
 if __name__ == "__main__":
     app.run()
