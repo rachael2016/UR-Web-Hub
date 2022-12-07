@@ -412,3 +412,11 @@ nav li {
 	}
 }
 }
+
+.selectgroup {
+  display: inline-block;
+  text-align: center;
+}
+.selectgroup label {
+  display: block;
+}
