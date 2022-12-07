@@ -18,6 +18,10 @@ body {
 	.container {
 		display: block;
 	}
+	
+	.header {
+		margin-bottom: 10em;
+	}
 }
 
 
@@ -111,10 +115,6 @@ fieldset {
 
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
-	
-	.header {
-		margin-bottom: 10em;
-	}
 	
 	.lead {
 		max-width: 100%;
