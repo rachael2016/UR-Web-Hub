@@ -31,13 +31,24 @@ CREATE TABLE "GeneralFeedbackReceived" (
     PRIMARY KEY("id" AUTOINCREMENT)
 );
 
-DROP TABLE IF EXISTS "CourseRatingReceived";
+DROP TABLE IF EXISTS "Courses";
+
+CREATE TABLE "Courses" (
+    "id" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
+    "professor" TEXT,
+    "abbreviation" TEXT NOT NULL,
+    PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+DROP TABLE IF EXISTS "CourseRatingsReceived";
 
 CREATE TABLE "CourseRatingsReceived" (
-    "id" INTEGER NOT NULL,
+    "reportid" INTEGER NOT NULL,
     "course" TEXT NOT NULL,
     "rating" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "tips" TEXT NOT NULL,
-    PRIMARY KEY("id" AUTOINCREMENT)
-)
+    PRIMARY KEY("reportid" AUTOINCREMENT),
+    FOREIGN KEY("course") REFERENCES "Courses"(name) ON DELETE CASCADE
+);
