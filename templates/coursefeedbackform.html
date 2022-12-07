@@ -5,11 +5,114 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
+<style type="text/css">
+    .selectgroup {
+      display: inline-block;
+      text-align: center;
+    }
+    .selectgroup label {
+      display: block;
+    }
+</style>
 <body>
     <h3>Feedback Form</h3>
     <br />
     <form method="POST">
-       
+        <p style="margin:0">Professor <input id="prof" type="text" placeholder="Enter professor name"></p><br>
+        <p style="margin:0">Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+        <div id="overall">
+            <div class="selectgroup">
+                <p style="margin:0" id="section">Rating</p>
+                <label for="section">&nbsp;</label></div>
+            <div class="selectgroup">
+                <input id="radio1" name="rating" type="radio" value="1">
+                <label for="radio1">1</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio2" name="rating" type="radio" value="2">
+                <label for="radio2">2</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio3" name="rating" type="radio" value="3">
+                <label for="radio3">3</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio4" name="rating" type="radio" value="4">
+                <label for="radio4">4</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio5" name="rating" type="radio" value="5">
+                <label for="radio5">5</label>
+            </div>
+        </div><br>
+        <div id="difficulty">
+            <div class="selectgroup">
+                <p style="margin:0" id="sectdiff">Difficulty</p>
+                <label for="sectdiff">&nbsp;</label></div>
+            <div class="selectgroup">
+                <input id="radio1" name="diff" type="radio" value="1">
+                <label for="radio1">1</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio2" name="diff" type="radio" value="2">
+                <label for="radio2">2</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio3" name="diff" type="radio" value="3">
+                <label for="radio3">3</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio4" name="diff" type="radio" value="4">
+                <label for="radio4">4</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio5" name="diff" type="radio" value="5">
+                <label for="radio5">5</label>
+            </div>
+        </div><br>
+        <div id="usefulness">
+            <div class="selectgroup">
+                <p style="margin:0" id="sectuse">Usefulness</p>
+                <label for="sectuse">&nbsp;</label></div>
+            <div class="selectgroup">
+                <input id="radio1" name="use" type="radio" value="1">
+                <label for="radio1">1</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio2" name="use" type="radio" value="2">
+                <label for="radio2">2</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio3" name="use" type="radio" value="3">
+                <label for="radio3">3</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio4" name="use" type="radio" value="4">
+                <label for="radio4">4</label>
+            </div>
+            <div class="selectgroup">
+                <input id="radio5" name="use" type="radio" value="5">
+                <label for="radio5">5</label>
+            </div>
+        </div><br>
+        <p>Did you take this class online?
+        <input type="radio" name="online" value="yes">Yes
+        <input type="radio" name="online" value="no">No
+        </p>
+        <p>Did you take this class for credit?
+        <input type="radio" name="cred" value="yes">Yes
+        <input type="radio" name="cred" value="no">No
+        </p>
+        <p>Did this class use textbooks?
+        <input type="radio" name="book" value="yes">Yes
+        <input type="radio" name="book" value="no">No
+        </p>
+        <p>Was attendance mandatory?
+        <input type="radio" name="att" value="yes">Yes
+        <input type="radio" name="att" value="no">No
+        </p>
+        <p style="margin:0">Write a Review</p>
+        <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea>
     </form>
 </body>
 {% endblock %}
