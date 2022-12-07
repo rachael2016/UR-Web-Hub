@@ -128,6 +128,10 @@ def downdetectornav():
     conn.close()
     return render_template("downdetectornav.html", buildingsData = buildingsData)
 
+@app.route("/buildinglist", methods = ["GET"])
+def buildinglist():
+    return render_template("buildinglist.html")
+
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
     form = FeedbackForm()
