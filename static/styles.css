@@ -14,17 +14,6 @@ body {
 	padding-bottom: 5em;
 } 
 
-@media screen and (max-width: 900px) {
-	.container {
-		display: block;
-	}
-	
-	.header {
-		margin-bottom: 10em;
-	}
-}
-
-
 li {
 	font-size: 30px;
 	text-align: center;
@@ -397,6 +386,18 @@ nav li {
 		margin: 0em;
 	}
 }
+
+
+@media screen and (max-width: 900px) {
+	.container {
+		display: block;
+	}
+	
+	.header {
+		margin-bottom: 10em;
+	}
+}
+
 
 @media screen and (max-width: 450px) {
 	.inner-container {
