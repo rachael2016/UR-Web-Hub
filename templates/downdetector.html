@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        div {
+        div.one {
             text-align: center;
             font-size: 30px;
             color: black;
@@ -16,14 +16,20 @@
             justify-content: center;
             height: 900px;
             width: 45%;
-        }
-
-        .one {
             float: left;
+            margin: 0 auto;
         }
-
-        .two {
+        div.two {
+            text-align: center;
+            font-size: 30px;
+            color: black;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            height: 900px;
+            width: 45%;
             float: left;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -46,6 +52,11 @@
         </br>
     </div>
     <div class="two">
+    </br>
+    </br>
+    </br>
+    </br>
+    <h3>24h Outage Records</h3>
         <canvas id="barChart" width="450" height="200"></canvas>
         <script>
             //IGNORE RED UNDERLINES, jinja will populate data before the js script runs
