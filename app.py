@@ -130,7 +130,15 @@ def downdetectornav():
 
 @app.route("/buildinglist", methods = ["GET"])
 def buildinglist():
-    return render_template("buildinglist.html")
+    conn = getdbconnection()
+    buildings = conn.execute('SELECT * FROM Buildings').fetchall()
+
+    buildingsData = []
+    for building in buildings:
+        buildingsData.append({'name': building['name'], 'buildingid' : building['buildingid']})
+    
+    conn.close()
+    return render_template("buildinglist.html", buildings = buildingsData)
 
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
