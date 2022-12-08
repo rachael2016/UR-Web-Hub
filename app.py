@@ -7,7 +7,7 @@ from csv import DictReader
 import json
 import os
 
-from forms import UserReport, FeedbackForm
+from forms import UserReport, FeedbackForm, CourseFeedbackForm, CourseRatingFeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
@@ -166,6 +166,44 @@ def feedbackform():
 @app.route("/feedbackthankyou")
 def feedbackthankyou():
     return render_template("feedbackformthanks.html")
+
+# to work on
+@app.route("/coursefeedbackform", methods = ["GET", "POST"])
+def coursefeedbackform():
+    form = CourseFeedbackForm()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute('INSERT INTO Courses (department, name, professor, abbreviation) VALUES (?, ?, ?, ?)', (form.department.data, form.course.data, form.professor.data, form.abbreviation.data))
+        conn.close()
+        form.course.data = ''
+        form.professor.data = ''
+        form.abbreviation.data = ''
+        return redirect(url_for('ratemycourse'))
+    else:
+        print("form invalid")
+    return render_template("coursefeedbackform.html", form = form)
+
+@app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
+def courseratingfeedbackform():
+    form = CourseRatingFeedbackForm()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, tips) \
+        VALUES ((SELECT id from Courses WHERE abbreviation = ?), ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.message.data, form.tips.data))
+        conn.close()
+        form.abbreviation.data = ''
+        form.rating.data = ''
+        form.message.data = ''
+        form.tips.data = ''
+        return redirect(url_for('ratemycourse'))
+    else: 
+        print("form invalid")
+    return render_template("coursefeedbackform.html", form = form)
+
+
+
+
 
 if __name__ == "__main__":
     app.run()
