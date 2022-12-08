@@ -183,6 +183,10 @@ def coursefeedbackform():
         print("form invalid")
     return render_template("coursefeedbackform.html", form = form)
 
+# 3 ,adfs,asdf,asdf
+# variable = "CSC 171"
+# courseid = conn.execute(SELECT id from Courses where abbreviation = )
+# (SELECT * FROM CourseRatingsReceived WHERE couseid = (SELECT id from Courses where abbreviation = ""))
 @app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
 def courseratingfeedbackform():
     form = CourseRatingFeedbackForm()
