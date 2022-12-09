@@ -41,9 +41,9 @@
 
 {% block content %}
     {{ course }}<br>
-	<div id="courseID" style="font-size: 2em;"><b>{% courseID %}</b></div><br><br>
-    Overall: {% overall %}/5<br>
-    {% numRatings %}<br>
+	<div id="courseID" style="font-size: 2em;"><b>{{ courseID }}</b></div><br><br>
+    Overall: {{ overall }}/5<br>
+    {{ numRatings }}<br>
     5 stars
     4 stars
     3 stars
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="side right">
-            <div>{% fiveStar %}</div>
+            <div>{{ fiveStar }}</div>
         </div>
         <div class="side">
             <div>4 star</div>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="side right">
-            <div>{% fourStar %}</div>
+            <div>{{ fourStar }}</div>
         </div>
         <div class="side">
             <div>3 star</div>
@@ -82,7 +82,7 @@
             </div>
         </div>
         <div class="side right">
-            <div>{% threeStar %}</div>
+            <div>{{ threeStar }}</div>
         </div>
         <div class="side">
             <div>2 star</div>
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="side right">
-            <div>{% twoStar %}</div>
+            <div>{{ twoStar }}</div>
         </div>
         <div class="side">
             <div>1 star</div>
@@ -104,15 +104,15 @@
             </div>
         </div>
         <div class="side right">
-            <div>{% oneStar %}</div>
+            <div>{{ oneStar }}</div>
         </div>
     </div>
 
 
-    Difficulty: {% difficulty %}/5<br>
-    Usefulness: {% usefulness %}/5<br>
+    Difficulty: {{ difficulty }}/5<br>
+    Usefulness: {{ usefulness }}/5<br>
 
-    <button id="rateThis">Rate this Course</button><br>
+    <button id="rateThis" onclick="location.href='ratemycoursefeedback';">Rate this Course</button><br>
 
     Top Tags<br>
     Top Reviews<br>
