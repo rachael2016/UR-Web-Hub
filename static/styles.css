@@ -432,6 +432,11 @@ nav li {
 	.lead {
 		margin-top: 0em;
 	}
+
+	h2 {
+		margin-bottom: 0em;
+	}
+
 }
 
 .selectgroup {
