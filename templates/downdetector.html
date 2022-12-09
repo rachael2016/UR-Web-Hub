@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
 
-{% block content %}
-
-<head>
+{% block head %}
     <title>Down Detector</title>
     <link rel="stylesheet" href="../static/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -32,9 +30,11 @@
             margin: 0 auto;
         }
     </style>
-</head>
 
-<body>
+{% endblock %}
+
+{% block content %}
+
     <div class="one">
         <h3>{{ name }}</h3>
         </br>
@@ -82,6 +82,5 @@
         });
         </script>
     </div>
-</body>
 
 {% endblock %}
