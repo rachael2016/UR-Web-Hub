@@ -429,7 +429,11 @@ nav li {
 		padding-bottom: 0em;
 	}
 
+	.lead {
+		margin-top: 0em;
+	}
 }
+
 .selectgroup {
   display: inline-block;
   text-align: center;
