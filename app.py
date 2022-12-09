@@ -29,6 +29,10 @@ def dining():
 def ratemycourse():
     return render_template("ratemycourse.html")
 
+@app.route("/ratemycourseadd", methods = ["GET", "POST"])
+def ratemycourseadd():
+    return render_template("ratemycourseadd.html")
+
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
 

@@ -5,15 +5,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="../static/styles.css">
    <style>
-		footer {
+		/* footer {
 			bottom: 0;
-		}
+		} */
    </style>
 {% endblock %}
 
 {% block content %}
 	<center><h1>Rate My Course</h1></center>
-	<form>
+	<form action="ratemycourseadd">
 	<center>
 		<b>Department</b>
 		<select id="dropMenu" class="dropdown-content">
@@ -47,7 +47,12 @@
 			<option value="Women's Studies">Women's Studies</option>
 			<option value="Writing">Writing</option>
 		</select>&nbsp;
-		<input id="search" type="text" placeholder="Search"> &nbsp;<button id="submitSearch">Submit</button>
+		<input id="search" type="text" placeholder="Search"> &nbsp;
+		<!-- <a href = "ratemycourseadd">
+			<button id="submitSearch" onclick = "ratemycourseadd">Submit</button>
+		</a> -->
+		<input type="submit" value="Submit" />
+
 	</center>
 	<!--<input type="submit" style="display: none" />-->
 	
