@@ -41,6 +41,6 @@ document.getElementById("rateThis").onclick = function () {
 };
 
 document.getElementById("submitAdd").onclick = function () {
-    location.href = "/coursefeedbackform";
+    location.href = "/courseratings/" + courseID;
     //Need to also send courseID
 };
