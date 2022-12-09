@@ -426,11 +426,11 @@ nav li {
 	
 	.container {
 		padding-top: 0em;
-		padding-bottom: 0em;
+		padding-bottom: 3em;
 	}
 
 	.lead {
-		margin-top: 0em;
+		margin-top: 3em;
 	}
 
 	h2 {
