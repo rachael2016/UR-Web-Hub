@@ -2,124 +2,83 @@
 
 {% block head %}
 	<title>{{ courseID }}</title>
-    <link rel="stylesheet" href="../static/styles.css">
     <!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
     <style>
-        .side {
-            float: left;
-            width: 15%;
-            margin-top: 10px;
+        .table {
+            border-collapse: collapse;
         }
-
-        .middle {
-            margin-top: 10px;
-            float: left;
-            width: 70%;
-        }
-
-        /* Place text to the right */
-        .right {
-            text-align: right;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* The bar container */
-        .bar-container {
-            width: 100%;
-            background-color: #f1f1f1;
+        progress {
+            height: 2rem;
             text-align: center;
             color: white;
+            background-image: green;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .comment {
+            margin-left: 5%;
+            margin-right: 5%;
+            background-color:#e4e4e4;
+            padding:0.5em;
+        }
+        .tag {
+            margin-left: 5%;
+            margin-right: 5%;
+            background-color:#cccccc;
+            display: inline-block;
+            padding:0.5em;
         }
     </style>
 {% endblock %}
 
 {% block content %}
-    {{ course }}<br>
-	<div id="courseID" style="font-size: 2em;"><b>{{ courseID }}</b></div><br><br>
+	<div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
+    <p>{{ courseName }}</p>
     Overall: {{ overall }}/5<br>
-    {{ numRatings }}<br>
-    5 stars
-    4 stars
-    3 stars
-    2 stars
-    1 star
+    {{ numRatings }} ratings<br><br>
+    <table>
+        <tr>
+            <td>5 stars</td>
+            <td><progress value="{{5stars}}" max="100"></progress></td>
+            <td>{{5stars}}</td>
+        </tr>
+        <tr>
+            <td>4 stars</td>
+            <td><progress value="{{4stars}}" max="100"></progress></td>
+            <td>{{4stars}}</td>
+        </tr>
+        <tr>
+            <td>3 stars</td>
+            <td><progress value="{{3stars}}" max="100"></progress></td>
+            <td>{{3stars}}</td>
+        </tr>
+        <tr>
+            <td>2 stars</td>
+            <td><progress value="{{2stars}}" max="100"></progress></td>
+            <td>{{2stars}}</td>
+        </tr>
+        <tr>
+            <td>1 star</td>
+            <td><progress value="{{1star}}" max="100"></progress></td>
+            <td>{{1star}}</td>
+        </tr>
+    </table>
 
-    <div class="row">
-        <div class="side">
-            <div>5 star</div>
-        </div>
-        <div class="middle">
-            <div class="bar-container">
-                <div class="bar-5"></div>
-            </div>
-        </div>
-        <div class="side right">
-            <div>{{ fiveStar }}</div>
-        </div>
-        <div class="side">
-            <div>4 star</div>
-        </div>
-        <div class="middle">
-            <div class="bar-container">
-                <div class="bar-4"></div>
-            </div>
-        </div>
-        <div class="side right">
-            <div>{{ fourStar }}</div>
-        </div>
-        <div class="side">
-            <div>3 star</div>
-        </div>
-        <div class="middle">
-            <div class="bar-container">
-                <div class="bar-3"></div>
-            </div>
-        </div>
-        <div class="side right">
-            <div>{{ threeStar }}</div>
-        </div>
-        <div class="side">
-            <div>2 star</div>
-        </div>
-        <div class="middle">
-            <div class="bar-container">
-                <div class="bar-2"></div>
-            </div>
-        </div>
-        <div class="side right">
-            <div>{{ twoStar }}</div>
-        </div>
-        <div class="side">
-            <div>1 star</div>
-        </div>
-        <div class="middle">
-            <div class="bar-container">
-                <div class="bar-1"></div>
-            </div>
-        </div>
-        <div class="side right">
-            <div>{{ oneStar }}</div>
-        </div>
-    </div>
+    <p>Difficulty: {{ difficulty }}/5</p>
+    <p>Usefulness: {{ usefulness }}/5</p>
 
+    <button id="rateThis" onclick="location.href='ratemycoursefeedback';">Rate this Course</button><br><br>
 
-    Difficulty: {{ difficulty }}/5<br>
-    Usefulness: {{ usefulness }}/5<br>
+    <p>Top Tags</p>
+    {%for tag in tags %}
+        <div class="tag">{{ tag.message }}</div>
+    {%endfor%}
 
-    <button id="rateThis" onclick="location.href='ratemycoursefeedback';">Rate this Course</button><br>
-
-    Top Tags<br>
-    Top Reviews<br>
+    <p>Top Reviews</p>
     <!--Loop through reviews-->
     {%for review in reviews%}
-    <li>{{ reviews.courseid }} {{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</li>
+        <div class="comment">{{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</div><br>
 
     {%endfor%}
-</body>
 {% endblock %}

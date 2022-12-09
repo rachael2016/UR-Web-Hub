@@ -21,7 +21,7 @@
     <h3>Feedback Form</h3>
     <br />
     <form method="POST" action="ratemycourseratings/{{courseID}}">
-        <p>Course ID <input type="text" id="courseid" style="width: 300px;" placeholder="{{courseID}}"></p>
+        <p>Course ID <input type="text" id="courseid" style="width: 300px;" placeholder="{{courseID}}"></p><br>
         <p>Professor <input id="prof" type="text" placeholder="Enter professor name"></p><br>
         <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
         <div id="overall">
@@ -155,7 +155,7 @@
         <p>Write a Review</p>
         <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea>
         <input type="submit" style="display: none" /><br>
-        <button id="submitReview">Submit</button> <!--Redirect back to course page-->
+        <input type="button" id="submitReview" value="Submit"/> <!--Redirect back to course page-->
     </form>
 </body>
 {% endblock %}
