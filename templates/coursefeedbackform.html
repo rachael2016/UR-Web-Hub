@@ -3,7 +3,7 @@
 {% block content %}
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Course Feedback Form</title>
     <style type="text/css">
         .selectgroup {
           display: inline-block;
@@ -12,14 +12,18 @@
         .selectgroup label {
           display: block;
         }
+        p {
+            margin:0;
+        }
     </style>
 </head>
 <body>
     <h3>Feedback Form</h3>
     <br />
     <form method="POST">
-        <p style="margin:0">Professor <input id="prof" type="text" placeholder="Enter professor name"></p><br>
-        <p style="margin:0">Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+
+        <p>Professor <input id="prof" type="text" placeholder="Enter professor name"></p><br>
+        <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
         <div id="overall">
             <div class="selectgroup">
                 <p style="margin:0" id="section">Rating</p>
@@ -99,19 +103,19 @@
         <p>Did you take this class online?
         <input type="radio" name="online" value="yes">Yes
         <input type="radio" name="online" value="no">No
-        </p>
+        </p><br>
         <p>Did you take this class for credit?
         <input type="radio" name="cred" value="yes">Yes
         <input type="radio" name="cred" value="no">No
-        </p>
+        </p><br>
         <p>Did this class use textbooks?
         <input type="radio" name="book" value="yes">Yes
         <input type="radio" name="book" value="no">No
-        </p>
+        </p><br>
         <p>Was attendance mandatory?
         <input type="radio" name="att" value="yes">Yes
         <input type="radio" name="att" value="no">No
-        </p>
+        </p><br>
         <p>What was your grade?
             <select id="grade" name="grade">
               <option value="A+">A+</option>
@@ -133,23 +137,25 @@
               <option value="N">Not sure yet</option>
               <option value="NA">Rather not say</option>
             </select>
-        </p>
-        <p style="margin:0">Select tags </p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Extra Credit">Extra Credit</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Group Projects">Group Projects</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Clear Grading Criteria">Clear Grading Criteria</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Lots Of Homework">Lots Of Homework</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Beware Of Pop Quizzes">Beware Of Pop Quizzes</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Lots of Papers">Lots of Papers</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
-            <p style="margin:0"><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
+        </p><br>    
+        <p>Select tags </p>
+            <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
+            <p><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
+            <p><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
+            <p><input type="checkbox" name="tag" value="Extra Credit">Extra Credit</p>
+            <p><input type="checkbox" name="tag" value="Group Projects">Group Projects</p>
+            <p><input type="checkbox" name="tag" value="Clear Grading Criteria">Clear Grading Criteria</p>
+            <p><input type="checkbox" name="tag" value="Lots Of Homework">Lots Of Homework</p>
+            <p><input type="checkbox" name="tag" value="Beware Of Pop Quizzes">Beware Of Pop Quizzes</p>
+            <p><input type="checkbox" name="tag" value="Lots of Papers">Lots of Papers</p>
+            <p><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
+            <p><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
+            <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
         <br>
-        <p style="margin:0">Write a Review</p>
+        <p>Write a Review</p>
         <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea>
+        <input type="submit" style="display: none" />
+        <button id="submitReview">Submit</button> <!--Redirect back to course page-->
     </form>
 </body>
 {% endblock %}

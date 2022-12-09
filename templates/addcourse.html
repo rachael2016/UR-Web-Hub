@@ -1,10 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<center><h1>Rate My Course</h1></center>
-	<form>
-	<center>
-		<b>Department</b>
+<head>
+	<title>Add Course</title>
+</head>
+<body>
+	<h3>Add Course</h3>
+	<form method="POST">
+		<p>Course ID <input type="text" id="courseid" style="width: 300px;" placeholder="Enter course ID (e.g. CSC212)"></p>
+		<p>Department
 		<select id="dropMenu" class="dropdown-content">
 			<option value="Accounting">Accounting</option>
 			<option value="Anthropology">Anthropology</option>
@@ -35,10 +39,9 @@
 			<option value="Theater">Theater</option>
 			<option value="Women's Studies">Women's Studies</option>
 			<option value="Writing">Writing</option>
-		</select>&nbsp;
-		<input id="search" type="text" placeholder="Search">
-	</center>
-	<input type="submit" style="display: none" />
-	&nbsp;<button id="submitSearch">Submit</button>
-	</form><br>
+		</select></p>
+		<input type="submit" style="display: none" />
+		<button id="submitAdd">Add Course</button>
+	</form>
+</body>
 {% endblock %}

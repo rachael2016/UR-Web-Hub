@@ -446,3 +446,7 @@ nav li {
 .selectgroup label {
   display: block;
 }
+
+input[type=checkbox] {
+	margin:0;
+}

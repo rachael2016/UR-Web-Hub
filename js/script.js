@@ -31,11 +31,16 @@ window.onclick = function (event) {
 }
 
 document.getElementById("submitSearch").onclick = function () {
-    var courseID = document.getElementById("search");
+    var courseID = document.getElementById("search").value;
     location.href = "/courseratings/" + courseID;
 };
 
 document.getElementById("rateThis").onclick = function () {
+    location.href = "/coursefeedbackform";
+    //Need to also send courseID
+};
+
+document.getElementById("submitAdd").onclick = function () {
     location.href = "/coursefeedbackform";
     //Need to also send courseID
 };
