@@ -35,6 +35,7 @@ DROP TABLE IF EXISTS "Courses";
 
 CREATE TABLE "Courses" (
     "id" INTEGER NOT NULL,
+    "department" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "professor" TEXT,
     "abbreviation" TEXT NOT NULL,

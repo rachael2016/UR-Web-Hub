@@ -14,13 +14,6 @@ body {
 	padding-bottom: 5em;
 } 
 
-@media screen and (max-width: 900px) {
-	.container {
-		display: block;
-	}
-}
-
-
 li {
 	font-size: 30px;
 	text-align: center;
@@ -60,6 +53,7 @@ label {
 
 input {
 	margin-top: 2em;
+	margin-bottom: 2em;
 	background-color: #f0f0f0;
 }
 
@@ -111,6 +105,7 @@ fieldset {
 
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
+	
 	.lead {
 		max-width: 100%;
 		padding-left:  0px;
@@ -248,7 +243,7 @@ ul {
 	font-size: 20px;
 	text-align: center;
 	padding-top: 2em;
-	padding-bottom: 1.5em;
+	padding-bottom: 2em;
 	padding-left: 0px;
 }
 
@@ -337,7 +332,7 @@ header {
 }
 
 .header {
-	margin-bottom: 100px;
+	margin-bottom: 8em;
 }
 
 img {
@@ -349,8 +344,7 @@ img {
 
 nav {
 	padding-top: 3em;
-    background-color: #484848;
-  	overflow: hidden;
+    	background-color: #484848;
   	text-align: center;
 }
 
@@ -366,21 +360,22 @@ nav li {
 
 @media screen and (max-width: 930px) {
 	.menu {
-    text-align: center;
-    padding: 0em;
+    	text-align: center;
+   	 padding: 0em;
 	}
 
 	.menu a {
-    display: block;
-    padding: 1.5em;
+    	display: block;
+    	padding: .5em;
 	}
 
 	.menu a:hover {
-    background-color: #ADD8E6;
+    	background-color: #ADD8E6;
 	}
 
 	ul {
-	padding-bottom: .25em;
+	padding-bottom: 0em;
+	padding-top: 0em;
 	}
 
 	.slider {
@@ -391,6 +386,18 @@ nav li {
 		margin: 0em;
 	}
 }
+
+
+@media screen and (max-width: 900px) {
+	.container {
+		display: block;
+	}
+	
+	.header {
+		margin-bottom: 12em;
+	}
+}
+
 
 @media screen and (max-width: 450px) {
 	.inner-container {
@@ -411,6 +418,25 @@ nav li {
 	grid-gap: 25px;
 	}
 }
+
+@media screen and (max-width: 550px) { 
+	ul {
+		margin-bottom: 0em;
+	}
+	
+	.container {
+		padding-top: 0em;
+		padding-bottom: 3em;
+	}
+
+	.lead {
+		margin-top: 3em;
+	}
+
+	h2 {
+		margin-bottom: 1em;
+	}
+
 }
 
 .selectgroup {
