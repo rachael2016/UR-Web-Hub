@@ -117,8 +117,8 @@
     Top Tags<br>
     Top Reviews<br>
     <!--Loop through reviews-->
-    {%for i in range(0, len)%}
-
+    {%for review in reviews%}
+    <li>{{ reviews.courseid }} {{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</li>
 
     {%endfor%}
 </body>

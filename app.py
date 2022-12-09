@@ -29,6 +29,43 @@ def dining():
 def ratemycourse():
     return render_template("ratemycourse.html")
 
+@app.route("/coursefeedbackform", methods = ["GET", "POST"])
+def coursefeedbackform():
+    form = CourseFeedbackForm()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute('INSERT INTO Courses (department, name, professor, abbreviation) VALUES (?, ?, ?, ?)', (form.department.data, form.course.data, form.professor.data, form.abbreviation.data))
+        conn.close()
+        form.course.data = ''
+        form.professor.data = ''
+        form.abbreviation.data = ''
+        return redirect(url_for('ratemycourse'))
+    else:
+        print("form invalid")
+    return render_template("coursefeedbackform.html", form = form)
+
+# 3 ,adfs,asdf,asdf
+# variable = "CSC 171"
+# courseid = conn.execute(SELECT id from Courses where abbreviation = )
+# (SELECT * FROM CourseRatingsReceived WHERE couseid = (SELECT id from Courses where abbreviation = ""))
+@app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
+def courseratingfeedbackform():
+    form = CourseRatingFeedbackForm()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, tips) \
+        VALUES ((SELECT id from Courses WHERE abbreviation = ?), ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.message.data, form.tips.data))
+        conn.close()
+        form.abbreviation.data = ''
+        form.rating.data = ''
+        form.message.data = ''
+        form.tips.data = ''
+        return redirect(url_for('ratemycourse'))
+    else: 
+        print("form invalid")
+    return render_template("coursefeedbackform.html", form = form)
+
 @app.route("/ratemycourseadd", methods = ["GET", "POST"])
 def ratemycourseadd():
     return render_template("ratemycourseadd.html")
@@ -37,9 +74,29 @@ def ratemycourseadd():
 def ratemycoursefeedback():
     return render_template("ratemycoursefeedback.html")
 
+# conn = getdbconnection()
+    # buildings = conn.execute('SELECT * FROM Buildings').fetchall()
+
+    # buildingsData = []
+    # for building in buildings:
+    #     buildingsData.append({'name': building['name'], 'buildingid' : building['buildingid']})
+    
+    # conn.close()
+    # return render_template("buildinglist.html", buildings = buildingsData)
+
+# courses - dep, name, professor, abbr
+# coursesratings - courseid, rating, message, tips
 @app.route("/ratemycourseratings", methods = ["GET", "POST"])
 def ratemycourseratings():
-    return render_template("ratemycourseratings.html")
+    conn = getdbconnection()
+    reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
+
+    reviewsData = []
+    for review in reviews:
+        reviewsData.append({'rating': reviews['rating'], 'message': reviews['message'], \
+            'tips': reviews['tips'], 'courseid': reviews['courseid']})
+    conn.close()
+    return render_template("ratemycourseratings.html", reviews = reviewsData)
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
@@ -180,42 +237,7 @@ def feedbackthankyou():
     return render_template("feedbackformthanks.html")
 
 # to work on
-@app.route("/coursefeedbackform", methods = ["GET", "POST"])
-def coursefeedbackform():
-    form = CourseFeedbackForm()
-    if form.validate_on_submit():
-        conn = getdbconnection()
-        conn.execute('INSERT INTO Courses (department, name, professor, abbreviation) VALUES (?, ?, ?, ?)', (form.department.data, form.course.data, form.professor.data, form.abbreviation.data))
-        conn.close()
-        form.course.data = ''
-        form.professor.data = ''
-        form.abbreviation.data = ''
-        return redirect(url_for('ratemycourse'))
-    else:
-        print("form invalid")
-    return render_template("coursefeedbackform.html", form = form)
 
-# 3 ,adfs,asdf,asdf
-# variable = "CSC 171"
-# courseid = conn.execute(SELECT id from Courses where abbreviation = )
-# (SELECT * FROM CourseRatingsReceived WHERE couseid = (SELECT id from Courses where abbreviation = ""))
-@app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
-def courseratingfeedbackform():
-    form = CourseRatingFeedbackForm()
-    if form.validate_on_submit():
-        conn = getdbconnection()
-        conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, tips) \
-        VALUES ((SELECT id from Courses WHERE abbreviation = ?), ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.message.data, form.tips.data))
-        conn.close()
-        form.abbreviation.data = ''
-        form.rating.data = ''
-        form.message.data = ''
-        form.tips.data = ''
-        return redirect(url_for('ratemycourse'))
-    else: 
-        print("form invalid")
-    return render_template("coursefeedbackform.html", form = form)
 
 
 
