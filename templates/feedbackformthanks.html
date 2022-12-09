@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
-{% block content %}
+{% block head %}
+<title>Down Detector Nav</title>
+<link rel="stylesheet" href="../static/styles.css">
+<style>
+    h1{
+        padding-top: 1em;
+    }
+</style>
+{% endblock %}
 
-<head>
-    <title>Down Detector Nav</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <style>
-        h1{
-            padding-top: 1em;
-        }
-    </style>
-</head>
+{% block content %}
 
 <body>
   <h1>Thank you for your feedback! Click <a href="/">here</a> to return to homepage.</h1>
