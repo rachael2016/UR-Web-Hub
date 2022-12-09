@@ -366,7 +366,7 @@ nav li {
 
 	.menu a {
     	display: block;
-    	padding: 1.5em;
+    	padding: .5em;
 	}
 
 	.menu a:hover {
@@ -418,8 +418,18 @@ nav li {
 	grid-gap: 25px;
 	}
 }
-}
 
+@media screen and (min-width: 550px) { 
+	ul {
+		margin-bottom: 0em;
+	}
+	
+	.container {
+		padding-top: 0em;
+		padding-bottom: 0em;
+	}
+
+}
 .selectgroup {
   display: inline-block;
   text-align: center;
