@@ -30,11 +30,21 @@ window.onclick = function (event) {
     }
 }
 
-//How do you do this if they hit enter?
 document.getElementById("submitSearch").onclick = function () {
     var courseID = document.getElementById("search").value;
     location.href = "/courseratings/" + courseID;
 };
+
+var textBox = document.getElementById("search");
+var button = document.getElementById("submitSearch");
+textBox.addEventListener("keyup", function (event) {
+    // Checking if key pressed is ENTER or not
+    // if the key pressed is ENTER
+    // click listener on button is called
+    if (event.keyCode == 13) {
+        button.click();
+    }
+});
 
 document.getElementById("rateThis").onclick = function () {
     location.href = "/coursefeedbackform";
