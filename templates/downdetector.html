@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
 
-{% block content %}
-
-<head>
+{% block head %}
     <title>Down Detector</title>
-    <link rel="stylesheet" href="../static/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <style>
         div.one {
             text-align: center;
             font-size: 30px;
             color: black;
             padding: 10px;
+            float: left;
             align-items: center;
             justify-content: center;
             height: 900px;
             width: 45%;
-            float: left;
-            margin: 0 auto;
+            margin: 0 auto; 
         }
         div.two {
             text-align: center;
@@ -26,15 +27,14 @@
             padding: 10px;
             align-items: center;
             justify-content: center;
-            height: 900px;
             width: 45%;
-            float: left;
-            margin: 0 auto;
+            margin: 0 auto; 
         }
     </style>
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
+
     <div class="one">
         <h3>{{ name }}</h3>
         </br>
@@ -82,6 +82,5 @@
         });
         </script>
     </div>
-</body>
 
 {% endblock %}

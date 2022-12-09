@@ -1,31 +1,33 @@
 {% extends "layout.html" %}
 
+{% block head %}
+<title>Down Detector Alternate Nav</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/styles.css">
+<style>
+    li {
+        text-align: left;
+        font-size: 24px;
+    }
+
+    nav li {
+        font-size: 30px;
+    }
+
+    h5 {
+        font-family: "Trebuchet MS";
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 
-<head>
-    <title>Down Detector Alternate Nav</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <style>
-        li {
-            text-align: left;
-            font-size: 24px;
-        }
-
-        h1 {
-            padding-top: 1em;
-        }
-
-        h5 {
-            font-family: "Trebuchet MS";
-            font-size: 20px;
-            font-weight: bold;
-            padding-left: 1em;
-            padding-right: 1em;
-        }
-    </style>
-</head>
-
-<body>
     <h1>Down Detector Building List</h1>
     <h5>Select your building to view the status</h5>
     <ol>
@@ -35,7 +37,5 @@
 
         {% endfor %}
     </ol>
-
-</body>
 
 {% endblock %}
