@@ -30,6 +30,7 @@ window.onclick = function (event) {
     }
 }
 
+//How do you do this if they hit enter?
 document.getElementById("submitSearch").onclick = function () {
     var courseID = document.getElementById("search").value;
     location.href = "/courseratings/" + courseID;
@@ -40,7 +41,14 @@ document.getElementById("rateThis").onclick = function () {
     //Need to also send courseID
 };
 
+//No to also submitting review
 document.getElementById("submitAdd").onclick = function () {
     location.href = "/courseratings/" + courseID;
+    //Need to also send courseID
+};
+
+//Yes to also submitting review
+document.getElementById("submitReview").onclick = function () {
+    location.href = "/coursefeedbackform";
     //Need to also send courseID
 };
