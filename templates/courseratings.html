@@ -1,4 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+{% course %}<br>
+{% courseName %}<br>
+Overall: {% overall %}/5<br>
+{% numRatings %}<br>
+5 stars
+4 stars
+3 stars
+2 stars
+1 star
+
+Difficulty: {% difficulty %}/5<br>
+Usefulness: {% usefulness %}/5<br>
+
+<button id="rateThis">Rate this Course</button>
+
+Top Tags<br>
+Top Reviews<br>
+<!--Loop through reviews-->
+{%for i in range(0, len)%} 
+	
+{%endfor%}
+
 {% endblock %}
