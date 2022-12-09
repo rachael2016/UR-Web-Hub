@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-	<title>{% courseID %}</title>
+	<title>{{ courseID }}</title>
     <link rel="stylesheet" href="../static/styles.css">
     <!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
     <style>
@@ -40,7 +40,7 @@
 {% endblock %}
 
 {% block content %}
-    {% course %}<br>
+    {{ course }}<br>
 	<div id="courseID" style="font-size: 2em;"><b>{% courseID %}</b></div><br><br>
     Overall: {% overall %}/5<br>
     {% numRatings %}<br>

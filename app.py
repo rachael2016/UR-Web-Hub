@@ -33,6 +33,14 @@ def ratemycourse():
 def ratemycourseadd():
     return render_template("ratemycourseadd.html")
 
+@app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
+def ratemycoursefeedback():
+    return render_template("ratemycoursefeedback.html")
+
+@app.route("/ratemycourseratings", methods = ["GET", "POST"])
+def ratemycourseratings():
+    return render_template("ratemycourseratings.html")
+
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
 
