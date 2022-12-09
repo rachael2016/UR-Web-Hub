@@ -1,10 +1,9 @@
 {% extends "layout.html" %}
 
-{% block content %}
-<head>
+{% block head %}
 	<title>Add Course</title>
-</head>
-<body>
+{% endblock %}
+{% block content %}
 	<h3>Add Course</h3>
 	<form method="POST">
 		<p>Course ID <input type="text" id="courseid" style="width: 300px;" placeholder="Enter course ID (e.g. CSC212)"></p>
@@ -46,5 +45,4 @@
         </p><br>
 		<input type="submit" style="display: none" />
 	</form>
-</body>
 {% endblock %}

@@ -1,7 +1,6 @@
 ﻿{% extends "layout.html" %}
 
-{% block content %}
-<head>
+{% block head %}
     <meta charset="utf-8" />
     <title>Course Feedback Form</title>
     <style type="text/css">
@@ -16,8 +15,9 @@
             margin:0;
         }
     </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <h3>Feedback Form</h3>
     <br />
     <form method="POST">

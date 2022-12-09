@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% block content %}
-<head>
+{% block head %}
 	<title>{% courseID %}</title>
+    <link rel="stylesheet" href="../static/styles.css">
     <!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
     <style>
         .side {
@@ -37,9 +37,9 @@
             color: white;
         }
     </style>
+{% endblock %}
 
-</head>
-<body>
+{% block content %}
     {% course %}<br>
 	<div id="courseID" style="font-size: 2em;"><b>{% courseID %}</b></div><br><br>
     Overall: {% overall %}/5<br>
