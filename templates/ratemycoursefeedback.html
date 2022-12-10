@@ -31,7 +31,7 @@
         <textarea id="professor" name="professor"></textarea><br><br>
         <!-- <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
         <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p> -->
-        <!-- {{ form.department }} -->
+        {{ form.department }}
         <!-- <p>Department    
         <select id="dropMenu" class="dropdown-content">
             <option value="Accounting">Accounting</option>
@@ -197,7 +197,8 @@
         <p>Write a Review</p>
         <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br>-->
         <!-- <input type="submit" style="display: none" /> -->
-        <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> <!--Redirect back to course page-->
+        <input type="submit" id="submit" name="submit">
+        <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
     </form>
 
 {% endblock %}

@@ -14,20 +14,20 @@ class FeedbackForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class CourseFeedbackForm(FlaskForm):
-    # keys = ["Accounting", "Anthropology", "Art History", 
-    #     "Biology", "Brain & Cognitive Sciences", "Business", 
-    #     "Chemical Engineering", "Chemistry", "Computer Science", 
-    #     "Economics", "Education", "English", 
-    #     "Finance", "Geography", "Geology", "History", "Linguistics", 
-    #     "Marketing", "Mathematics", "Music", "Nursing", 
-    #     "Philosophy", "Physics", "Political Science", "Psychology",
-    #     "Studio Arts", "Theater", "Women's Studies", "Writing"]
-    # tuples = []
-    # for i in keys:
-    #     tuples.append((i , i))
+    keys = ["Accounting", "Anthropology", "Art History", 
+        "Biology", "Brain & Cognitive Sciences", "Business", 
+        "Chemical Engineering", "Chemistry", "Computer Science", 
+        "Economics", "Education", "English", 
+        "Finance", "Geography", "Geology", "History", "Linguistics", 
+        "Marketing", "Mathematics", "Music", "Nursing", 
+        "Philosophy", "Physics", "Political Science", "Psychology",
+        "Studio Arts", "Theater", "Women's Studies", "Writing"]
+    tuples = []
+    for i in keys:
+        tuples.append((i , i))
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     course = StringField("Course", validators=[DataRequired()])
-    # department = SelectField("Department", choices = tuples)
+    department = SelectField("Department", choices = tuples)
     professor = StringField("Professor", validators = [DataRequired()])
     submit = SubmitField("Submit")
 

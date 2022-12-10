@@ -36,20 +36,20 @@ def coursefeedbackform():
         print(i)
     if form.validate_on_submit():
         conn = getdbconnection()
-        conn.execute('INSERT INTO Courses (name, professor, abbreviation) VALUES (?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data))
+        conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
         ratings = conn.execute('SELECT * FROM Courses').fetchall()
         ratingsList = []
         for rating in ratings:
             ratingsList.append({'name': \
                 rating['name'], 'professor': rating['professor'], \
-                'abbreviation': rating['abbreviation']})
+                'abbreviation': rating['abbreviation'], 'department': rating['department']})
         print(ratingsList)
         conn.commit()
         conn.close()
         form.course.data = ''
         form.professor.data = ''
         form.abbreviation.data = ''
-        # form.department.data = ''
+        form.department.data = ''
         return redirect(url_for('ratemycourse'))
     else:
         print("form invalid")
