@@ -214,6 +214,7 @@ def downdetector(buildingid):
         return render_template("downdetectorrefresh.html", buildingid = buildingid)
     #for debugging purposes
     else:
+        print(form.status.data)
         print("form invalid")
     
     return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
@@ -250,6 +251,7 @@ def thanksforreporting():
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
     form = FeedbackForm()
+    form.status.data = ''
     if form.validate_on_submit() and recaptcha.verify():
         conn = getdbconnection()
         now = datetime.now()
