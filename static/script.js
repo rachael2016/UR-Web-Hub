@@ -1,3 +1,4 @@
+//Emersyn, Rachael, Sarah, Kelly, Grant
 function openAccordion(id) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
@@ -51,14 +52,16 @@ document.getElementById("rateThis").onclick = function () {
     //Need to also send courseID
 };
 
-//No to also submitting review
-document.getElementById("submitAdd").onclick = function () {
-    location.href = "/courseratings/" + courseID;
-    //Need to also send courseID
-};
-
+/*
 //Yes to also submitting review
 document.getElementById("submitReview").onclick = function () {
     location.href = "/coursefeedbackform";
     //Need to also send courseID
 };
+
+//No to also submitting review
+document.getElementById("submitAdd").onclick = function () {
+    location.href = "/courseratings/" + courseID;
+    //Need to also send courseID
+};
+*/
