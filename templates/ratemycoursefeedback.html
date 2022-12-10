@@ -26,14 +26,14 @@
     <!-- action="ratemycourseratings/{{ courseID }}" -->
     <form action= "" method="POST" >
         {{ form.csrf_token }}
-        <input type="text" id="abbreviation" name="abbreviation"><br><br>
+        <!-- <input type="text" id="abbreviation" name="abbreviation"><br><br>
         <input type="text" id="course" name="course"><br><br>
-        <textarea id="professor" name="professor"></textarea><br><br>
-        <!-- <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
-        <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p> -->
+        <textarea id="professor" name="professor"></textarea><br><br> -->
+        <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
+        <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p>
+        <p>Department  
         {{ form.department }}
-        <!-- <p>Department    
-        <select id="dropMenu" class="dropdown-content">
+        <!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
             <option value="Accounting">Accounting</option>
             <option value="Anthropology">Anthropology</option>
             <option value="Art History">Art History</option>
@@ -64,102 +64,75 @@
             <option value="Women's Studies">Women's Studies</option>
             <option value="Writing">Writing</option>
         </select></p> -->
-        <!-- <p>Professor <input id="professor" name = "professor" type="text" placeholder="Enter professor name"></p><br> -->
-        <!--<p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
-        <div id="overall">
-            <div class="selectgroup">
-                <p style="margin:0" id="section">Rating</p>
-                <label for="section">&nbsp;</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio1" name="rating" type="radio" value="1">
-                <label for="radio1">1</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio2" name="rating" type="radio" value="2">
-                <label for="radio2">2</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio3" name="rating" type="radio" value="3">
-                <label for="radio3">3</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio4" name="rating" type="radio" value="4">
-                <label for="radio4">4</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio5" name="rating" type="radio" value="5">
-                <label for="radio5">5</label>
-            </div>
-        </div><br>
-        <div id="difficulty">
-            <div class="selectgroup">
-                <p style="margin:0" id="sectdiff">Difficulty</p>
-                <label for="sectdiff">&nbsp;</label></div>
-            <div class="selectgroup">
-                <input id="radio1" name="diff" type="radio" value="1">
-                <label for="radio1">1</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio2" name="diff" type="radio" value="2">
-                <label for="radio2">2</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio3" name="diff" type="radio" value="3">
-                <label for="radio3">3</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio4" name="diff" type="radio" value="4">
-                <label for="radio4">4</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio5" name="diff" type="radio" value="5">
-                <label for="radio5">5</label>
-            </div>
-        </div><br>
-        <div id="usefulness">
-            <div class="selectgroup">
-                <p style="margin:0" id="sectuse">Usefulness</p>
-                <label for="sectuse">&nbsp;</label></div>
-            <div class="selectgroup">
-                <input id="radio1" name="use" type="radio" value="1">
-                <label for="radio1">1</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio2" name="use" type="radio" value="2">
-                <label for="radio2">2</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio3" name="use" type="radio" value="3">
-                <label for="radio3">3</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio4" name="use" type="radio" value="4">
-                <label for="radio4">4</label>
-            </div>
-            <div class="selectgroup">
-                <input id="radio5" name="use" type="radio" value="5">
-                <label for="radio5">5</label>
-            </div>
-        </div><br>
+        <p>Professor <input id="professor" name = "professor" type="text" placeholder="Enter professor name"></p><br>
+        <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+        <p>Rating </p>
+        {% for subfield in form.rating %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr> 
+        {% endfor %}
+        <br>
+        <p>Difficulty </p>
+        {% for subfield in form.difficulty %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr> 
+        {% endfor %}
+        <br>
+        <p>Usefulness </p>
+        {% for subfield in form.usefulness %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr> 
+        {% endfor %}
+        
         <p>Did you take this class online?
-        <input type="radio" name="online" value="yes">Yes
-        <input type="radio" name="online" value="no">No
+            {% for subfield in form.online %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr> 
+            {% endfor %}
+        <!-- <input type="radio" name="online" value="yes">Yes
+        <input type="radio" name="online" value="no">No -->
         </p><br>
         <p>Did you take this class for credit?
-        <input type="radio" name="cred" value="yes">Yes
-        <input type="radio" name="cred" value="no">No
+            {% for subfield in form.credit %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr> 
+            {% endfor %}
+        <!-- <input type="radio" name="cred" value="yes">Yes
+        <input type="radio" name="cred" value="no">No -->
         </p><br>
         <p>Did this class use textbooks?
-        <input type="radio" name="book" value="yes">Yes
-        <input type="radio" name="book" value="no">No
+            {% for subfield in form.textbook %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr> 
+            {% endfor %}
+        <!-- <input type="radio" name="book" value="yes">Yes
+        <input type="radio" name="book" value="no">No -->
         </p><br>
         <p>Was attendance mandatory?
-        <input type="radio" name="att" value="yes">Yes
-        <input type="radio" name="att" value="no">No
+            {% for subfield in form.attendance %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr> 
+            {% endfor %}
+        <!-- <input type="radio" name="att" value="yes">Yes
+        <input type="radio" name="att" value="no">No -->
         </p><br>
         <p>What was your grade?
-            <select id="grade" name="grade">
+            {{ form.grade }}
+            <!-- <select id="grade" name="grade">
               <option value="A+">A+</option>
               <option value="A">A</option>
               <option value="A-">A-</option>
@@ -178,7 +151,7 @@
               <option value="I">Incomplete</option>
               <option value="N">Not sure yet</option>
               <option value="NA">Rather not say</option>
-            </select>
+            </select> -->
         </p><br>    
         <p>Select tags </p>
             <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
@@ -195,10 +168,89 @@
             <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
         <br>
         <p>Write a Review</p>
-        <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br>-->
+        {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
+        <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
         <!-- <input type="submit" style="display: none" /> -->
+        <br>
         <input type="submit" id="submit" name="submit">
         <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
     </form>
 
 {% endblock %}
+
+<!-- <div id="overall">
+    <div class="selectgroup">
+        <p style="margin:0" id="section">Rating</p>
+        <label for="section">&nbsp;</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio1" name="rating" type="radio" value="1">
+        <label for="radio1">1</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio2" name="rating" type="radio" value="2">
+        <label for="radio2">2</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio3" name="rating" type="radio" value="3">
+        <label for="radio3">3</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio4" name="rating" type="radio" value="4">
+        <label for="radio4">4</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio5" name="rating" type="radio" value="5">
+        <label for="radio5">5</label>
+    </div>
+</div><br>
+<div id="difficulty">
+    <div class="selectgroup">
+        <p style="margin:0" id="sectdiff">Difficulty</p>
+        <label for="sectdiff">&nbsp;</label></div>
+    <div class="selectgroup">
+        <input id="radio1" name="diff" type="radio" value="1">
+        <label for="radio1">1</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio2" name="diff" type="radio" value="2">
+        <label for="radio2">2</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio3" name="diff" type="radio" value="3">
+        <label for="radio3">3</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio4" name="diff" type="radio" value="4">
+        <label for="radio4">4</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio5" name="diff" type="radio" value="5">
+        <label for="radio5">5</label>
+    </div>
+</div><br>
+<div id="usefulness">
+    <div class="selectgroup">
+        <p style="margin:0" id="sectuse">Usefulness</p>
+        <label for="sectuse">&nbsp;</label></div>
+    <div class="selectgroup">
+        <input id="radio1" name="use" type="radio" value="1">
+        <label for="radio1">1</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio2" name="use" type="radio" value="2">
+        <label for="radio2">2</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio3" name="use" type="radio" value="3">
+        <label for="radio3">3</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio4" name="use" type="radio" value="4">
+        <label for="radio4">4</label>
+    </div>
+    <div class="selectgroup">
+        <input id="radio5" name="use" type="radio" value="5">
+        <label for="radio5">5</label>
+    </div>
+</div><br> -->

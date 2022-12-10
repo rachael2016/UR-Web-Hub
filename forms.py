@@ -1,6 +1,7 @@
-from wtforms import BooleanField, SubmitField, ValidationError, TextAreaField, EmailField, StringField, IntegerField, SelectField
+from wtforms import BooleanField, SubmitField, ValidationError, TextAreaField, EmailField, StringField, IntegerField, SelectField, RadioField
 from flask_wtf import FlaskForm
 from wtforms.validators import EqualTo, DataRequired, Length
+from wtforms.widgets import TextArea
 
 class UserReport(FlaskForm):
     status = BooleanField("Down Status", validators=[DataRequired()])
@@ -27,9 +28,21 @@ class CourseFeedbackForm(FlaskForm):
         tuples.append((i , i))
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     course = StringField("Course", validators=[DataRequired()])
-    department = SelectField("Department", choices = tuples)
+    department = SelectField("Department", choices = tuples, validators=[DataRequired()])
     professor = StringField("Professor", validators = [DataRequired()])
-    submit = SubmitField("Submit")
+    rating = RadioField("Rating", choices = [('one', '1'), ('two', '2'), \
+        ('three', '3'), ('four', '4'), ('five', '5')])
+    difficulty = RadioField("Difficulty", choices = [('one', '1'), ('two', '2'), \
+        ('three', '3'), ('four', '4'), ('five', '5')])   
+    usefulness = RadioField("Usefulness", choices = [('one', '1'), ('two', '2'), \
+        ('three', '3'), ('four', '4'), ('five', '5')]) 
+    online = RadioField("Online", choices = [('y', 'Yes'), ('n', 'No')])
+    credit = RadioField("Credit", choices = [('y', 'Yes'), ('n', 'No')])
+    textbook = RadioField("Textbook", choices = [('y', 'Yes'), ('n', 'No')])
+    attendance = RadioField("Attendance", choices = [('y', 'Yes'), ('n', 'No')])
+    grade = SelectField("Grade", choices = [("A+", 'A+'), ('A', 'A')])
+    review = TextAreaField("Review", widget = TextArea())
+    submit = SubmitField("Submit",)
 
 
 

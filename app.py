@@ -32,8 +32,18 @@ def ratemycourse():
 @app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
 def coursefeedbackform():
     form = CourseFeedbackForm()
-    for i in form:
-        print(i)
+    conn = getdbconnection()
+    # conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
+    # ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
+    # ratingsList = []
+    # for rating in ratings:
+    #     ratingsList.append({'name': \
+    #         rating['name'], 'professor': rating['professor'], \
+    #         'abbreviation': rating['abbreviation'], 'department': rating['department']})
+    # print(ratingsList)
+    # conn.commit()
+    # conn.close()
+        
     if form.validate_on_submit():
         conn = getdbconnection()
         conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
@@ -46,6 +56,14 @@ def coursefeedbackform():
         print(ratingsList)
         conn.commit()
         conn.close()
+        print(form.rating.data)
+        print(form.difficulty.data)
+        print(form.usefulness.data)
+        print(form.online.data)
+        print(form.review.data)
+        # print(request.form.get('dropMenu'))
+        print(request.form.getlist('tag'))
+        print(form.review.data)
         form.course.data = ''
         form.professor.data = ''
         form.abbreviation.data = ''
