@@ -22,9 +22,9 @@
 {% block content %}
 
     <h3>Feedback Form</h3>
-    <br />
+    <!-- <br /> -->
     <!-- action="ratemycourseratings/{{ courseID }}" -->
-    <form method="POST" >
+    <form action= "" method="POST" >
         {{ form.csrf_token }}
         <input type="text" id="abbreviation" name="abbreviation"><br><br>
         <input type="text" id="course" name="course"><br><br>
@@ -196,7 +196,7 @@
         <br>
         <p>Write a Review</p>
         <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br>-->
-        <input type="submit" style="display: none" />
+        <!-- <input type="submit" style="display: none" /> -->
         <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> <!--Redirect back to course page-->
     </form>
 
