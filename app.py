@@ -37,7 +37,7 @@ def coursefeedbackform():
     if form.validate_on_submit():
         conn = getdbconnection()
         conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
-        ratings = conn.execute('SELECT * FROM Courses').fetchall()
+        ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
         ratingsList = []
         for rating in ratings:
             ratingsList.append({'name': \
