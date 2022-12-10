@@ -4,6 +4,7 @@ from wtforms import BooleanField, PasswordField, StringField, SubmitField, Valid
 from datetime import datetime, timedelta
 import sqlite3
 from csv import DictReader
+from flask_recaptcha import ReCaptcha
 import json
 import os
 
@@ -11,6 +12,10 @@ from forms import UserReport, FeedbackForm, CourseFeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
+app.config['RECAPTCHA_SITE_KEY'] = "6Le4k20jAAAAAL52Yvi0zAlUMeIgO_ZTBuJozQ6s"
+app.config['RECAPTCHA_SECRET_KEY'] = "6Le4k20jAAAAAA-0g_AoWXx9rGjtTYtJi7BomBZ2"
+recaptcha = ReCaptcha(app)
+
 
 def getdbconnection():
     conn = sqlite3.connect('databases.db')
@@ -245,7 +250,7 @@ def thanksforreporting():
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
     form = FeedbackForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit() and recaptcha.verify():
         conn = getdbconnection()
         now = datetime.now()
         conn.execute('INSERT INTO GeneralFeedbackReceived (name, email, subject, message, datetime) VALUES (?, ?, ?, ?, ?)', (form.name.data, form.email.data, form.subject.data, form.message.data, now))
@@ -272,10 +277,6 @@ def feedbackform():
 @app.route("/feedbackthankyou")
 def feedbackthankyou():
     return render_template("feedbackformthanks.html")
-
-# to work on
-
-
 
 
 
