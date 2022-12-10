@@ -147,6 +147,7 @@ def downdetector(buildingid):
     #Getting data for graph
     graphedrecords = []
     iteratetime = datetime.now()
+    reportcount = 0
     for i in range(0, 24):
         minusHour = iteratetime - timedelta(hours=1)
         downstatus = True
@@ -155,6 +156,7 @@ def downdetector(buildingid):
         if temprecords:
             for record in temprecords:
                 recordcount += 1
+                reportcount += 1
 
         tographedrecords = {
             "datetime": minusHour,
@@ -188,10 +190,8 @@ def downdetector(buildingid):
         allreports.append(reportentry)
 
     allrecentrecords = []
-    reportcount = 0
 
     for record in recentrecords:
-        reportcount += 1
         recordentry = {
             "id": record['recordid'],
             "datetime": record['datetime'],
@@ -200,9 +200,18 @@ def downdetector(buildingid):
         allrecentrecords.append(recordentry)
 
     #form for reports
-    status = None
     form = UserReport()
     if form.validate_on_submit():
+        status = form.status.data
+        conn = getdbconnection()
+        conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), status))
+        conn.commit()
+        conn.close()
+        print("down detector report successfully recieved")
+        form.status.data = ''
+        status = ''
+        return render_template("downdetectorrefresh.html", buildingid = buildingid)
+    elif form.status.data == False and request.method == "POST":
         status = form.status.data
         conn = getdbconnection()
         conn.execute('INSERT INTO ElevatorDownRecords (buildingid, datetime, down) VALUES (?, ?, ?)', (buildingid, datetime.now(), status))
@@ -217,6 +226,7 @@ def downdetector(buildingid):
         print(form.status.data)
         print("form invalid")
     
+    form.status.data = ''
     return render_template("downdetector.html", allreports = allreports, allrecentrecords = allrecentrecords, form = form,
         name = name, reportcount = reportcount, labels = labels, values = values)
 
