@@ -7,7 +7,7 @@ from csv import DictReader
 import json
 import os
 
-from forms import UserReport, FeedbackForm, CourseFeedbackForm, CourseRatingFeedbackForm
+from forms import UserReport, FeedbackForm, CourseFeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
@@ -29,50 +29,61 @@ def dining():
 def ratemycourse():
     return render_template("ratemycourse.html")
 
-@app.route("/coursefeedbackform", methods = ["GET", "POST"])
+@app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
 def coursefeedbackform():
     form = CourseFeedbackForm()
+    for i in form:
+        print(i)
     if form.validate_on_submit():
         conn = getdbconnection()
-        conn.execute('INSERT INTO Courses (department, name, professor, abbreviation) VALUES (?, ?, ?, ?)', (form.department.data, form.course.data, form.professor.data, form.abbreviation.data))
+        conn.execute('INSERT INTO Courses (name, professor, abbreviation) VALUES (?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data))
+        ratings = conn.execute('SELECT * FROM Courses').fetchall()
+        ratingsList = []
+        for rating in ratings:
+            ratingsList.append({'name': \
+                rating['name'], 'professor': rating['professor'], \
+                'abbreviation': rating['abbreviation']})
+        print(ratingsList)
+        conn.commit()
         conn.close()
         form.course.data = ''
         form.professor.data = ''
         form.abbreviation.data = ''
+        # form.department.data = ''
         return redirect(url_for('ratemycourse'))
     else:
         print("form invalid")
-    return render_template("coursefeedbackform.html", form = form)
+    return render_template("ratemycoursefeedback.html", form = form)
 
 # 3 ,adfs,asdf,asdf
 # variable = "CSC 171"
 # courseid = conn.execute(SELECT id from Courses where abbreviation = )
 # (SELECT * FROM CourseRatingsReceived WHERE couseid = (SELECT id from Courses where abbreviation = ""))
-@app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
-def courseratingfeedbackform():
-    form = CourseRatingFeedbackForm()
-    if form.validate_on_submit():
-        conn = getdbconnection()
-        conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, tips) \
-        VALUES ((SELECT id from Courses WHERE abbreviation = ?), ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.message.data, form.tips.data))
-        conn.close()
-        form.abbreviation.data = ''
-        form.rating.data = ''
-        form.message.data = ''
-        form.tips.data = ''
-        return redirect(url_for('ratemycourse'))
-    else: 
-        print("form invalid")
-    return render_template("coursefeedbackform.html", form = form)
+# @app.route("/courseratingfeedbackform", methods = ["GET", "POST"])
+# def courseratingfeedbackform():
+#     form = CourseRatingFeedbackForm()
+#     if form.validate_on_submit():
+#         conn = getdbconnection()
+#         conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, tips) \
+#         VALUES ((SELECT id from Courses WHERE abbreviation = ?), ?, ?, ?)', 
+#         (form.abbreviation.data, form.rating.data, form.message.data, form.tips.data))
+#         conn.close()
+#         form.abbreviation.data = ''
+#         form.rating.data = ''
+#         form.message.data = ''
+#         form.tips.data = ''
+#         return redirect(url_for('ratemycourse'))
+#     else: 
+#         print("form invalid")
+#     return render_template("coursefeedbackform.html", form = form)
 
-@app.route("/ratemycourseadd", methods = ["GET", "POST"])
-def ratemycourseadd():
-    return render_template("ratemycourseadd.html")
+# @app.route("/ratemycourseadd", methods = ["GET", "POST"])
+# def ratemycourseadd():
+#     return render_template("ratemycourseadd.html")
 
-@app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
-def ratemycoursefeedback():
-    return render_template("ratemycoursefeedback.html")
+# @app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
+# def ratemycoursefeedback():
+#     return render_template("ratemycoursefeedback.html")
 
 # conn = getdbconnection()
     # buildings = conn.execute('SELECT * FROM Buildings').fetchall()
@@ -220,6 +231,14 @@ def feedbackform():
         conn = getdbconnection()
         now = datetime.now()
         conn.execute('INSERT INTO GeneralFeedbackReceived (name, email, subject, message, datetime) VALUES (?, ?, ?, ?, ?)', (form.name.data, form.email.data, form.subject.data, form.message.data, now))
+        ratings = conn.execute('SELECT * FROM GeneralFeedbackReceived').fetchall()
+        ratingsList = []
+        for rating in ratings:
+            ratingsList.append({'name': \
+                rating['name'], 'email': rating['email'], \
+                'subject': rating['subject']})
+        print(ratingsList)
+        conn.commit()
         conn.close()
         form.name.data = ''
         form.email.data = ''

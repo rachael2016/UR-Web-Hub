@@ -20,12 +20,19 @@
 {% endblock %}
 
 {% block content %}
+
     <h3>Feedback Form</h3>
     <br />
-    <form method="POST" action="ratemycourseratings/{{ courseID }}">
-        <p>Course Abbreviation <input type="text" id="courseid" name="courseid" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
-        <p>Course Name <input type="text" id="coursename" name="coursename" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p>
-        <p>Department
+    <!-- action="ratemycourseratings/{{ courseID }}" -->
+    <form method="POST" >
+        {{ form.csrf_token }}
+        <input type="text" id="abbreviation" name="abbreviation"><br><br>
+        <input type="text" id="course" name="course"><br><br>
+        <textarea id="professor" name="professor"></textarea><br><br>
+        <!-- <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
+        <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p> -->
+        <!-- {{ form.department }} -->
+        <!-- <p>Department    
         <select id="dropMenu" class="dropdown-content">
             <option value="Accounting">Accounting</option>
             <option value="Anthropology">Anthropology</option>
@@ -56,9 +63,9 @@
             <option value="Theater">Theater</option>
             <option value="Women's Studies">Women's Studies</option>
             <option value="Writing">Writing</option>
-        </select></p>
-        <!--<p>Professor <input id="prof" type="text" placeholder="Enter professor name"></p><br>
-        <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+        </select></p> -->
+        <!-- <p>Professor <input id="professor" name = "professor" type="text" placeholder="Enter professor name"></p><br> -->
+        <!--<p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
         <div id="overall">
             <div class="selectgroup">
                 <p style="margin:0" id="section">Rating</p>
@@ -190,7 +197,7 @@
         <p>Write a Review</p>
         <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br>-->
         <input type="submit" style="display: none" />
-        <input type="button" id="submitReview" onclick="location.href='ratemycourseratings/{{ courseID }}';" value="Submit"/> <!--Redirect back to course page-->
+        <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> <!--Redirect back to course page-->
     </form>
-</body>
+
 {% endblock %}
