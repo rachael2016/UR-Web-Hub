@@ -21,6 +21,16 @@ class CourseFeedbackForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class CourseRatingFeedbackForm(FlaskForm):
+    keys = ["Accounting", "Anthropology", "Art History", 
+        "Biology", "Brain & Cognitive Sciences", "Business", 
+        "Chemical Engineering", "Chemistry", "Computer Science", 
+        "Economics", "Education", "English", 
+        "Finance", "Geography", "Geology", "History", "Linguistics", 
+        "Marketing", "Mathematics", "Music", "Nursing", 
+        "Philosophy", "Physics", "Political Science", "Psychology",
+        "Studio Arts", "Theater", "Women's Studies", "Writing"]
+    for i in keys:
+        keys2.append((i,i))
     abbreviation = StringField("abbreviation", validators=[DataRequired()])
     rating = IntegerField("rating", validators=[DataRequired()])
     message = TextAreaField("Message", validators=[DataRequired()])

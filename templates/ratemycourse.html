@@ -15,7 +15,7 @@
 
 {% block content %}
 	<center><h1>Rate My Course</h1></center>
-	<form action="ratemycourseadd">
+	<form>
 	<center>
 		<b>Department</b>
 		<select id="dropMenu" class="dropdown-content">
@@ -50,14 +50,10 @@
 			<option value="Writing">Writing</option>
 		</select>&nbsp;
 		<input id="search" type="text" placeholder="Search"> &nbsp;
-		<!-- <a href = "ratemycourseadd">
-			<button id="submitSearch" onclick = "ratemycourseadd">Submit</button>
-		</a> -->
-		<input type="button" onclick="location.href='ratemycourseratings';" value="Submit" />
-
+		<input type="button" id="submitSearch" onclick="location.href='ratemycourseratings';" value="Submit" />
 	</center>
 
-	<center><input type="button" onclick="location.href='ratemycourseadd';" value="Add a Course" /></center>
+	<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 	<!--<input type="submit" style="display: none" />-->
 	
 	</form><br>
