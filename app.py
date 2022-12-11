@@ -38,7 +38,7 @@ def ratemycourse():
         ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
         for rating in ratings:
             if form.abbreviation.data in rating['abbreviation']:
-                print("reached end")
+                return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
                 # return redirect(url_for('dashboard', abbreviation = form.abbreviation.data))
     else:
         print("invalid form")
@@ -77,7 +77,7 @@ def coursefeedbackform():
         print("form invalid")
     return render_template("ratemycoursefeedback.html", form = form)
 
-@app.route("/ratemycourseratings", methods = ["GET", "POST"])
+@app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
     # conn = getdbconnection()
     # reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
@@ -87,7 +87,7 @@ def ratemycourseratings(courseID):
     #     reviewsData.append({'rating': reviews['rating'], 'message': reviews['message'], \
     #         'tips': reviews['tips'], 'courseid': reviews['courseid']})
     # conn.close()
-    return render_template("ratemycourseratings.html", courseID = courseID)
+    return render_template("ratemycourseratings.html", courseID = courseID, rating = 5, five_stars = 4)
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
