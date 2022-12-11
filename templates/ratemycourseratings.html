@@ -35,7 +35,7 @@
 {% endblock %}
 
 {% block content %}
-	<div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
+	<!-- <div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
     <p>{{ courseName }}</p>
     Overall: {{ overall }}/5<br>
     {{ numRatings }} ratings<br><br>
@@ -79,8 +79,8 @@
 
     <p>Top Reviews</p>
     <!--Loop through reviews-->
-    {%for review in reviews%}
+    <!--{%for review in reviews%}
         <div class="comment">{{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</div><br>
 
-    {%endfor%}
+    {%endfor%} -->
 {% endblock %}
