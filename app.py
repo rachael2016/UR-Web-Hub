@@ -82,17 +82,48 @@ def coursefeedbackform():
 @app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
     conn = getdbconnection()
-    reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
+    reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
 
     reviewsData = []
+    fiveStars = 0
+    fourStars = 0
+    threeStars = 0
+    twoStars = 0
+    oneStar = 0
+    totalRatings = 0
+    totalDifficulty = 0
+    totalUsefulness = 0
+    messages = []
     for review in reviews:
         reviewsData.append({'rating': review['rating'], 'message': review['message'], \
             'difficulty': review['difficulty'], 'usefulness': review['usefulness']})
-    print(reviewsData)
+        rating = int(review['rating'])
+        difficulty = int(review['difficulty'])
+        usefulness = int(review['usefulness'])
+        if(rating == 5):
+            fiveStars += 1
+        elif rating == 4:
+            fourStars += 1
+        elif rating == 3:
+            threeStars += 1
+        elif rating == 2:
+            twoStars += 1
+        elif rating == 1:
+            oneStar += 1
+        totalRatings += rating
+        totalDifficulty += difficulty
+        totalUsefulness += usefulness
+        messages.append(review['message'])
+    average = totalRatings / len(reviewsData)
+    averageDiff = totalDifficulty / len(reviewsData)
+    averageUse = totalUsefulness / len(reviewsData)
+    # print(len(reviewsData))
     conn.close()
-    return render_template("ratemycourseratings.html", courseID = courseID, 
-    numRatings = int(reviewsData[0]['rating']), five_stars = 5, difficulty = int(reviewsData[0]['difficulty']),
-    usefulness = int(reviewsData[0]['usefulness']))
+    print(messages)
+    return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
+    numRatings = len(reviewsData), five_stars = fiveStars, four_stars = fourStars, 
+    three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
+    usefulness = averageUse, tags = messages)
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
