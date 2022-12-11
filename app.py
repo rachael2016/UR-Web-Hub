@@ -223,7 +223,6 @@ def thanksforreporting():
 @app.route("/feedbackform", methods = ["GET", "POST"])
 def feedbackform():
     form = FeedbackForm()
-    form.status.data = ''
     if form.validate_on_submit() and recaptcha.verify():
         conn = getdbconnection()
         now = datetime.now()

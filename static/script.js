@@ -9,7 +9,9 @@ function openAccordion(id) {
 }
 
 date = new Date().toLocaleString();
-document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + date + "</span>";
+const dayoftheweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let day = dayoftheweek[date.getDay()];
+document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + date + "</span>";
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
