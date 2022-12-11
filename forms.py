@@ -17,7 +17,7 @@ keys = ["African and African-American Studies", "American Sign Language",
         "Mechanical Engineering", "Modern Languages and Cultures", "Music", "Naval Science", 
         "Optics", "Philosophy", "Physics and Astronomy", "Political Science", "Psychology",
         "Public Health", "Religion and Classics", "Russian Studies", "Statistics", 
-        "Sustainability Studies", "Theater", "Visual and Cultural Studies", "Writing"]
+        "Sustainability Studies", "Theater", "Visual and Cultural Studies", "Writing, Speaking, and Argument"]
 tuples = []
 for i in keys:
     tuples.append((i , i))
