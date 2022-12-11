@@ -1,21 +1,19 @@
 {% extends "layout.html" %}
 
 {% block head %}
-	<!--Emersyn, Rachael, Sarah, Kelly, Grant-->
-   <title>RateMyCourse</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="../static/styles.css">
-   <style>
-		/* footer {
-			bottom: 0;
-		} */
-   </style>
-   <script src="/static/script.js"></script>
+<!--Emersyn, Rachael, Sarah, Kelly, Grant-->
+<title>RateMyCourse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/styles.css">
+
+<script src="/static/script.js"></script>
 {% endblock %}
 
 {% block content %}
-	<center><h1>Rate My Course</h1></center>
-	<form method = "POST">
+<h1>Rate My Course</h1>
+<form method="POST">
 	<center>
 		{{ form.csrf_token }}
 		<b>Department</b>
@@ -51,13 +49,14 @@
 			<option value="Women's Studies">Women's Studies</option>
 			<option value="Writing">Writing</option>
 		</select>&nbsp; -->
-		<input id="abbreviation" type="text" placeholder="Search" name = "abbreviation"> &nbsp;
+		<input id="abbreviation" type="text" placeholder="Search" name="abbreviation"> &nbsp;
 		<input type="submit" id="submit" name="submit">
 		<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
 	</center>
 
 	<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 	<!--<input type="submit" style="display: none" />-->
-	
-	</form><br>
+
+</form>
+<br>
 {% endblock %}
