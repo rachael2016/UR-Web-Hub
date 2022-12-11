@@ -51,6 +51,8 @@ def coursefeedbackform():
     if form.validate_on_submit():
         conn = getdbconnection()
         conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
+        conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness) VALUES (?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data))
         ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
         ratingsList = []
         for rating in ratings:
@@ -79,15 +81,18 @@ def coursefeedbackform():
 
 @app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
-    # conn = getdbconnection()
-    # reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
+    conn = getdbconnection()
+    reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
 
-    # reviewsData = []
-    # for review in reviews:
-    #     reviewsData.append({'rating': reviews['rating'], 'message': reviews['message'], \
-    #         'tips': reviews['tips'], 'courseid': reviews['courseid']})
-    # conn.close()
-    return render_template("ratemycourseratings.html", courseID = courseID, rating = 5, five_stars = 4)
+    reviewsData = []
+    for review in reviews:
+        reviewsData.append({'rating': review['rating'], 'message': review['message'], \
+            'difficulty': review['difficulty'], 'usefulness': review['usefulness']})
+    print(reviewsData)
+    conn.close()
+    return render_template("ratemycourseratings.html", courseID = courseID, 
+    numRatings = int(reviewsData[0]['rating']), five_stars = 5, difficulty = int(reviewsData[0]['difficulty']),
+    usefulness = int(reviewsData[0]['usefulness']))
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):

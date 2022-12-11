@@ -38,12 +38,12 @@ class CourseFeedbackForm(FlaskForm):
     course = StringField("Course", validators=[DataRequired()])
     department = SelectField("Department", choices = tuples, validators=[DataRequired()])
     professor = StringField("Professor", validators = [DataRequired()])
-    rating = RadioField("Rating", choices = [('one', '1'), ('two', '2'), \
-        ('three', '3'), ('four', '4'), ('five', '5')])
-    difficulty = RadioField("Difficulty", choices = [('one', '1'), ('two', '2'), \
-        ('three', '3'), ('four', '4'), ('five', '5')])   
-    usefulness = RadioField("Usefulness", choices = [('one', '1'), ('two', '2'), \
-        ('three', '3'), ('four', '4'), ('five', '5')]) 
+    rating = RadioField("Rating", choices = [('1', '1'), ('2', '2'), \
+        ('3', '3'), ('4', '4'), ('5', '5')])
+    difficulty = RadioField("Difficulty", choices = [('1', '1'), ('2', '2'), \
+        ('3', '3'), ('4', '4'), ('5', '5')])   
+    usefulness = RadioField("Usefulness", choices = [('1', '1'), ('2', '2'), \
+        ('3', '3'), ('4', '4'), ('5', '5')]) 
     online = RadioField("Online", choices = [('y', 'Yes'), ('n', 'No')])
     credit = RadioField("Credit", choices = [('y', 'Yes'), ('n', 'No')])
     textbook = RadioField("Textbook", choices = [('y', 'Yes'), ('n', 'No')])
