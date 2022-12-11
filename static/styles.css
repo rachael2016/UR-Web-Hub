@@ -450,3 +450,10 @@ nav li {
 input[type=checkbox] {
 	margin:0;
 }
+
+a.building {
+    color: #003366;
+}
+a.building:hover { 
+    color: #f30567; 
+}

@@ -10,6 +10,7 @@
     li {
         text-align: left;
         font-size: 24px;
+        margin-left: 1%;
     }
 
     nav li {
@@ -33,7 +34,7 @@
     <ol>
         {% for building in buildings %}
 
-        <li><a href="/downdetector/{{ building.buildingid }}">{{ building.name }}</a></li>
+        <li><a class="building" href="/downdetector/{{ building.buildingid }}">{{ building.name }}</a></li>
 
         {% endfor %}
     </ol>
