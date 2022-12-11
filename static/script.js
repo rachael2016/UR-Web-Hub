@@ -7,11 +7,19 @@ function openAccordion(id) {
     x.className = x.className.replace(" w3-show", "");
   }
 }
-
+// display the current date/time 
 const dayoftheweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const monthoftheyear = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const date = new Date();
 let day = dayoftheweek[date.getDay()];
-document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + "&nbsp;" + date + "</span>";
+let month = monthoftheyear[date.getMonth()];
+let numberdate = date.getDate();
+let hour = date.getHours(); 
+let minutes = date.getMinutes();
+document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + "&nbsp;" + month + "&nbsp;" + numberdate + "&nbsp;" + hour + ":" + minutes + "</span>";
+
+//then check it against the dining schedule 
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
