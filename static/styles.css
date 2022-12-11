@@ -144,7 +144,7 @@ fieldset {
 	}
 }
 
-#current_date {
+.whatisopen {
 	background-color: #ddffff;
 	margin-top: 2em;
 	max-width: 60%;
@@ -186,7 +186,7 @@ h2.full-width {
 	width: 100%;
 }
 
-header, footer, nav, .lead, .full-width, #current_date {
+header, footer, nav, .lead, .full-width, .whatisopen {
 	grid-column: 1 / 3;
 } 
 
