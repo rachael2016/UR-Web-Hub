@@ -35,35 +35,35 @@
 {% endblock %}
 
 {% block content %}
-	<div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
+<div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
     <p>{{ courseName }}</p>
     Overall: {{ overall }}/5<br>
     {{ numRatings }} ratings<br><br>
     <table>
         <tr>
             <td>5 stars</td>
-            <td><progress value="{{ 5stars }}" max="100"></progress></td>
-            <td>{{5stars}}</td>
+            <td><progress value="{{ five_stars }}" max="100"></progress></td>
+            <td>{{ five_stars}}</td>
         </tr>
         <tr>
             <td>4 stars</td>
-            <td><progress value="{{ 4stars }}" max="100"></progress></td>
-            <td>{{4stars}}</td>
+            <td><progress value="{{ four_stars }}" max="100"></progress></td>
+            <td>{{four_stars}}</td>
         </tr>
         <tr>
             <td>3 stars</td>
-            <td><progress value="{{ 3stars }}" max="100"></progress></td>
-            <td>{{3stars}}</td>
+            <td><progress value="{{ three_stars }}" max="100"></progress></td>
+            <td>{{three_stars}}</td>
         </tr>
         <tr>
             <td>2 stars</td>
-            <td><progress value="{{ 2stars }}" max="100"></progress></td>
-            <td>{{2stars}}</td>
+            <td><progress value="{{ two_stars }}" max="100"></progress></td>
+            <td>{{two_stars}}</td>
         </tr>
         <tr>
             <td>1 star</td>
-            <td><progress value="{{ 1star }}" max="100"></progress></td>
-            <td>{{1star}}</td>
+            <td><progress value="{{ one_star }}" max="100"></progress></td>
+            <td>{{one_star}}</td>
         </tr>
     </table>
 
@@ -78,9 +78,11 @@
     {%endfor%}
 
     <p>Top Reviews</p>
-    <!--Loop through reviews-->
-    {%for review in reviews%}
+    Loop through reviews-->
+    <!--{%for review in reviews%}
         <div class="comment">{{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</div><br>
 
     {%endfor%}
+	
 {% endblock %}
+

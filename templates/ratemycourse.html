@@ -15,10 +15,12 @@
 
 {% block content %}
 	<center><h1>Rate My Course</h1></center>
-	<form>
+	<form method = "POST">
 	<center>
+		{{ form.csrf_token }}
 		<b>Department</b>
-		<select id="dropMenu" class="dropdown-content">
+		{{ form.department }}
+		<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 			<option value="Accounting">Accounting</option>
 			<option value="Anthropology">Anthropology</option>
 			<option value="Art History">Art History</option>
@@ -48,9 +50,10 @@
 			<option value="Theater">Theater</option>
 			<option value="Women's Studies">Women's Studies</option>
 			<option value="Writing">Writing</option>
-		</select>&nbsp;
-		<input id="search" type="text" placeholder="Search"> &nbsp;
-		<input type="button" id="submitSearch" onclick="location.href='ratemycourseratings';" value="Submit" />
+		</select>&nbsp; -->
+		<input id="abbreviation" type="text" placeholder="Search" name = "abbreviation"> &nbsp;
+		<input type="submit" id="submit" name="submit">
+		<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
 	</center>
 
 	<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>

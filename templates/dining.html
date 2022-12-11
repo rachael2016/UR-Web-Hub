@@ -13,7 +13,9 @@
                <div id="current_date"></div>
             <section class="lead">
          <h2 class="full-width">Dining Locations</h2>
-         <img src="../static/hoursofoperation.png" alt="Fall Hours of Operation">
+         <div class="zoom">
+            <img src="../static/hoursofoperation.png" alt="Fall Hours of Operation">
+         </div>
          <div id="accordion">
             <button onclick="openAccordion('downdetector')" class="w3-btn w3-block w3-aqua"><h3><em>Down Detector</em></h3></button>
          <div id="downdetector" class="w3-hide w3-container w3-center w3-pale-blue">
@@ -33,4 +35,5 @@
     </div>
       </section>
    </div>
+   <script src="../static/zoom-by-ironex.min.js"></script>
 {% endblock %}

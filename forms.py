@@ -3,6 +3,25 @@ from flask_wtf import FlaskForm
 from wtforms.validators import EqualTo, DataRequired, Length
 from wtforms.widgets import TextArea
 
+
+keys = ["African and African-American Studies", "American Sign Language",
+        "American Studies", "Anthropology", "Archaeology, Technology and Historical Structures", 
+        "Art History", "Art and Art History", "Audio and Music Engineering", 
+        "Biology", "Biomedical Engineering", "Brain & Cognitive Sciences", "Business", 
+        "Chemical Engineering", "Chemistry", "Classics, Religion", "Computer Science", 
+        "Dance and Movement", "Data Science", "Digital Media Studies", 
+        "Earth and Ennvironmental Sciences", "East Asian Studies", "Economics", 
+        "Electrical and Computer Engineering", "English", "Environmental Humanities",
+        "Film and Media Studies", "Gender, Sexuality, and Women's Studies", "History", 
+        "International Theatre", "Linguistics", "Materials Science", "Mathematics", 
+        "Mechanical Engineering", "Modern Languages and Cultures", "Music", "Naval Science", 
+        "Optics", "Philosophy", "Physics and Astronomy", "Political Science", "Psychology",
+        "Public Health", "Religion and Classics", "Russian Studies", "Statistics", 
+        "Sustainability Studies", "Theater", "Visual and Cultural Studies", "Writing, Speaking, and Argument"]
+tuples = []
+for i in keys:
+    tuples.append((i , i))
+
 class UserReport(FlaskForm):
     status = BooleanField("Down Status", validators=[DataRequired()])
     submit = SubmitField("Submit")
@@ -15,17 +34,6 @@ class FeedbackForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class CourseFeedbackForm(FlaskForm):
-    keys = ["Accounting", "Anthropology", "Art History", 
-        "Biology", "Brain & Cognitive Sciences", "Business", 
-        "Chemical Engineering", "Chemistry", "Computer Science", 
-        "Economics", "Education", "English", 
-        "Finance", "Geography", "Geology", "History", "Linguistics", 
-        "Marketing", "Mathematics", "Music", "Nursing", 
-        "Philosophy", "Physics", "Political Science", "Psychology",
-        "Studio Arts", "Theater", "Women's Studies", "Writing"]
-    tuples = []
-    for i in keys:
-        tuples.append((i , i))
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     course = StringField("Course", validators=[DataRequired()])
     department = SelectField("Department", choices = tuples, validators=[DataRequired()])
@@ -42,6 +50,11 @@ class CourseFeedbackForm(FlaskForm):
     attendance = RadioField("Attendance", choices = [('y', 'Yes'), ('n', 'No')])
     grade = SelectField("Grade", choices = [("A+", 'A+'), ('A', 'A')])
     review = TextAreaField("Review", widget = TextArea())
+    submit = SubmitField("Submit",)
+
+class HomeForm(FlaskForm):
+    department = SelectField("Department", choices = tuples, validators=[DataRequired()])
+    abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     submit = SubmitField("Submit",)
 
 
