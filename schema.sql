@@ -51,6 +51,7 @@ CREATE TABLE "CourseRatingsReceived" (
     "usefulness" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "difficulty" INTEGER NOT NULL,
+    "tags" TEXT,
     PRIMARY KEY("reportid" AUTOINCREMENT),
     FOREIGN KEY("courseid") REFERENCES "Courses"(id) ON DELETE CASCADE
 );

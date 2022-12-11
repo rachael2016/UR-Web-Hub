@@ -74,13 +74,13 @@
 
     <p>Top Tags</p>
     {%for tag in tags %}
-        <div class="tag">{{ tag.message }}</div>
+        <div class="tag">{{ tag }}</div>
     {%endfor%}
 
     <p>Top Reviews</p>
     <!--Loop through reviews-->
-    <!--{%for review in reviews%}
-        <div class="comment">{{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</div><br>
+    {%for review in reviews%}
+        <div class="comment">{{ review.rating }} {{ review.message }}</div><br>
 
     {%endfor%}
 	
