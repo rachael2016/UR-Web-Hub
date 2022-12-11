@@ -3,6 +3,19 @@ from flask_wtf import FlaskForm
 from wtforms.validators import EqualTo, DataRequired, Length
 from wtforms.widgets import TextArea
 
+
+keys = ["Accounting", "Anthropology", "Art History", 
+        "Biology", "Brain & Cognitive Sciences", "Business", 
+        "Chemical Engineering", "Chemistry", "Computer Science", 
+        "Economics", "Education", "English", 
+        "Finance", "Geography", "Geology", "History", "Linguistics", 
+        "Marketing", "Mathematics", "Music", "Nursing", 
+        "Philosophy", "Physics", "Political Science", "Psychology",
+        "Studio Arts", "Theater", "Women's Studies", "Writing"]
+tuples = []
+for i in keys:
+    tuples.append((i , i))
+
 class UserReport(FlaskForm):
     status = BooleanField("Down Status", validators=[DataRequired()])
     submit = SubmitField("Submit")
@@ -15,17 +28,6 @@ class FeedbackForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class CourseFeedbackForm(FlaskForm):
-    keys = ["Accounting", "Anthropology", "Art History", 
-        "Biology", "Brain & Cognitive Sciences", "Business", 
-        "Chemical Engineering", "Chemistry", "Computer Science", 
-        "Economics", "Education", "English", 
-        "Finance", "Geography", "Geology", "History", "Linguistics", 
-        "Marketing", "Mathematics", "Music", "Nursing", 
-        "Philosophy", "Physics", "Political Science", "Psychology",
-        "Studio Arts", "Theater", "Women's Studies", "Writing"]
-    tuples = []
-    for i in keys:
-        tuples.append((i , i))
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     course = StringField("Course", validators=[DataRequired()])
     department = SelectField("Department", choices = tuples, validators=[DataRequired()])
@@ -42,6 +44,11 @@ class CourseFeedbackForm(FlaskForm):
     attendance = RadioField("Attendance", choices = [('y', 'Yes'), ('n', 'No')])
     grade = SelectField("Grade", choices = [("A+", 'A+'), ('A', 'A')])
     review = TextAreaField("Review", widget = TextArea())
+    submit = SubmitField("Submit",)
+
+class HomeForm(FlaskForm):
+    department = SelectField("Department", choices = tuples, validators=[DataRequired()])
+    abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     submit = SubmitField("Submit",)
 
 
