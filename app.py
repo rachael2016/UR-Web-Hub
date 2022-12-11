@@ -89,7 +89,7 @@ def coursefeedbackform():
 def ratemycourseratings(courseID):
     conn = getdbconnection()
     reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
-    reviewsData = []
+    # reviewsData = []
     fiveStars = 0
     fourStars = 0
     threeStars = 0
@@ -99,13 +99,11 @@ def ratemycourseratings(courseID):
     totalDifficulty = 0
     totalUsefulness = 0
     messages = []
-    reviewDict = {}
+    reviewDict = []
     for review in reviews:
-        reviewsData.append({'rating': review['rating'], 'message': review['message'], \
-            'difficulty': review['difficulty'], 'usefulness': review['usefulness']})
-        reviewDict = {'rating': review['rating'], 'message': review['message']}
-        print(review['rating'])
-        print(review['message'])
+        reviewDict.append({'rating': review['rating'], 'message': review['message']})
+        # print(review['rating'])
+        # print(review['message'])
         rating = int(review['rating'])
         difficulty = int(review['difficulty'])
         usefulness = int(review['usefulness'])
@@ -124,14 +122,14 @@ def ratemycourseratings(courseID):
         totalDifficulty += difficulty
         totalUsefulness += usefulness
         messages.append(review['message'])
-    average = totalRatings / len(reviewsData)
-    averageDiff = totalDifficulty / len(reviewsData)
-    averageUse = totalUsefulness / len(reviewsData)
-    # print(len(reviewsData))
+    # print("size", len(reviews))
+    average = totalRatings / len(reviews)
+    averageDiff = totalDifficulty / len(reviews)
+    averageUse = totalUsefulness / len(reviews)
     conn.close()
-    print(messages)
+    # print(messages)
     return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
-    numRatings = len(reviewsData), five_stars = fiveStars, four_stars = fourStars, 
+    numRatings = len(reviews), five_stars = fiveStars, four_stars = fourStars, 
     three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
     usefulness = averageUse, tags = spam_list, reviews = reviewDict)
 
