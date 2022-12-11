@@ -4,14 +4,20 @@ from wtforms.validators import EqualTo, DataRequired, Length
 from wtforms.widgets import TextArea
 
 
-keys = ["Business", "Anthropology", "Art History", 
-        "Biology", "Brain & Cognitive Sciences", 
-        "Chemical Engineering", "Chemistry", "Computer Science", 
-        "Economics", "Education", "English", 
-        "Finance", "Geography", "Geology", "History", "Linguistics", 
-        "Marketing", "Mathematics", "Music", "Nursing", 
-        "Philosophy", "Physics", "Political Science", "Psychology",
-        "Studio Arts", "Theater", "Women's Studies", "Writing", "Optics"]
+keys = ["African and African-American Studies", "American Sign Language",
+        "American Studies", "Anthropology", "Archaeology, Technology and Historical Structures", 
+        "Art History", "Art and Art History", "Audio and Music Engineering", 
+        "Biology", "Biomedical Engineering", "Brain & Cognitive Sciences", "Business", 
+        "Chemical Engineering", "Chemistry", "Classics, Religion", "Computer Science", 
+        "Dance and Movement", "Data Science", "Digital Media Studies", 
+        "Earth and Ennvironmental Sciences", "East Asian Studies", "Economics", 
+        "Electrical and Computer Engineering", "English", "Environmental Humanities",
+        "Film and Media Studies", "Gender, Sexuality, and Women's Studies", "History", 
+        "International Theatre", "Linguistics", "Materials Science", "Mathematics", 
+        "Mechanical Engineering", "Modern Languages and Cultures", "Music", "Naval Science", 
+        "Optics", "Philosophy", "Physics and Astronomy", "Political Science", "Psychology",
+        "Public Health", "Religion and Classics", "Russian Studies", "Statistics", 
+        "Sustainability Studies", "Theater", "Visual and Cultural Studies", "Writing"]
 tuples = []
 for i in keys:
     tuples.append((i , i))
