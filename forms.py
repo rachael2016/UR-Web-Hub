@@ -5,7 +5,7 @@ from wtforms.widgets import TextArea
 
 
 keys = ["Business", "Anthropology", "Art History", 
-        "Biology", "Brain & Cognitive Sciences", "Business", 
+        "Biology", "Brain & Cognitive Sciences", 
         "Chemical Engineering", "Chemistry", "Computer Science", 
         "Economics", "Education", "English", 
         "Finance", "Geography", "Geology", "History", "Linguistics", 
