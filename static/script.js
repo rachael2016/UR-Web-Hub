@@ -8,6 +8,7 @@ function openAccordion(id) {
   }
 }
 // display the current date/time 
+const date = new Date();
 const dayoftheweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthoftheyear = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const date = new Date();
@@ -19,7 +20,10 @@ let minutes = date.getMinutes();
 document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + "&nbsp;" + month + "&nbsp;" + numberdate + "&nbsp;" + hour + ":" + minutes + "</span>";
 
 //then check it against the dining schedule 
-
+const dateschedule = new Date();
+if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate == 31) ) {
+    document.getElementById("fall_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Fall 2022 Hours of Operation" + "</span>";;
+  }
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
