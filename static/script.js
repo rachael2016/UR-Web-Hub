@@ -8,10 +8,10 @@ function openAccordion(id) {
   }
 }
 
-date = new Date().toLocaleString();
 const dayoftheweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const date = new Date();
 let day = dayoftheweek[date.getDay()];
-document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + date + "</span>";
+document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + "&nbsp;" + date + "</span>";
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
