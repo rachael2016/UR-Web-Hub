@@ -10,6 +10,7 @@
     li {
         text-align: left;
         font-size: 24px;
+        margin-left: 1%;
     }
 
     nav li {
@@ -27,15 +28,16 @@
 {% endblock %}
 
 {% block content %}
-
     <h1>Down Detector Building List</h1>
     <h5>Select your building to view the status</h5>
+    <section class="lead">
     <ol>
         {% for building in buildings %}
 
-        <li><a href="/downdetector/{{ building.buildingid }}">{{ building.name }}</a></li>
+        <li><a href="/downdetector/{{ building.buildingid }}"><u>{{ building.name }}</u></a></li>
 
         {% endfor %}
     </ol>
+    </section>
 
 {% endblock %}

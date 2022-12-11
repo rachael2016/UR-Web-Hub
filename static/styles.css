@@ -450,3 +450,19 @@ nav li {
 input[type=checkbox] {
 	margin:0;
 }
+
+a.building {
+    color: #003366;
+}
+a.building:hover { 
+    color: #f30567; 
+}
+
+.back {
+	background-color: #999999;
+	padding: 2em;
+	border-radius: 15px 15px 15px 15px;
+	margin: 0 auto;
+	margin-top: 2em;
+	max-width: 90%;
+}
