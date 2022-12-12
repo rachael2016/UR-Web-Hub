@@ -155,14 +155,14 @@ fieldset {
 #current_date, #fall_schedule {
 	font-size: larger;
 	color: #ffdb4d;
-	font-family: "Century Gothic"; 
+	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, "Trebuchet MS", sans-serif; 
 	font-weight: bold;
 	padding-top: 2em;
 }
 
 .dininglocations {
 	color: #ddffff;
-	font-family: "Century Gothic"; 
+	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, "Trebuchet MS", sans-serif; 
 	display: block; 
 	text-align: center; 
 	font-weight: bold;
