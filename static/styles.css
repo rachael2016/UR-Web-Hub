@@ -119,6 +119,7 @@ fieldset {
 		padding-right: 0px;
 		padding-bottom: 0em;
 		border-radius:  0px;
+		margin-left: 0;
 	}
 
 	h2 {
@@ -165,6 +166,8 @@ fieldset {
 	display: block; 
 	text-align: center; 
 	font-weight: bold;
+	padding-bottom: 1em;
+	padding-top: 2em;
 }
 
 
@@ -253,10 +256,6 @@ p {
 	font-weight: bold;
 	padding-left:  1em;
 	padding-right:  1em;
-}
-
-.dininglocations {
-	padding-top: 2em;
 }
 
 ul {
