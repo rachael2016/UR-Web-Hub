@@ -48,7 +48,9 @@ class CourseFeedbackForm(FlaskForm):
     credit = RadioField("Credit", choices = [('y', 'Yes'), ('n', 'No')])
     textbook = RadioField("Textbook", choices = [('y', 'Yes'), ('n', 'No')])
     attendance = RadioField("Attendance", choices = [('y', 'Yes'), ('n', 'No')])
-    grade = SelectField("Grade", choices = [("A+", 'A+'), ('A', 'A')])
+    grade = SelectField("Grade", choices = [("A+", 'A+'), ('A', 'A'), \
+        ('A-','A-'), ('B+', 'B+'), ('B', 'B'), ('B-', 'B-'), ('C+', 'C+'), \
+        ('C', 'C'), ('C-', 'C-'), ('D+', 'D+'), ('D', 'D'), ('D-', 'D-'), ('E', 'E')])
     review = TextAreaField("Review", widget = TextArea())
     submit = SubmitField("Submit",)
 

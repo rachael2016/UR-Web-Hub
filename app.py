@@ -76,11 +76,13 @@ def coursefeedbackform():
         print(request.form.getlist('tag'))
         print(request.form.getlist('tag')[0])
         print(form.review.data)
+        temp = form.abbreviation.data
         form.course.data = ''
         form.professor.data = ''
         form.abbreviation.data = ''
         form.department.data = ''
-        return redirect(url_for('ratemycourse'))
+        # return redirect(url_for('ratemycourse'))
+        return redirect(url_for("ratemycourseratings", courseID = temp))
     else:
         print("form invalid")
     return render_template("ratemycoursefeedback.html", form = form)
