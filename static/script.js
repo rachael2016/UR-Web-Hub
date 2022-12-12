@@ -95,6 +95,8 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
         document.getElementById("brew_schedule").innerHTML = "The Brew @ Simon - Open Until 2PM";
    }
   }
+} else {
+    document.getElementById("nothing").innerHTML = "Nothing open";
 }
 
 /* When the user clicks on the button,
