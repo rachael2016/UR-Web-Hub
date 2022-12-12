@@ -49,7 +49,10 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
       if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
     	 document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 8";
     }
-  }
+    else {
+        document.getElementById("nothing").innerHTML = "Nothing open";
+    }
+}
   //monday is day 1 
   if (dateschedule.getDay() == 1) {
     if ( (dateschedule.getHours() < 11 && (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30)) ){
@@ -93,11 +96,13 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
     }
     if ( (dateschedule.getHours() < 14 && (dateschedule.getHours() >= 9 && dateschedule.getMinutes() <= 30)) ){
         document.getElementById("brew_schedule").innerHTML = "The Brew @ Simon - Open Until 2PM";
-   }
-  }
-} else {
-    document.getElementById("nothing").innerHTML = "Nothing open";
+     }
+     else {
+        document.getElementById("nothing").innerHTML = "Nothing open";
+    }
+  } 
 }
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
