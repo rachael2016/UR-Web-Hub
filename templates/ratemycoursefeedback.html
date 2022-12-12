@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../static/rate.css">
-
 <script src="/static/script.js"></script>
 {% endblock %}
 
@@ -23,11 +22,10 @@
             <!-- <input type="text" id="abbreviation" name="abbreviation"><br><br>
             <input type="text" id="course" name="course"><br><br>
             <textarea id="professor" name="professor"></textarea><br><br> -->
-            <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
-            <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p>
-            <p>
-                Department
-                {{ form.department }}
+            <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 15em;" placeholder="Enter course ID (e.g. CSC212)"></p><br>
+            <p>Course Name <input type="text" id="course" name="course" style="width: 26em;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p><br>
+            <p>Department
+                {{ form.department }}</p><br><br>
                 <!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
                     <option value="Accounting">Accounting</option>
                     <option value="Anthropology">Anthropology</option>
@@ -65,7 +63,7 @@
     <p>Semester Taken </p>
     {{ form.semester }}
     <br>
-    <p>Rating </p>
+    <p>Overall Rating </p>
     {% for subfield in form.rating %}
     <tr>
         <td>{{ subfield }}</td>
@@ -158,18 +156,18 @@
         </select> -->
     </p><br>
     <p>Select tags </p>
-    <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
-    <p><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
-    <p><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
-    <p><input type="checkbox" name="tag" value="Extra Credit">Extra Credit</p>
-    <p><input type="checkbox" name="tag" value="Group Projects">Group Projects</p>
-    <p><input type="checkbox" name="tag" value="Clear Grading Criteria">Clear Grading Criteria</p>
-    <p><input type="checkbox" name="tag" value="Lots Of Homework">Lots Of Homework</p>
-    <p><input type="checkbox" name="tag" value="Beware Of Pop Quizzes">Beware Of Pop Quizzes</p>
-    <p><input type="checkbox" name="tag" value="Lots of Papers">Lots of Papers</p>
-    <p><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
-    <p><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
-    <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
+    <p><input type="checkbox" name="tag" value="Tough Grader"> Tough Grader</p>
+    <p><input type="checkbox" name="tag" value="Reading Heavy"> Reading Heavy</p>
+    <p><input type="checkbox" name="tag" value="Participation Matters"> Participation Matters</p>
+    <p><input type="checkbox" name="tag" value="Extra Credit"> Extra Credit</p>
+    <p><input type="checkbox" name="tag" value="Group Projects"> Group Projects</p>
+    <p><input type="checkbox" name="tag" value="Clear Grading Criteria"> Clear Grading Criteria</p>
+    <p><input type="checkbox" name="tag" value="Lots Of Homework"> Lots Of Homework</p>
+    <p><input type="checkbox" name="tag" value="Beware Of Pop Quizzes"> Beware Of Pop Quizzes</p>
+    <p><input type="checkbox" name="tag" value="Lots of Papers"> Lots of Papers</p>
+    <p><input type="checkbox" name="tag" value="Lecture Heavy"> Lecture Heavy</p>
+    <p><input type="checkbox" name="tag" value="Test Heavy"> Test Heavy</p>
+    <p><input type="checkbox" name="tag" value="Graded By Few Things"> Graded By Few Things</p>
     <br>
     <div class="review-panel">
         <p>Write a Review</p>

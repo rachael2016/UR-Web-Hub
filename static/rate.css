@@ -72,7 +72,7 @@ label {
 }
 
 input {
-    margin-top: 2em;
+    margin-left: 1em;
     margin-bottom: 2em;
     background-color: #f0f0f0;
 }
@@ -452,3 +452,6 @@ nav {
     }
 }
 
+input[type=checkbox] {
+    margin-inline: 1em;
+}

@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../static/styles.css">
 <style>
-
     header {
         width: auto;
     }
@@ -18,7 +17,6 @@
     .table {
         border-collapse: collapse;
     }
-
     progress {
         height: 2rem;
         text-align: center;
@@ -49,7 +47,7 @@
 {% block content %}
 <center><div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
 <p>{{ courseName }}</p>
-    Overall: {{ overall }}/5
+    Overall Rating: {{ overall }}/5
 <br>
 {{ numRatings }} ratings
 <br>
@@ -85,7 +83,7 @@
 <p>Difficulty: {{ difficulty }}/5</p>
 <p>Usefulness: {{ usefulness }}/5</p>
 
-<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse')}}';">Rate this Course</button>
+<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse', courseID = {{ courseID }})}}';">Rate this Course</button>
 <br>
 <br>
 
@@ -97,7 +95,7 @@
 <p>Top Reviews</p>
 <!--Loop through reviews-->
     {%for review in reviews%}
-<div class="comment">{{ review.rating }} {{ review.message }} {{ review.semester }}</div>
+<div class="comment">QUALITY: <b>{{ review.rating }}</b> &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }}<br> {{ review.message }}</div>
 <br>
 </center>
     {%endfor%}
