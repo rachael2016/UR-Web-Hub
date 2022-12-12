@@ -103,6 +103,13 @@ fieldset {
 	max-width: 90%;
 }
 
+.whatisopen {
+	background-color: #003366;
+	margin-top: 2em;
+	max-width: 60%;
+	margin-left: 20%;
+	border-radius: 15px;
+}
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
 	
@@ -142,14 +149,6 @@ fieldset {
 	textarea {
 		padding: 2em;
 	}
-}
-
-.whatisopen {
-	background-color: #003366;
-	margin-top: 2em;
-	max-width: 60%;
-	margin-left: 20%;
-	border-radius: 15px;
 }
 
 #current_date, #fall_schedule {
