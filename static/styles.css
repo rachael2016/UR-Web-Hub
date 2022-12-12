@@ -475,5 +475,6 @@ a.building:hover {
 	border-radius: 15px 15px 15px 15px;
 	margin: 0 auto;
 	margin-top: 2em;
+	margin-bottom: 2em;
 	max-width: 90%;
 }
