@@ -22,32 +22,32 @@ document.getElementById("current_date").innerHTML = day + "," + "&nbsp;" + month
 //then check it against the dining schedule 
 const dateschedule = new Date();
 if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate == 31) ) {
-    document.getElementById("fall_schedule").innerHTML = "Fall 2022 Hours of Operation";
+    document.getElementById("fall_schedule").innerHTML = "Fall 2022 Standard Hours of Operation";
   if (dateschedule.getDay() == 0) {
     if( (dateschedule.getHours() >= 10 && dateschedule.getHours() <= 22)) {
-        document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's";
+        document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's - Until 11PM";
     }
     
   	if ( (dateschedule.getHours() >= 9 && dateschedule.getHours() <= 23)) {
-    	 document.getElementById("starbucks_schedule").innerHTML = "Starbucks";
+    	 document.getElementById("starbucks_schedule").innerHTML = "Starbucks - Until Midnight";
     }
     
    	if ( (dateschedule.getHours() >= 14 && dateschedule.getHours() < 21)) {
-    	 document.getElementById("connections_schedule").innerHTML = "Connections";
+    	 document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
     }
-    if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 2)) {
-    	 document.getElementById("hillside_schedule").innerHTML = "Hillside";
+    if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 1)) {
+    	 document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
     }
     if ( (dateschedule.getHours() >= 7 && (dateschedule.getHours() <= 9 && dataschedule.getMinutes <= 30)) ){
-    	 document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast";
+    	 document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
     }
 	
    if( (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dataschedule.getMinutes <= 30) ){
-           document.getElementById("douglassbrunch_schedule").innerHTML = "Douglass - Brunch";
+           document.getElementById("douglassbrunch_schedule").innerHTML = "Douglass - Brunch Until 2:30";
       }
       
       if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
-    	 document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner";
+    	 document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 8";
     }
   }
 }
