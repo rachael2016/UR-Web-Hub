@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 	color:  #484848 !important;
 }
 
-h2.full-width {
+h2.full-width, .departments {
 	width: 100%;
 }
 
@@ -250,7 +250,7 @@ h2 {
 	background-color: #ADD8E6 !important;
 }
 
-.full-width {
+.full-width, .departments {
 	width: 100%;
 }
 
