@@ -48,6 +48,7 @@ CREATE TABLE "CourseRatingsReceived" (
     "reportid" INTEGER NOT NULL,
     "courseid" INTEGER NOT NULL,
     "rating" INTEGER NOT NULL,
+    "semester" TEXT NOT NULL,
     "usefulness" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "difficulty" INTEGER NOT NULL,

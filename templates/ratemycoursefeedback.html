@@ -83,7 +83,9 @@
                     <option value="Writing">Writing</option>
                 </select></p> -->
             <p>Professor <input id="professor" name="professor" type="text" placeholder="Enter professor name"></p><br>
-            <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+            <p>Semester Taken </p>
+            {{ form.semester }}
+            <br>
             <p>Rating </p>
             {% for subfield in form.rating %}
             <tr>
