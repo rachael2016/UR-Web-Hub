@@ -83,17 +83,17 @@ def coursefeedbackform():
         ratingsList = []
         for rating in ratings:
             ratingsList.append({'tags': rating['tags']})
-        print(ratingsList)
+        # print(ratingsList)
         conn.commit()
         conn.close()
-        print(form.rating.data)
-        print(form.difficulty.data)
-        print(form.usefulness.data)
-        print(form.online.data)
-        print(form.review.data)
+        # print(form.rating.data)
+        # print(form.difficulty.data)
+        # print(form.usefulness.data)
+        # print(form.online.data)
+        # print(form.review.data)
         # print(request.form.get('dropMenu'))
-        print(request.form.getlist('tag'))
-        print(request.form.getlist('tag')[0])
+        # print(request.form.getlist('tag'))
+        # print(request.form.getlist('tag')[0])
         print(form.review.data)
         temp = form.abbreviation.data
         form.course.data = ''
@@ -129,7 +129,12 @@ def ratemycourseratings(courseID):
         rating = int(review['rating'])
         difficulty = int(review['difficulty'])
         usefulness = int(review['usefulness'])
-        spam_list = review['tags'].split(',')
+        # temp = list(review['tags'])
+        # if(len(review['tags']) == 1):
+        #     spam_list.append(review['tags'][0])
+        # else:
+        spam_list = str(review['tags']).split(',')
+        print(spam_list)
         if(rating == 5):
             fiveStars += 1
         elif rating == 4:
