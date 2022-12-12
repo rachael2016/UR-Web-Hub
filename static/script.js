@@ -21,88 +21,88 @@ document.getElementById("current_date").innerHTML = day + "," + "&nbsp;" + month
 
 //then check it against the dining schedule 
 const dateschedule = new Date();
-if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate() == 31) ) {
+if ((dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate() == 31)) {
     document.getElementById("fall_schedule").innerHTML = "Fall 2022 Standard Hours of Operation";
     // sunday is day 0
     if (dateschedule.getDay() == 0) {
-    if( (dateschedule.getHours() >= 11 && dateschedule.getHours() <= 22)) {
-        document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's - Until 11PM";
-    }
-    
-  	if ( (dateschedule.getHours() >= 9 && dateschedule.getHours() <= 23)) {
-    	 document.getElementById("starbucks_schedule").innerHTML = "Starbucks - Until Midnight";
-    }
-    
-   	if ( (dateschedule.getHours() >= 14 && dateschedule.getHours() < 21)) {
-    	 document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
-    }
-    if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 23)) {
-    	 document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
-    }
-    if ( (dateschedule.getHours() >= 8 && (dateschedule.getHours() <= 10 && dateschedule.getMinutes() <= 30)) ){
-    	 document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
-    }
-   if( (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dataschedule.getMinutes() <= 30) ){
-           document.getElementById("douglassbrunch_schedule").innerHTML = "Douglass - Brunch Until 2:30";
-      }
-      
-      if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
-    	 document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 8";
-    }
-    else {
-        document.getElementById("nothing").innerHTML = "Nothing open";
-    }
-}
-  //monday is day 1 
-  if (dateschedule.getDay() == 1) {
-    if ( (dateschedule.getHours() < 11 && (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30)) ){
-        document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's - Until 11PM";
-    }
-    if ( (dateschedule.getHours() >= 8 && dateschedule.getHours() < 15)) {
-        document.getElementById("grabngo_schedule").innerHTML = "Grab N Go - Until 3PM";
-   }
-   if ( (dateschedule.getHours() < 1 && (dateschedule.getHours() >= 7 && dataschedule.getMinutes() >= 30)) ){
-    document.getElementById("starbucks_schedule").innerHTML = "Starbucks - Until Midnight";
-    }
-    if ( (dateschedule.getHours() >= 7 && dateschedule.getHours() < 21)) {
-        document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
-   }
-   if( (dateschedule.getHours() >= 7 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dataschedule.getMinutes() <= 30) ){
-    document.getElementById("peets_schedule").innerHTML = "Peets - Open Until 2:30";
-    }
-    if ( (dateschedule.getHours() >= 11 && (dateschedule.getHours() <= 13 && dateschedule.getMinutes() <= 30)) ){
-        document.getElementById("danforthlunch_schedule").innerHTML = "Danforth - Lunch Until 1:30PM";
-   }
-   if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 19)) {
-    document.getElementById("danfrothdinner_schedule").innerHTML = "Danforth - Dinner Until 7PM";
-    }
-    if ( (dateschedule.getHours() == 0 || dateschedule.getHours() >= 12 && dateschedule.getHours() <= 23)) {
-        document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
-   }
-   if ( (dateschedule.getHours() >= 11 && dateschedule.getHours() < 14)) {
-    document.getElementById("californiarollin_schedule").innerHTML = "California Rollin - Open Until 2PM";
-    }
-    if ( (dateschedule.getHours() >= 7 && (dateschedule.getHours() <= 10 && dateschedule.getMinutes() <= 30)) ){
-        document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
-   }
-   if( (dateschedule.getHours() >= 11 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 15 && dataschedule.getMinutes() <= 30) ){
-    document.getElementById("douglasslunch_schedule").innerHTML = "Douglass - Lunch Until 3:30";
-    }
-    if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 21)) {
-        document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 9";
-   }
-   if( (dateschedule.getHours() >= 11 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 13 && dataschedule.getMinutes() <= 30) ){
-    document.getElementById("facultyclub_schedule").innerHTML = "Faculty Club - Open Until 1:30";
-    }
-    if ( (dateschedule.getHours() < 14 && (dateschedule.getHours() >= 9 && dateschedule.getMinutes() <= 30)) ){
-        document.getElementById("brew_schedule").innerHTML = "The Brew @ Simon - Open Until 2PM";
-     }
-     else {
-        document.getElementById("nothing").innerHTML = "Nothing open";
-    }
-  } 
-}
+        if ((dateschedule.getHours() >= 11 && dateschedule.getHours() <= 22)) {
+            document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's - Until 11PM";
+        }
 
+        if ((dateschedule.getHours() >= 9 && dateschedule.getHours() <= 23)) {
+            document.getElementById("starbucks_schedule").innerHTML = "Starbucks - Until Midnight";
+        }
+
+        if ((dateschedule.getHours() >= 14 && dateschedule.getHours() < 21)) {
+            document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
+        }
+        if ((dateschedule.getHours() >= 12 || dateschedule.getHours() <= 23)) {
+            document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
+        }
+        if ((dateschedule.getHours() >= 8 && (dateschedule.getHours() <= 10 && dateschedule.getMinutes() <= 30))) {
+            document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
+        }
+        if ((dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dataschedule.getMinutes() <= 30)) {
+            document.getElementById("douglassbrunch_schedule").innerHTML = "Douglass - Brunch Until 2:30";
+        }
+
+        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
+            document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 8";
+        } else {
+            document.getElementById("nothing").innerHTML = "Nothing open";
+        }
+    }
+    //monday is day 1 
+    if (dateschedule.getDay() == 1) {
+        if ((dateschedule.getHours() < 23 && (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30))) {
+            document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's - Until 11PM";
+        }
+        if ((dateschedule.getHours() >= 8 && dateschedule.getHours() < 15)) {
+            document.getElementById("grabngo_schedule").innerHTML = "Grab N Go - Until 3PM";
+        }
+        if ((dateschedule.getHours() <= 23 && (dateschedule.getHours() >= 7 && dateschedule.getMinutes() >= 30))) {
+            document.getElementById("starbucks_schedule").innerHTML = "Starbucks - Until Midnight";
+        }
+
+        if ((dateschedule.getHours() >= 7 && dateschedule.getHours() < 21)) {
+            document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
+        }
+        if ((dateschedule.getHours() == 0 || (dateschedule.getHours() >= 12 && dateschedule.getHours() <= 23))) {
+            document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
+        }
+        if ((dateschedule.getHours() >= 7 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dateschedule.getMinutes() <= 30)) {
+            document.getElementById("peets_schedule").innerHTML = "Peets - Open Until 2:30";
+        }
+
+        if ((dateschedule.getHours() >= 11 && (dateschedule.getHours() <= 13 && dateschedule.getMinutes() <= 30))) {
+            document.getElementById("danforthlunch_schedule").innerHTML = "Danforth - Lunch Until 1:30PM";
+        }
+        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 19)) {
+            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 7PM";
+        }
+        if ((dateschedule.getHours() >= 11 && dateschedule.getHours() < 14)) {
+            document.getElementById("californiarollin_schedule").innerHTML = "California Rollin - Open Until 2PM";
+        }
+        if ((dateschedule.getHours() >= 7 && (dateschedule.getHours() <= 10 && dateschedule.getMinutes() <= 30))) {
+            document.getElementById("douglass_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
+        }
+        if ((dateschedule.getHours() >= 11 && dateschedule.getMinutes() >= 30) || (dateschedule.getHours() <= 15 && dateschedule.getMinutes() <= 30)) {
+            document.getElementById("douglasslunch_schedule").innerHTML = "Douglass - Lunch Until 3:30";
+        }
+        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 21)) {
+            document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 9";
+        }
+        if ((dateschedule.getHours() >= 11 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 13 && dateschedule.getMinutes() <= 30)) {
+            document.getElementById("facultyclub_schedule").innerHTML = "Faculty Club - Open Until 1:30";
+        }
+        if ((dateschedule.getHours() < 14 && (dateschedule.getHours() >= 9 && dateschedule.getMinutes() <= 30))) {
+            document.getElementById("brew_schedule").innerHTML = "The Brew @ Simon - Open Until 2PM";
+        }
+
+    } else {
+        document.getElementById("nothing").innerHTML = "Nothing open";
+    }
+}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
