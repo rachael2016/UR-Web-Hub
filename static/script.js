@@ -67,6 +67,12 @@ if ((dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesche
         if ((dateschedule.getHours() == 0 || (dateschedule.getHours() >= 12 && dateschedule.getHours() <= 23))) {
             document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
         }
+        if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 21)) {
+            document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner Until 9";
+        }
+        if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 21)) {
+            document.getElementById("eastmandinner_schedule").innerHTML = "Eastman - Dinner Until 9";
+        }
         if ((dateschedule.getHours() >= 7 && dateschedule.getHours() < 10) || (dateschedule.getHours() = 10 && dateschedule.getMinutes() <= 30)) {
             document.getElementById("douglassbreak_schedule").innerHTML = "Douglass - Breakfast Until 10:30";
         }
