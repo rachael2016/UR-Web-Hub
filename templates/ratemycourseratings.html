@@ -47,7 +47,7 @@
 {% endblock %}
 
 {% block content %}
-<div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
+<center><div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
 <p>{{ courseName }}</p>
     Overall: {{ overall }}/5
 <br>
@@ -99,7 +99,7 @@
     {%for review in reviews%}
 <div class="comment">{{ review.rating }} {{ review.message }} {{ review.semester }} {{ review.professor }}</div>
 <br>
-
+</center>
     {%endfor%}
 
 

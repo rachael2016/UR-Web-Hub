@@ -6,31 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../static/styles.css">
-<style type="text/css">
-  
-    p {
-        margin:auto;
-        display: inline-flex;
-        grid-template-columns: 2fr 1fr;
-        text-align: center;
-        
-    }
-    
-    .form_center {
-        margin: auto 0;
-        display:flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+<link rel="stylesheet" href="../static/rate.css">
 
-    label{
-        display:inline-block;
-        
-        
-    }
-      
-</style>
 <script src="/static/script.js"></script>
 {% endblock %}
 
@@ -83,126 +60,128 @@
                     <option value="Writing">Writing</option>
                 </select></p> -->
             <p>Professor <input id="professor" name="professor" type="text" placeholder="Enter professor name"></p><br>
-            <p>Semester Taken </p>
-            {{ form.semester }}
-            <br>
-            <p>Rating </p>
-            {% for subfield in form.rating %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td>
-            </tr>
-            {% endfor %}
-            <br>
-            <p>Difficulty </p>
-            {% for subfield in form.difficulty %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td>
-            </tr>
-            {% endfor %}
-            <br>
-            <p>Usefulness </p>
-            {% for subfield in form.usefulness %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td>
-            </tr>
-            {% endfor %}
+            
+            </div> <!--for the form-center*/-->
+    <p>Semester Taken </p>
+    {{ form.semester }}
+    <br>
+    <p>Rating </p>
+    {% for subfield in form.rating %}
+    <tr>
+        <td>{{ subfield }}</td>
+        <td>{{ subfield.label }}</td>
+    </tr>
+    {% endfor %}
+    <br>
+    <p>Difficulty </p>
+    {% for subfield in form.difficulty %}
+    <tr>
+        <td>{{ subfield }}</td>
+        <td>{{ subfield.label }}</td>
+    </tr>
+    {% endfor %}
+    <br>
+    <p>Usefulness </p>
+    {% for subfield in form.usefulness %}
+    <tr>
+        <td>{{ subfield }}</td>
+        <td>{{ subfield.label }}</td>
+    </tr>
+    {% endfor %}
 
-            <p>
-                Did you take this class online?
-                {% for subfield in form.online %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
-                <!-- <input type="radio" name="online" value="yes">Yes
-                <input type="radio" name="online" value="no">No -->
-            </p><br>
-            <p>
-                Did you take this class for credit?
-                {% for subfield in form.credit %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
-                <!-- <input type="radio" name="cred" value="yes">Yes
-                <input type="radio" name="cred" value="no">No -->
-            </p><br>
-            <p>
-                Did this class use textbooks?
-                {% for subfield in form.textbook %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
-                <!-- <input type="radio" name="book" value="yes">Yes
-                <input type="radio" name="book" value="no">No -->
-            </p><br>
-            <p>
-                Was attendance mandatory?
-                {% for subfield in form.attendance %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
-                <!-- <input type="radio" name="att" value="yes">Yes
-                <input type="radio" name="att" value="no">No -->
-            </p><br>
-            <p>
-                What was your grade?
-                {{ form.grade }}
-                <!-- <select id="grade" name="grade">
-                  <option value="A+">A+</option>
-                  <option value="A">A</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B">B</option>
-                  <option value="B-">B-</option>
-                  <option value="C+">C+</option>
-                  <option value="C">C</option>
-                  <option value="C-">C-</option>
-                  <option value="D+">D+</option>
-                  <option value="D">D</option>
-                  <option value="D-">D-</option>
-                  <option value="F">F</option>
-                  <option value="AU">Audit/No Grade</option>
-                  <option value="W">Drop/Withdraw</option>
-                  <option value="I">Incomplete</option>
-                  <option value="N">Not sure yet</option>
-                  <option value="NA">Rather not say</option>
-                </select> -->
-            </p><br>
-            <p>Select tags </p>
-            <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
-            <p><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
-            <p><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
-            <p><input type="checkbox" name="tag" value="Extra Credit">Extra Credit</p>
-            <p><input type="checkbox" name="tag" value="Group Projects">Group Projects</p>
-            <p><input type="checkbox" name="tag" value="Clear Grading Criteria">Clear Grading Criteria</p>
-            <p><input type="checkbox" name="tag" value="Lots Of Homework">Lots Of Homework</p>
-            <p><input type="checkbox" name="tag" value="Beware Of Pop Quizzes">Beware Of Pop Quizzes</p>
-            <p><input type="checkbox" name="tag" value="Lots of Papers">Lots of Papers</p>
-            <p><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
-            <p><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
-            <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
-            <br>
-            <div class="review-panel">
-                <p>Write a Review</p>
-                {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
-                <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
-                <!-- <input type="submit" style="display: none" /> -->
-                <br>
-                <input type="submit" id="submit" name="submit">
-                <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
+    <p>
+        Did you take this class online?
+        {% for subfield in form.online %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+        <!-- <input type="radio" name="online" value="yes">Yes
+        <input type="radio" name="online" value="no">No -->
+    </p><br>
+    <p>
+        Did you take this class for credit?
+        {% for subfield in form.credit %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+        <!-- <input type="radio" name="cred" value="yes">Yes
+        <input type="radio" name="cred" value="no">No -->
+    </p><br>
+    <p>
+        Did this class use textbooks?
+        {% for subfield in form.textbook %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+        <!-- <input type="radio" name="book" value="yes">Yes
+        <input type="radio" name="book" value="no">No -->
+    </p><br>
+    <p>
+        Was attendance mandatory?
+        {% for subfield in form.attendance %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+        <!-- <input type="radio" name="att" value="yes">Yes
+        <input type="radio" name="att" value="no">No -->
+    </p><br>
+    <p>
+        What was your grade?
+        {{ form.grade }}
+        <!-- <select id="grade" name="grade">
+          <option value="A+">A+</option>
+          <option value="A">A</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B">B</option>
+          <option value="B-">B-</option>
+          <option value="C+">C+</option>
+          <option value="C">C</option>
+          <option value="C-">C-</option>
+          <option value="D+">D+</option>
+          <option value="D">D</option>
+          <option value="D-">D-</option>
+          <option value="F">F</option>
+          <option value="AU">Audit/No Grade</option>
+          <option value="W">Drop/Withdraw</option>
+          <option value="I">Incomplete</option>
+          <option value="N">Not sure yet</option>
+          <option value="NA">Rather not say</option>
+        </select> -->
+    </p><br>
+    <p>Select tags </p>
+    <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
+    <p><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
+    <p><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
+    <p><input type="checkbox" name="tag" value="Extra Credit">Extra Credit</p>
+    <p><input type="checkbox" name="tag" value="Group Projects">Group Projects</p>
+    <p><input type="checkbox" name="tag" value="Clear Grading Criteria">Clear Grading Criteria</p>
+    <p><input type="checkbox" name="tag" value="Lots Of Homework">Lots Of Homework</p>
+    <p><input type="checkbox" name="tag" value="Beware Of Pop Quizzes">Beware Of Pop Quizzes</p>
+    <p><input type="checkbox" name="tag" value="Lots of Papers">Lots of Papers</p>
+    <p><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
+    <p><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
+    <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
+    <br>
+    <div class="review-panel">
+        <p>Write a Review</p>
+        {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
+        <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
+        <!-- <input type="submit" style="display: none" /> -->
+        <br>
+        <input type="submit" id="submit" name="submit">
+        <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
         </form>
     </div> <!--for the review-->
-    </div> <!--for the form-center*/-->
+
 </center>
 {% endblock %}
 
