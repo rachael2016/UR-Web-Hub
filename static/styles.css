@@ -153,6 +153,10 @@ fieldset {
 
 #current_date, #fall_schedule {
 	font-size: larger;
+	color: #ffdb4d;
+	font-family: "Century Gothic"; 
+	font-weight: bold;
+	padding-top: 2em;
 }
 
 .dininglocations {
@@ -161,6 +165,9 @@ fieldset {
 	display: block; 
 	text-align: center; 
 	font-weight: bold;
+}
+
+.dininglocations p {
 	padding-top: 2em;
 }
 
