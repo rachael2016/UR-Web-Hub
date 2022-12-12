@@ -157,6 +157,11 @@ fieldset {
 
 .dininglocations {
 	color: #ddffff;
+	font-family: "Century Gothic"; 
+	display: block; 
+	text-align: center; 
+	font-weight: bold;
+	padding-top: 2em;
 }
 
 #accordion div {
