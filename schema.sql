@@ -48,8 +48,10 @@ CREATE TABLE "CourseRatingsReceived" (
     "reportid" INTEGER NOT NULL,
     "courseid" INTEGER NOT NULL,
     "rating" INTEGER NOT NULL,
+    "usefulness" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
-    "tips" TEXT NOT NULL,
+    "difficulty" INTEGER NOT NULL,
+    "tags" TEXT,
     PRIMARY KEY("reportid" AUTOINCREMENT),
     FOREIGN KEY("courseid") REFERENCES "Courses"(id) ON DELETE CASCADE
 );

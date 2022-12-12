@@ -1,88 +1,108 @@
 {% extends "layout.html" %}
 
 {% block head %}
-    <!--Emersyn, Rachael, Sarah, Kelly, Grant-->
-	<title>{{ courseID }}</title>
-    <script src="/static/script.js"></script>
-    <!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
-    <style>
-        .table {
-            border-collapse: collapse;
-        }
-        progress {
-            height: 2rem;
-            text-align: center;
-            color: white;
-            background-image: green;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        .comment {
-            margin-left: 5%;
-            margin-right: 5%;
-            background-color:#e4e4e4;
-            padding:0.5em;
-        }
-        .tag {
-            margin-left: 5%;
-            margin-right: 5%;
-            background-color:#cccccc;
-            display: inline-block;
-            padding:0.5em;
-        }
-    </style>
+<!--Emersyn, Rachael, Sarah, Kelly, Grant-->
+<title>{{ courseID }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/static/script.js"></script>
+<!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/styles.css">
+<style>
+
+    header {
+        width: auto;
+    }
+
+    .table {
+        border-collapse: collapse;
+    }
+
+    progress {
+        height: 2rem;
+        text-align: center;
+        color: white;
+        background-image: green;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .comment {
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: #e4e4e4;
+        padding: 0.5em;
+    }
+
+    .tag {
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: #cccccc;
+        display: inline-block;
+        padding: 0.5em;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 <div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
-    <p>{{ courseName }}</p>
-    Overall: {{ overall }}/5<br>
-    {{ numRatings }} ratings<br><br>
-    <table>
-        <tr>
-            <td>5 stars</td>
-            <td><progress value="{{ five_stars }}" max="100"></progress></td>
-            <td>{{ five_stars}}</td>
-        </tr>
-        <tr>
-            <td>4 stars</td>
-            <td><progress value="{{ four_stars }}" max="100"></progress></td>
-            <td>{{four_stars}}</td>
-        </tr>
-        <tr>
-            <td>3 stars</td>
-            <td><progress value="{{ three_stars }}" max="100"></progress></td>
-            <td>{{three_stars}}</td>
-        </tr>
-        <tr>
-            <td>2 stars</td>
-            <td><progress value="{{ two_stars }}" max="100"></progress></td>
-            <td>{{two_stars}}</td>
-        </tr>
-        <tr>
-            <td>1 star</td>
-            <td><progress value="{{ one_star }}" max="100"></progress></td>
-            <td>{{one_star}}</td>
-        </tr>
-    </table>
+<p>{{ courseName }}</p>
+    Overall: {{ overall }}/5
+<br>
+{{ numRatings }} ratings
+<br>
+<br>
+<table>
+    <tr>
+        <td>5 stars</td>
+        <td><progress value="{{ five_stars }}" max="100"></progress></td>
+        <td>{{ five_stars}}</td>
+    </tr>
+    <tr>
+        <td>4 stars</td>
+        <td><progress value="{{ four_stars }}" max="100"></progress></td>
+        <td>{{four_stars}}</td>
+    </tr>
+    <tr>
+        <td>3 stars</td>
+        <td><progress value="{{ three_stars }}" max="100"></progress></td>
+        <td>{{three_stars}}</td>
+    </tr>
+    <tr>
+        <td>2 stars</td>
+        <td><progress value="{{ two_stars }}" max="100"></progress></td>
+        <td>{{two_stars}}</td>
+    </tr>
+    <tr>
+        <td>1 star</td>
+        <td><progress value="{{ one_star }}" max="100"></progress></td>
+        <td>{{one_star}}</td>
+    </tr>
+</table>
 
-    <p>Difficulty: {{ difficulty }}/5</p>
-    <p>Usefulness: {{ usefulness }}/5</p>
+<p>Difficulty: {{ difficulty }}/5</p>
+<p>Usefulness: {{ usefulness }}/5</p>
 
-    <button id="rateThis" onclick="location.href='ratemycoursefeedback';">Rate this Course</button><br><br>
+<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse')}}';">Rate this Course</button>
+<br>
+<br>
 
-    <p>Top Tags</p>
+<p>Top Tags</p>
     {%for tag in tags %}
-        <div class="tag">{{ tag.message }}</div>
+<div class="tag">{{ tag }}</div>
     {%endfor%}
 
-    <p>Top Reviews</p>
-    Loop through reviews-->
-    <!--{%for review in reviews%}
-        <div class="comment">{{ reviews.rating }} {{ reviews.message }} {{ reviews.tips }}</div><br>
+<p>Top Reviews</p>
+<!--Loop through reviews-->
+    {%for review in reviews%}
+<div class="comment">{{ review.rating }} {{ review.message }}</div>
+<br>
 
     {%endfor%}
-	
+
+
+
 {% endblock %}
 

@@ -1,167 +1,182 @@
 ﻿{% extends "layout.html" %}
 
 {% block head %}
-    <!--Emersyn, Rachael, Sarah, Kelly, Grant-->
-    <meta charset="utf-8" />
-    <title>Course Feedback Form</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <style type="text/css">
+<!--Emersyn, Rachael, Sarah, Kelly, Grant-->
+<title>Course Feedback Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/styles.css">
+<style type="text/css">
+  
+    p {
+        margin:auto;
+        display: inline-flex;
+        grid-template-columns: 2fr 1fr;
+        text-align: center;
         
-        p {
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            text-align: center;
-   
-        }
+    }
+    
+    .form_center {
+        margin: auto 0;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-        .form_center{
-            display: flex;
-            margin: 0 auto;
-        }
-
-       
-    </style>
-    <script src="/static/script.js"></script>
+    label{
+        display:inline-block;
+        
+        
+    }
+      
+</style>
+<script src="/static/script.js"></script>
 {% endblock %}
 
 {% block content %}
-    
-    <h2>Feedback Form</h2>
+
+<h2>Feedback Form</h2>
 <center>
-<div class="form_center">
-    <!-- <br /> -->
-    <!-- action="ratemycourseratings/{{ courseID }}" -->
-    <form action= "" method="POST" >
-        {{ form.csrf_token }}
-        <!-- <input type="text" id="abbreviation" name="abbreviation"><br><br>
-        <input type="text" id="course" name="course"><br><br>
-        <textarea id="professor" name="professor"></textarea><br><br> -->
-        <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
-        <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p>
-        <p>Department  
-        {{ form.department }}
-        <!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
-            <option value="Accounting">Accounting</option>
-            <option value="Anthropology">Anthropology</option>
-            <option value="Art History">Art History</option>
-            <option value="Biology">Biology</option>
-            <option value="Brain & Cognitive Sciences">Brain & Cognitive Sciences</option>
-            <option value="Business">Business</option>
-            <option value="Chemical Engineering">Chemical Engineering</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Economics">Economics</option>
-            <option value="Education">Education</option>
-            <option value="English">English</option>
-            <option value="Finance">Finance</option>
-            <option value="Geography">Geography</option>
-            <option value="Geology">Geology</option>
-            <option value="History">History</option>
-            <option value="Linguistics">Linguistics</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Mathematics">Mathematics</option>
-            <option value="Music">Music</option>
-            <option value="Nursing">Nursing</option>
-            <option value="Philosophy">Philosophy</option>
-            <option value="Physics">Physics</option>
-            <option value="Political Science">Political Science</option>
-            <option value="Psychology">Psychology</option>
-            <option value="Studio Arts">Studio Arts</option>
-            <option value="Theater">Theater</option>
-            <option value="Women's Studies">Women's Studies</option>
-            <option value="Writing">Writing</option>
-        </select></p> -->
-        <p>Professor <input id="professor" name = "professor" type="text" placeholder="Enter professor name"></p><br>
-        <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
-        <p>Rating </p>
-        {% for subfield in form.rating %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr> 
-        {% endfor %}
-        <br>
-        <p>Difficulty </p>
-        {% for subfield in form.difficulty %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr> 
-        {% endfor %}
-        <br>
-        <p>Usefulness </p>
-        {% for subfield in form.usefulness %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr> 
-        {% endfor %}
-        
-        <p>Did you take this class online?
-            {% for subfield in form.online %}
+    <div class="form_center">
+        <!-- <br /> -->
+        <!-- action="ratemycourseratings/{{ courseID }}" -->
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <!-- <input type="text" id="abbreviation" name="abbreviation"><br><br>
+            <input type="text" id="course" name="course"><br><br>
+            <textarea id="professor" name="professor"></textarea><br><br> -->
+            <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 200px;" placeholder="Enter course ID (e.g. CSC212)"></p>
+            <p>Course Name <input type="text" id="course" name="course" style="width: 350px;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p>
+            <p>
+                Department
+                {{ form.department }}
+                <!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
+                    <option value="Accounting">Accounting</option>
+                    <option value="Anthropology">Anthropology</option>
+                    <option value="Art History">Art History</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Brain & Cognitive Sciences">Brain & Cognitive Sciences</option>
+                    <option value="Business">Business</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Education">Education</option>
+                    <option value="English">English</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Geology">Geology</option>
+                    <option value="History">History</option>
+                    <option value="Linguistics">Linguistics</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Music">Music</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Philosophy">Philosophy</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Political Science">Political Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Studio Arts">Studio Arts</option>
+                    <option value="Theater">Theater</option>
+                    <option value="Women's Studies">Women's Studies</option>
+                    <option value="Writing">Writing</option>
+                </select></p> -->
+            <p>Professor <input id="professor" name="professor" type="text" placeholder="Enter professor name"></p><br>
+            <p>Semester Taken <input id="sem" style="width: 300px;" type="text" placeholder="Enter semester you took the class (e.g. Fall 2022)"></p><br>
+            <p>Rating </p>
+            {% for subfield in form.rating %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            <br>
+            <p>Difficulty </p>
+            {% for subfield in form.difficulty %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            <br>
+            <p>Usefulness </p>
+            {% for subfield in form.usefulness %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+
+            <p>
+                Did you take this class online?
+                {% for subfield in form.online %}
                 <tr>
                     <td>{{ subfield }}</td>
                     <td>{{ subfield.label }}</td>
-                </tr> 
-            {% endfor %}
-        <!-- <input type="radio" name="online" value="yes">Yes
-        <input type="radio" name="online" value="no">No -->
-        </p><br>
-        <p>Did you take this class for credit?
-            {% for subfield in form.credit %}
+                </tr>
+                {% endfor %}
+                <!-- <input type="radio" name="online" value="yes">Yes
+                <input type="radio" name="online" value="no">No -->
+            </p><br>
+            <p>
+                Did you take this class for credit?
+                {% for subfield in form.credit %}
                 <tr>
                     <td>{{ subfield }}</td>
                     <td>{{ subfield.label }}</td>
-                </tr> 
-            {% endfor %}
-        <!-- <input type="radio" name="cred" value="yes">Yes
-        <input type="radio" name="cred" value="no">No -->
-        </p><br>
-        <p>Did this class use textbooks?
-            {% for subfield in form.textbook %}
+                </tr>
+                {% endfor %}
+                <!-- <input type="radio" name="cred" value="yes">Yes
+                <input type="radio" name="cred" value="no">No -->
+            </p><br>
+            <p>
+                Did this class use textbooks?
+                {% for subfield in form.textbook %}
                 <tr>
                     <td>{{ subfield }}</td>
                     <td>{{ subfield.label }}</td>
-                </tr> 
-            {% endfor %}
-        <!-- <input type="radio" name="book" value="yes">Yes
-        <input type="radio" name="book" value="no">No -->
-        </p><br>
-        <p>Was attendance mandatory?
-            {% for subfield in form.attendance %}
+                </tr>
+                {% endfor %}
+                <!-- <input type="radio" name="book" value="yes">Yes
+                <input type="radio" name="book" value="no">No -->
+            </p><br>
+            <p>
+                Was attendance mandatory?
+                {% for subfield in form.attendance %}
                 <tr>
                     <td>{{ subfield }}</td>
                     <td>{{ subfield.label }}</td>
-                </tr> 
-            {% endfor %}
-        <!-- <input type="radio" name="att" value="yes">Yes
-        <input type="radio" name="att" value="no">No -->
-        </p><br>
-        <p>What was your grade?
-            {{ form.grade }}
-            <!-- <select id="grade" name="grade">
-              <option value="A+">A+</option>
-              <option value="A">A</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B">B</option>
-              <option value="B-">B-</option>
-              <option value="C+">C+</option>
-              <option value="C">C</option>
-              <option value="C-">C-</option>
-              <option value="D+">D+</option>
-              <option value="D">D</option>
-              <option value="D-">D-</option>
-              <option value="F">F</option>
-              <option value="AU">Audit/No Grade</option>
-              <option value="W">Drop/Withdraw</option>
-              <option value="I">Incomplete</option>
-              <option value="N">Not sure yet</option>
-              <option value="NA">Rather not say</option>
-            </select> -->
-        </p><br>    
-        <p>Select tags </p>
+                </tr>
+                {% endfor %}
+                <!-- <input type="radio" name="att" value="yes">Yes
+                <input type="radio" name="att" value="no">No -->
+            </p><br>
+            <p>
+                What was your grade?
+                {{ form.grade }}
+                <!-- <select id="grade" name="grade">
+                  <option value="A+">A+</option>
+                  <option value="A">A</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B">B</option>
+                  <option value="B-">B-</option>
+                  <option value="C+">C+</option>
+                  <option value="C">C</option>
+                  <option value="C-">C-</option>
+                  <option value="D+">D+</option>
+                  <option value="D">D</option>
+                  <option value="D-">D-</option>
+                  <option value="F">F</option>
+                  <option value="AU">Audit/No Grade</option>
+                  <option value="W">Drop/Withdraw</option>
+                  <option value="I">Incomplete</option>
+                  <option value="N">Not sure yet</option>
+                  <option value="NA">Rather not say</option>
+                </select> -->
+            </p><br>
+            <p>Select tags </p>
             <p><input type="checkbox" name="tag" value="Tough Grader">Tough Grader</p>
             <p><input type="checkbox" name="tag" value="Reading Heavy">Reading Heavy</p>
             <p><input type="checkbox" name="tag" value="Participation Matters">Participation Matters</p>
@@ -174,19 +189,19 @@
             <p><input type="checkbox" name="tag" value="Lecture Heavy">Lecture Heavy</p>
             <p><input type="checkbox" name="tag" value="Test Heavy">Test Heavy</p>
             <p><input type="checkbox" name="tag" value="Graded By Few Things">Graded By Few Things</p>
-        <br>
-        <div class="review-panel">
-        <p>Write a Review</p>
-        {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
-        <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
-        <!-- <input type="submit" style="display: none" /> -->
-        <br>
-        <input type="submit" id="submit" name="submit">
-        <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
-    </form>
+            <br>
+            <div class="review-panel">
+                <p>Write a Review</p>
+                {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
+                <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
+                <!-- <input type="submit" style="display: none" /> -->
+                <br>
+                <input type="submit" id="submit" name="submit">
+                <!-- <input type="button" id="submitReview" onclick="location.href='ratemycourse';" value="Submit"/> Redirect back to course page -->
+        </form>
     </div> <!--for the review-->
     </div> <!--for the form-center*/-->
-  </center>
+</center>
 {% endblock %}
 
 <!-- <div id="overall">

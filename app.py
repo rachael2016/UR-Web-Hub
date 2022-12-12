@@ -58,9 +58,10 @@ def ratemycourse():
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
                 # return redirect(url_for('dashboard', abbreviation = form.abbreviation.data))
+        return render_template("ratemycourse.html", form = form, bool = True)
     else:
         print("invalid form")
-    return render_template("ratemycourse.html", form = form)
+    return render_template("ratemycourse.html", form = form, bool = False)
 
 @app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
 def coursefeedbackform():
@@ -69,12 +70,19 @@ def coursefeedbackform():
     if form.validate_on_submit():
         conn = getdbconnection()
         conn.execute('INSERT INTO Courses (name, professor, abbreviation, department) VALUES (?, ?, ?, ?)', (form.course.data, form.professor.data, form.abbreviation.data, form.department.data))
-        ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
+        if len(request.form.getlist('tag')) > 0:
+            str1 = ','.join(request.form.getlist('tag'))
+            print(str1)
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, tags) VALUES (?, ?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, str1))
+        else:
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness) VALUES (?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data))
+
+        ratings = conn.execute("SELECT * FROM CourseRatingsReceived").fetchall()
         ratingsList = []
         for rating in ratings:
-            ratingsList.append({'name': \
-                rating['name'], 'professor': rating['professor'], \
-                'abbreviation': rating['abbreviation'], 'department': rating['department']})
+            ratingsList.append({'tags': rating['tags']})
         print(ratingsList)
         conn.commit()
         conn.close()
@@ -85,27 +93,72 @@ def coursefeedbackform():
         print(form.review.data)
         # print(request.form.get('dropMenu'))
         print(request.form.getlist('tag'))
+        print(request.form.getlist('tag')[0])
         print(form.review.data)
+        temp = form.abbreviation.data
         form.course.data = ''
         form.professor.data = ''
         form.abbreviation.data = ''
         form.department.data = ''
-        return redirect(url_for('ratemycourse'))
+        # return redirect(url_for('ratemycourse'))
+        return redirect(url_for("ratemycourseratings", courseID = temp))
     else:
         print("form invalid")
     return render_template("ratemycoursefeedback.html", form = form)
 
 @app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
-    # conn = getdbconnection()
-    # reviews = conn.execute('SELECT * FROM CourseRatingsReceived').fetchall()
-
+    conn = getdbconnection()
+    reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
     # reviewsData = []
-    # for review in reviews:
-    #     reviewsData.append({'rating': reviews['rating'], 'message': reviews['message'], \
-    #         'tips': reviews['tips'], 'courseid': reviews['courseid']})
-    # conn.close()
-    return render_template("ratemycourseratings.html", courseID = courseID, rating = 5, five_stars = 4)
+    fiveStars = 0
+    fourStars = 0
+    threeStars = 0
+    twoStars = 0
+    oneStar = 0
+    totalRatings = 0
+    totalDifficulty = 0
+    totalUsefulness = 0
+    messages = []
+    reviewDict = []
+    spam_list = []
+    for review in reviews:
+        reviewDict.append({'rating': review['rating'], 'message': review['message']})
+        # print(review['rating'])
+        # print(review['message'])
+        rating = int(review['rating'])
+        difficulty = int(review['difficulty'])
+        usefulness = int(review['usefulness'])
+        spam_list = review['tags'].split(',')
+        if(rating == 5):
+            fiveStars += 1
+        elif rating == 4:
+            fourStars += 1
+        elif rating == 3:
+            threeStars += 1
+        elif rating == 2:
+            twoStars += 1
+        elif rating == 1:
+            oneStar += 1
+        totalRatings += rating
+        totalDifficulty += difficulty
+        totalUsefulness += usefulness
+        messages.append(review['message'])
+    # print("size", len(reviews))
+    if(len(reviews) == 0):
+        average = 0
+        averageDiff = 0
+        averageUse = 0
+    else:
+        average = totalRatings / len(reviews)
+        averageDiff = totalDifficulty / len(reviews)
+        averageUse = totalUsefulness / len(reviews)
+    conn.close()
+    # print(messages)
+    return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
+    numRatings = len(reviews), five_stars = fiveStars, four_stars = fourStars, 
+    three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
+    usefulness = averageUse, tags = spam_list, reviews = reviewDict)
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):
