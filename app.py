@@ -74,11 +74,11 @@ def coursefeedbackform():
         if len(request.form.getlist('tag')) > 0:
             str1 = ','.join(request.form.getlist('tag'))
             print(str1)
-            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, tags, semester) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, str1, form.semester.data))
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, tags, semester, professor) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, str1, form.semester.data, form.professor.data))
         else:
-            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, semester) VALUES (?, ?, ?, ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, form.semester.data))
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, semester, professor) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, form.semester.data, form.professor.data))
 
         ratings = conn.execute("SELECT * FROM CourseRatingsReceived").fetchall()
         ratingsList = []
@@ -124,7 +124,8 @@ def ratemycourseratings(courseID):
     reviewDict = []
     spam_list = []
     for review in reviews:
-        reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester']})
+        reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester'], \
+            'professor' : review['professor']})
         # print(review['rating'])
         # print(review['message'])
         rating = int(review['rating'])

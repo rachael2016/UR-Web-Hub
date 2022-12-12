@@ -97,7 +97,7 @@
 <p>Top Reviews</p>
 <!--Loop through reviews-->
     {%for review in reviews%}
-<div class="comment">{{ review.rating }} {{ review.message }} {{ review.semester }}</div>
+<div class="comment">{{ review.rating }} {{ review.message }} {{ review.semester }} {{ review.professor }}</div>
 <br>
 
     {%endfor%}
