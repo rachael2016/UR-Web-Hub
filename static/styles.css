@@ -106,7 +106,7 @@ fieldset {
 
 @media screen and (min-width: 200px) and (max-width: 550px) {
 	
-	.lead {
+	.lead, .whatisopen {
 		max-width: 100%;
 		padding-left:  0px;
 		padding-right: 0px;
