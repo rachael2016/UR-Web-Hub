@@ -8,7 +8,7 @@ from flask_recaptcha import ReCaptcha
 import json
 import os
 
-from forms import UserReport, FeedbackForm, CourseFeedbackForm, HomeForm
+from forms import UserReport, FeedbackForm, CourseFeedbackForm, HomeForm, DiningFeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
@@ -29,6 +29,24 @@ def index():
 @app.route("/dining", methods = ["GET", "POST"])
 def dining():
     return render_template("dining.html")
+
+@app.route("/diningfeedbackform", methods = ["GET", "POST"])
+def diningfeedbackform():
+    form = DiningFeedbackForm()
+    if form.validate_on_submit() and recaptcha.verify():
+        conn = getdbconnection()
+        now = datetime.now()
+        conn.execute('INSERT INTO DiningFeedbackReceived (location, comment) VALUES (?, ?)', (form.location.data, form.comment.data))
+        conn.commit()
+        conn.close()
+        form.location.data = ''
+        form.comment.data = ''
+        return redirect(url_for('feedbackthankyou'))
+
+    else:
+        print("form invalid")
+
+    return render_template("diningfeedback.html", form = form)
 
 @app.route("/ratemycourse", methods = ["GET", "POST"])
 def ratemycourse():

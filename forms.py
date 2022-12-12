@@ -33,6 +33,11 @@ class FeedbackForm(FlaskForm):
     message = TextAreaField("Message", validators=[DataRequired()])
     submit = SubmitField("Submit")
 
+class DiningFeedbackForm(FlaskForm):
+    location = StringField("Location", validators=[DataRequired()])
+    comment = TextAreaField("Comment", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
 class CourseFeedbackForm(FlaskForm):
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     course = StringField("Course", validators=[DataRequired()])

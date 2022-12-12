@@ -56,3 +56,12 @@ CREATE TABLE "CourseRatingsReceived" (
     PRIMARY KEY("reportid" AUTOINCREMENT),
     FOREIGN KEY("courseid") REFERENCES "Courses"(id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS "DiningFeedbackReceived";
+
+CREATE TABLE "DiningFeedbackReceived" (
+    "reportid" INTEGER NOT NULL,
+    "location" TEXT NOT NULL,
+    "comment" TEXT NOT NULL,
+    PRIMARY KEY("reportid" AUTOINCREMENT)
+);
