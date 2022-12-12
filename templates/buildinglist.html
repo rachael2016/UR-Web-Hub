@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../static/styles.css">
 <style>
+
+    h2.fullwidth 
     li {
         text-align: left;
         font-size: 24px;
@@ -28,16 +30,18 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Down Detector Building List</h1>
-    <h5>Select your building to view the status</h5>
+<div class="container">
     <section class="lead">
-    <ol>
-        {% for building in buildings %}
+        <h2 class="full-width">Down Detector Building List</h2>
+            <h2>Select your building to view the status</h2>
+            <ol>
+            {% for building in buildings %}
 
-        <li><a href="/downdetector/{{ building.buildingid }}"><u>{{ building.name }}</u></a></li>
+            <li><a href="/downdetector/{{ building.buildingid }}"><u>{{ building.name }}</u></a></li>
 
-        {% endfor %}
-    </ol>
-    </section>
-
+            {% endfor %}
+            </ol>
+        </section>
+    </div>
+</div>
 {% endblock %}

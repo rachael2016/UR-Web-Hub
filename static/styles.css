@@ -221,6 +221,13 @@ h1 {
 	text-align: center;
 }
 
+.back h1, .ddbl {
+	color: #ADD8E6;
+	font-weight: bold;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 .intro {
 	font-weight: bold;
 	font-size: 20px;
