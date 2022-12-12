@@ -1,0 +1,454 @@
+﻿body {
+    background-color: #f0f0f0;
+    color: #333333;
+}
+
+
+
+p {
+    margin: auto;
+    display: inline-flex;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+}
+
+.form_center {
+    margin: auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label {
+    display: inline-block;
+}
+
+.container {
+    margin: 0 auto;
+    /* width: 90%; 
+   max-width: 960px; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+    /* padding-top: 75px; */
+    padding-bottom: 5em;
+}
+
+li {
+    font-size: 30px;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    li {
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+.lead {
+    background-color: #999999;
+    color: #323131;
+    padding: 30px;
+    border-radius: 15px 15px 15px 15px;
+    margin: 0 auto;
+    margin-top: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 60%;
+}
+
+/* form styles */
+
+.form h2 {
+    margin-bottom: .5em;
+}
+
+label {
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    color: #ADD8E6;
+    /* font-weight: bold; */
+    font-size: 2em;
+}
+
+input {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #f0f0f0;
+}
+
+textarea {
+    margin-top: 2em;
+    resize: none;
+    overflow: hidden;
+    padding: 5em;
+}
+
+fieldset {
+    background-color: #003366;
+    border-radius: 15px;
+    padding: 5em;
+}
+
+input[type=submit] {
+    background-color: #333333;
+    color: #ffdb4d;
+    border-radius: 5px;
+    padding: .5em;
+    border-color: #333333;
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+/* end of form styles */
+
+
+@media screen and (min-width: 550px) and (max-width: 1000px) {
+    .lead {
+        max-width: 90%;
+    }
+
+    .form, form {
+        margin: 0 auto;
+    }
+
+    fieldset {
+        margin: 0 auto;
+        padding: 2em;
+    }
+}
+
+#accordion {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.whatisopen {
+    background-color: #003366;
+    margin-top: 2em;
+    max-width: 60%;
+    margin-left: 20%;
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 550px) {
+
+    .lead, .whatisopen {
+        max-width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0em;
+        border-radius: 0px;
+        margin-left: 0;
+    }
+
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    #accordion {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .form, form, fieldset {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    fieldset {
+        padding-top: 2em;
+        padding-bottom: 2em;
+        padding-right: 0em;
+        padding-left: 0em;
+    }
+
+    input {
+        margin-bottom: 2.5em;
+    }
+
+    textarea {
+        padding: 2em;
+    }
+}
+
+
+#accordion div {
+    margin: 0 auto;
+}
+
+.short-text {
+    display: none;
+    color: #ffdb4d;
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+}
+
+@media (max-width: 650px) {
+    .short-text {
+        display: inline-block;
+    }
+
+    .full-text {
+        display: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+}
+
+.w3-block {
+    display: inline-block;
+}
+
+.w3-pale-blue {
+    color: #484848 !important;
+}
+
+h2.full-width {
+    width: 100%;
+}
+
+header, footer, nav, .lead, .full-width, .whatisopen {
+    grid-column: 1 / 3;
+}
+
+h1 {
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    text-align: center;
+}
+
+.intro {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    text-align: center;
+    color: #ADD8E6;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 2em;
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #003366;
+}
+
+.w3-aqua {
+    background-color: #ADD8E6 !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+h3 {
+    margin: 40px;
+    line-height: 1.5em;
+    font-family: "Century Gothic","Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #003366;
+}
+
+p {
+    font-family: "Trebuchet MS";
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+ul {
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 0px;
+}
+
+figure {
+    float: left;
+    margin-left: 40px;
+}
+
+a {
+    color: #ffdb4d;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #f30567;
+    }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+figcaption {
+    padding-top: 10px;
+    text-align: center;
+    font-family: Verdana;
+}
+
+
+h5 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Courier New";
+    text-align: center;
+    background-color: #9ef1f0;
+    color: #FA8072;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    background-color: #003366;
+    color: #ffdb4d;
+    left: 0;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+    footer h4 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+        font-size: 25px;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+@media screen and (min-width: 200px) and (max-width: 550px) {
+    footer h4 {
+        font-size: 20px;
+    }
+}
+
+header {
+    width: 100%;
+    background-color: #003366;
+    padding-bottom: 3em;
+    padding-top: 3em;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.header {
+    margin-bottom: 8em;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding-bottom: 2em;
+}
+
+nav {
+    padding-top: 3em;
+    background-color: #484848;
+    text-align: center;
+}
+
+    nav li {
+        display: inline;
+        margin: .4em;
+        text-align: center;
+    }
+
+.w3-btn {
+    white-space: normal;
+}
+
+@media screen and (max-width: 930px) {
+    .menu {
+        text-align: center;
+        padding: 0em;
+    }
+
+        .menu a {
+            display: block;
+            padding: .5em;
+        }
+
+            .menu a:hover {
+                background-color: #ADD8E6;
+            }
+
+    ul {
+        padding-bottom: 0em;
+        padding-top: 0em;
+    }
+
+    .slider {
+        width: 25vh;
+    }
+
+    nav li {
+        margin: 0em;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .container {
+        display: block;
+    }
+
+    .header {
+        margin-bottom: 12em;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .inner-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.inner-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 500px) {
+    .inner-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 25px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    ul {
+        margin-bottom: 0em;
+    }
+
+    .container {
+        padding-top: 0em;
+        padding-bottom: 3em;
+    }
+
+    .lead {
+        margin-top: 3em;
+    }
+
+    h2 {
+        margin-bottom: 1em;
+    }
+}
+
