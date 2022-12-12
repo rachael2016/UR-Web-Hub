@@ -282,8 +282,8 @@ ul {
 }
 
 figure {
-	float: left;
-	margin-left: 40px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 a {
@@ -303,9 +303,8 @@ a:hover {
 }
 
 figcaption {
-  padding-top: 10px;
   text-align: center;
-  font-family: Verdana;
+  font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
 }
 
 
