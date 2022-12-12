@@ -145,10 +145,18 @@ fieldset {
 }
 
 .whatisopen {
-	background-color: #ddffff;
+	background-color: #003366;
 	margin-top: 2em;
 	max-width: 60%;
 	margin-left: 20%;
+}
+
+#current_date, #fall_schedule {
+	font-size: larger;
+}
+
+.dininglocations {
+	color: #ddffff;
 }
 
 #accordion div {
