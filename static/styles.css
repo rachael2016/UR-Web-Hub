@@ -206,6 +206,11 @@ h2.full-width {
 	width: 100%;
 }
 
+h2.dining-link {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
 header, footer, nav, .lead, .full-width, .whatisopen {
 	grid-column: 1 / 3;
 } 
