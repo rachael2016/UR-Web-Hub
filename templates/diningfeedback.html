@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block head %}
+   <title>Give us Feedback</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="../static/styles.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <section class="lead">
+        <div class="form">
+            <h2 class="full-width">Feedback Form</h2>
+    		<form action="" method="POST">
+        		{{ form.csrf_token }}
+        		<fieldset>
+		        	<label for="location">Location:</label>
+		        	<input type="text" id="location" name="location"><br><br>
+                    		<label for="comment">Comment:</label><br>
+		        	<textarea id="comment" name="comment"></textarea><br><br>
+					<center>{{ recaptcha }}</center>
+		        	<input type="submit" id="submit" name="submit">
+					<label for="submit"></label>
+				</fieldset>
+    			</form>
+	      </div>
+	</section>
+</div>
+
+{% endblock %}
