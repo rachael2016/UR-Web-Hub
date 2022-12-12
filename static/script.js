@@ -17,37 +17,37 @@ let month = monthoftheyear[date.getMonth()];
 let numberdate = date.getDate();
 let hour = date.getHours(); 
 let minutes = date.getMinutes();
-document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + day + "," + "&nbsp;" + month + "&nbsp;" + numberdate + "&nbsp;" + hour + ":" + minutes + "</span>";
+document.getElementById("current_date").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em;'>" + day + "," + "&nbsp;" + month + "&nbsp;" + numberdate + "&nbsp;" + hour + ":" + minutes + "</span>";
 
 //then check it against the dining schedule 
 const dateschedule = new Date();
 if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate == 31) ) {
-    document.getElementById("fall_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Fall 2022 Hours of Operation" + "</span>";
+    document.getElementById("fall_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em;'>" + "Fall 2022 Hours of Operation" + "</span>";
   if (dateschedule.getDay() == 0) {
     if( (dateschedule.getHours() >= 10 || dateschedule.getHours() <= 22)) {
-        document.getElementById("pit_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "The Pit and Rocky's" + "</span>";
+        document.getElementById("pit_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "The Pit and Rocky's" + "</span>";
     }
     
   	if ( (dateschedule.getHours() >= 8 || dateschedule.getHours() <= 23)) {
-    	 document.getElementById("starbucks_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Starbucks" + "</span>";
+    	 document.getElementById("starbucks_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Starbucks" + "</span>";
     }
     
    	if ( (dateschedule.getHours() >= 13 || dateschedule.getHours() <= 20)) {
-    	 document.getElementById("connections_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Connections" + "</span>";
+    	 document.getElementById("connections_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Connections" + "</span>";
     }
     if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 2)) {
-    	 document.getElementById("hillside_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Hillside" + "</span>";
+    	 document.getElementById("hillside_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Hillside" + "</span>";
     }
     if ( (dateschedule.getHours() >= 7 && (dateschedule.getHours() <= 9 && dataschedule.getMinutes <= 30)) ){
-    	 document.getElementById("douglass_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Douglass - Breakfast" + "</span>";
+    	 document.getElementById("douglass_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Douglass - Breakfast" + "</span>";
     }
 	
    if( (dateschedule.getHours() >= 10 && dateschedule.getMinutes() >= 30) && (dateschedule.getHours() <= 14 && dataschedule.getMinutes <= 30) ){
-           document.getElementById("douglassbrunch_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Douglass - Brunch" + "</span>";
+           document.getElementById("douglassbrunch_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Douglass - Brunch" + "</span>";
       }
       
       if ( (dateschedule.getHours() >= 17 || dateschedule.getHours() <= 20)) {
-    	 document.getElementById("douglassdinner_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; color: #ffdb4d; padding-top: 2em; padding-bottom: 2em;'>" + "Douglass - Dinner" + "</span>";
+    	 document.getElementById("douglassdinner_schedule").innerHTML = "<span style='font-family: Century Gothic; display: block; text-align: center; font-weight: bold; padding-top: 2em;'>" + "Douglass - Dinner" + "</span>";
     }
   }
 }
