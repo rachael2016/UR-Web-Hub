@@ -73,7 +73,7 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
    if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 19)) {
     document.getElementById("danfrothdinner_schedule").innerHTML = "Danforth - Dinner Until 7PM";
     }
-    if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 23)) {
+    if ( (dateschedule.getHours() == 0 || dateschedule.getHours() >= 12 || dateschedule.getHours() <= 23)) {
         document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 1AM";
    }
    if ( (dateschedule.getHours() >= 11 && dateschedule.getHours() < 14)) {
