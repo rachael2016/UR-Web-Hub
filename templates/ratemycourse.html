@@ -14,11 +14,11 @@
 {% block content %}
 <div class="container">
 	<div class="lead">
-		<h1>Rate My Course</h1>
+		<h2 class="full-width">Rate My Course</h2>
 		<form method="POST">
 			<center>
 				{{ form.csrf_token }}
-				<b>Department</b>
+				<p class="departments">Department</p>
 				{{ form.department }}
 				<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 					<option value="Accounting">Accounting</option>

@@ -272,6 +272,13 @@ p {
 	padding-right:  1em;
 }
 
+.departments {
+	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+	color: #ADD8E6;
+	font-weight: bold;
+	font-size: 2em;
+}
+
 ul {
 	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
 	font-size: 20px;
