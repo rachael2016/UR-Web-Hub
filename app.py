@@ -125,7 +125,7 @@ def ratemycourseratings(courseID):
     spam_list = []
     for review in reviews:
         reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester'], \
-            'professor' : review['professor']})
+            'professor' : review['professor'], 'difficulty' : review['difficulty'], 'usefulness' : review['usefulness']})
         # print(review['rating'])
         # print(review['message'])
         rating = int(review['rating'])
