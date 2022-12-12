@@ -238,6 +238,14 @@ h2 {
 	color: #003366;
 }
 
+.whatisopen h2 {
+	font-weight: bold;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+	color: #ddffff;
+}
+
 .w3-aqua {
 	background-color: #ADD8E6 !important;
 }
