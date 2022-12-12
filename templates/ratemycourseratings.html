@@ -85,7 +85,7 @@
 <p>Difficulty: {{ difficulty }}/5</p>
 <p>Usefulness: {{ usefulness }}/5</p>
 
-<button id="rateThis" onclick="location.href='ratemycoursefeedback';">Rate this Course</button>
+<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse')}}';">Rate this Course</button>
 <br>
 <br>
 
@@ -101,6 +101,8 @@
 <br>
 
     {%endfor%}
+
+
 
 {% endblock %}
 

@@ -54,6 +54,10 @@
 		<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
 	</center>
 
+	{% if bool : %}
+		<h1>The course doesn't exist in database yet!</h1>
+	{% endif %}
+
 	<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 	<!--<input type="submit" style="display: none" />-->
 

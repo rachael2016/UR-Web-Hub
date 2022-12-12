@@ -40,9 +40,10 @@ def ratemycourse():
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
                 # return redirect(url_for('dashboard', abbreviation = form.abbreviation.data))
+        return render_template("ratemycourse.html", form = form, bool = True)
     else:
         print("invalid form")
-    return render_template("ratemycourse.html", form = form)
+    return render_template("ratemycourse.html", form = form, bool = False)
 
 @app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
 def coursefeedbackform():
@@ -102,6 +103,7 @@ def ratemycourseratings(courseID):
     totalUsefulness = 0
     messages = []
     reviewDict = []
+    spam_list = []
     for review in reviews:
         reviewDict.append({'rating': review['rating'], 'message': review['message']})
         # print(review['rating'])
@@ -125,9 +127,14 @@ def ratemycourseratings(courseID):
         totalUsefulness += usefulness
         messages.append(review['message'])
     # print("size", len(reviews))
-    average = totalRatings / len(reviews)
-    averageDiff = totalDifficulty / len(reviews)
-    averageUse = totalUsefulness / len(reviews)
+    if(len(reviews) == 0):
+        average = 0
+        averageDiff = 0
+        averageUse = 0
+    else:
+        average = totalRatings / len(reviews)
+        averageDiff = totalDifficulty / len(reviews)
+        averageUse = totalUsefulness / len(reviews)
     conn.close()
     # print(messages)
     return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
