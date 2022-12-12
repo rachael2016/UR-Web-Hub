@@ -24,7 +24,7 @@ const dateschedule = new Date();
 if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && dateschedule.getDate == 31) ) {
     document.getElementById("fall_schedule").innerHTML = "Fall 2022 Hours of Operation";
   if (dateschedule.getDay() == 0) {
-    if( (dateschedule.getHours() >= 10 && dateschedule.getHours() <= 23)) {
+    if( (dateschedule.getHours() >= 10 && dateschedule.getHours() <= 22)) {
         document.getElementById("pit_schedule").innerHTML = "The Pit and Rocky's";
     }
     
@@ -32,7 +32,7 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
     	 document.getElementById("starbucks_schedule").innerHTML = "Starbucks";
     }
     
-   	if ( (dateschedule.getHours() >= 14 && dateschedule.getHours() <= 21)) {
+   	if ( (dateschedule.getHours() >= 14 && dateschedule.getHours() < 21)) {
     	 document.getElementById("connections_schedule").innerHTML = "Connections";
     }
     if ( (dateschedule.getHours() >= 12 || dateschedule.getHours() <= 2)) {
@@ -46,7 +46,7 @@ if ( (dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesch
            document.getElementById("douglassbrunch_schedule").innerHTML = "Douglass - Brunch";
       }
       
-      if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() <= 20)) {
+      if ( (dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
     	 document.getElementById("douglassdinner_schedule").innerHTML = "Douglass - Dinner";
     }
   }
