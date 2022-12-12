@@ -11,6 +11,7 @@
 {% block content %}
       <div class="container">
          <div class = "whatisopen">
+            <h2>What's Open Right Now?</h2>
             <div id="current_date"></div>
             <div id="fall_schedule"></div>
             <div class="dininglocations">
@@ -22,6 +23,7 @@
             <p id="douglassbrunch_schedule"></p>
             <p id="douglasslunch_schedule"></p>
             <p id="douglassdinner_schedule"></p>
+            <p id="eastmandinner_schedule"></p>
             <p id="grabngo_schedule"></p>
             <p id="peets_schedule"></p>
             <p id="danforthlunch_schedule"></p>
@@ -34,20 +36,25 @@
       </div>
             <section class="lead">
          <h2 class="full-width">Dining Locations</h2>
-         <div class="zoom">
+         <figure>
             <img src="../static/hoursofoperation.png" alt="Fall Hours of Operation">
-         </div>
+            <figcaption>Chart made by &nbsp;<a href="https://dining.rochester.edu/">UR Dining Services</a>, double press image to open in new tab (not working yet, fyi for any beta testers)</figcaption>
+         </figure>
          <div id="accordion">
             <button onclick="openAccordion('downdetector')" class="w3-btn w3-block w3-aqua"><h3><em>Douglass Dining Hall</em></h3></button>
          <div id="downdetector" class="w3-hide w3-container w3-center w3-pale-blue">
+            <span class="full-text"></span>
         </div>
          <button onclick="openAccordion('dining')" class="w3-btn w3-block w3-aqua"><h3><em>Danforth Dining Hall</em></h3></button>
          <div id="dining" class="w3-hide w3-container w3-center w3-pale-blue">
+            <span class="full-text"></span>
         </div>
               <button onclick="openAccordion('ratemyclass')" class="w3-btn w3-block w3-aqua"><h3><em>The Pit</em></h3></button>
          <div id="ratemyclass" class="w3-hide w3-container w3-center w3-pale-blue">
+            <span class="full-text"></span>
         </div>
     </div>
+    <h2 class="dining-link">Want to share your feedback about dining? <a href="/diningfeedback">Click here!</a></h2>
       </section>
    </div>
    <script src="../static/zoom-by-ironex.min.js"></script>
