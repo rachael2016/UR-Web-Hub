@@ -58,6 +58,7 @@ def ratemycourse():
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
                 # return redirect(url_for('dashboard', abbreviation = form.abbreviation.data))
+        conn.close()
         return render_template("ratemycourse.html", form = form, bool = True)
     else:
         print("invalid form")
