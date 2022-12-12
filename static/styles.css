@@ -219,6 +219,7 @@ header, footer, nav, .lead, .full-width, .whatisopen {
 h1 {
 	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
 	text-align: center;
+	color: #ADD8E6;
 }
 
 .intro {
