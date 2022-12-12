@@ -305,6 +305,7 @@ a:hover {
 figcaption {
   text-align: center;
   font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+  padding-bottom: 2em;
 }
 
 
@@ -364,6 +365,10 @@ img {
 	margin-right: auto;
 	width: 90%;
 	padding-bottom: 2em;
+}
+
+.container img {
+	padding-bottom: 0em;
 }
 
 nav {
