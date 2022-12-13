@@ -8,7 +8,7 @@ from flask_recaptcha import ReCaptcha
 import json
 import os
 
-from forms import UserReport, FeedbackForm, CourseFeedbackForm, HomeForm, DiningFeedbackForm, RateThisForm
+from forms import UserReport, FeedbackForm, CourseFeedbackForm, HomeForm, DiningFeedbackForm
 
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
@@ -67,7 +67,7 @@ def ratemycourse():
     return render_template("ratemycourse.html", form = form, bool = False)
 
 # @app.route("/ratemycoursefeedback/<courseAbbrev>", methods = ["GET", "POST"])
-@app.route("/ratemycoursefeedback", methods = ["GET", "POST"], endpoint='rmc_feedback')
+@app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
 def coursefeedbackform():
     form = CourseFeedbackForm()
     # conn = getdbconnection()      
@@ -112,68 +112,63 @@ def coursefeedbackform():
 
 @app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
-    form = RateThisForm()
-    if False:
-        print("Ratings to Feedback Form")
-        return redirect(url_for('rmc_feedback'))
+    conn = getdbconnection()
+    reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
+    # reviewsData = []
+    fiveStars = 0
+    fourStars = 0
+    threeStars = 0
+    twoStars = 0
+    oneStar = 0
+    totalRatings = 0
+    totalDifficulty = 0
+    totalUsefulness = 0
+    messages = []
+    reviewDict = []
+    spam_list = []
+    for review in reviews:
+        reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester'], \
+            'professor' : review['professor'], 'difficulty' : review['difficulty'], 'usefulness' : review['usefulness']})
+        # print(review['rating'])
+        # print(review['message'])
+        rating = int(review['rating'])
+        difficulty = int(review['difficulty'])
+        usefulness = int(review['usefulness'])
+        # temp = list(review['tags'])
+        # if(len(review['tags']) == 1):
+        #     spam_list.append(review['tags'][0])
+        # else:
+        spam_list = str(review['tags']).split(',')
+        print(spam_list)
+        if(rating == 5):
+            fiveStars += 1
+        elif rating == 4:
+            fourStars += 1
+        elif rating == 3:
+            threeStars += 1
+        elif rating == 2:
+            twoStars += 1
+        elif rating == 1:
+            oneStar += 1
+        totalRatings += rating
+        totalDifficulty += difficulty
+        totalUsefulness += usefulness
+        messages.append(review['message'])
+    # print("size", len(reviews))
+    if(len(reviews) == 0):
+        average = 0
+        averageDiff = 0
+        averageUse = 0
     else:
-        conn = getdbconnection()
-        reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
-        # reviewsData = []
-        fiveStars = 0
-        fourStars = 0
-        threeStars = 0
-        twoStars = 0
-        oneStar = 0
-        totalRatings = 0
-        totalDifficulty = 0
-        totalUsefulness = 0
-        messages = []
-        reviewDict = []
-        spam_list = []
-        for review in reviews:
-            reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester'], \
-                'professor' : review['professor'], 'difficulty' : review['difficulty'], 'usefulness' : review['usefulness']})
-            # print(review['rating'])
-            # print(review['message'])
-            rating = int(review['rating'])
-            difficulty = int(review['difficulty'])
-            usefulness = int(review['usefulness'])
-            # temp = list(review['tags'])
-            # if(len(review['tags']) == 1):
-            #     spam_list.append(review['tags'][0])
-            # else:
-            spam_list = str(review['tags']).split(',')
-            print(spam_list)
-            if(rating == 5):
-                fiveStars += 1
-            elif rating == 4:
-                fourStars += 1
-            elif rating == 3:
-                threeStars += 1
-            elif rating == 2:
-                twoStars += 1
-            elif rating == 1:
-                oneStar += 1
-            totalRatings += rating
-            totalDifficulty += difficulty
-            totalUsefulness += usefulness
-            messages.append(review['message'])
-        # print("size", len(reviews))
-        if(len(reviews) == 0):
-            average = 0
-            averageDiff = 0
-            averageUse = 0
-        else:
-            average = totalRatings / len(reviews)
-            averageDiff = totalDifficulty / len(reviews)
-            averageUse = totalUsefulness / len(reviews)
-        conn.close()
-        # print(messages)
-        return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
-        numRatings = len(reviews), five_stars = fiveStars, four_stars = fourStars, 
-        three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
-        usefulness = averageUse, tags = spam_list, reviews = reviewDict)
+        average = totalRatings / len(reviews)
+        averageDiff = totalDifficulty / len(reviews)
+        averageUse = totalUsefulness / len(reviews)
+    conn.close()
+    # print(messages)
+    return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
+    numRatings = len(reviews), five_stars = fiveStars, four_stars = fourStars, 
+    three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
+    usefulness = averageUse, tags = spam_list, reviews = reviewDict)
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):

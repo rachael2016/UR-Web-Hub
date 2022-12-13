@@ -30,8 +30,7 @@
 	<div class="back">
 		<h2 class="full-width">Rate My Course</h2>
 		<form method="POST">
-			<center>
-				<p class="departments">Department</p>
+				<b style="color: #ADD8E6; font-size: 1.5em">Department</b> &nbsp;
 				{{ form.department }}
 				<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 					<option value="Accounting">Accounting</option>
@@ -67,7 +66,6 @@
 				<input id="abbreviation" type="text" placeholder="Course Abbr." name="abbreviation"> &nbsp;
 				<input type="submit" id="submit" name="submit" value="Search">
 				<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
-			</center>
 
 			{% if bool : %}
 				<h1>This course doesn't exist in our database yet! Add a review to include it.</h1>

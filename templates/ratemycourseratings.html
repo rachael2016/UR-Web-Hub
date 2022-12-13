@@ -8,7 +8,7 @@
 <!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../static/styles.css">
+<link rel="stylesheet" href="../static/rate.css">
 <style>
     header {
         width: auto;
@@ -24,9 +24,9 @@
 <p>{{ courseName }}</p>
 <div class="float-container">
 <div class="float-child">
-<p>Overall Rating: {{ overall }}/5</p>
+<p>Overall Rating: <b>{{ overall }}</b>/5</p>  
 <p>{{ numRatings }} ratings</p>
-<br>
+
 <table>
     <tr>
         <td>5 stars</td>
