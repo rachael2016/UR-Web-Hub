@@ -69,6 +69,6 @@ class HomeForm(FlaskForm):
     abbreviation = StringField("Abbreviation", validators=[DataRequired()])
     submit = SubmitField("Submit",)
 
-
-
+class RateThisForm(FlaskForm):
+    submit = SubmitField("Submit")
 

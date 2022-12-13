@@ -82,9 +82,9 @@
         <td>{{one_star}}</td>
     </tr>
 </table>
-
-<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse', courseID=courseID)}}';">Rate this Course</button><br><br>
-
+<form action="" method="POST">
+<input type="submit" id="submit" name="submit" /><br><br>
+</form>
 <div class="float-child">
 <p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
 
