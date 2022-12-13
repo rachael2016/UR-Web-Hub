@@ -274,11 +274,23 @@ h3 {
 .futureplans h3 {
 	background-color: #ADD8E6;
 	margin: 0 auto;
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+.futureplans p {
+	font-family: "Century Gothic","Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+	background-color: #dff; 
+	font-weight: normal;
+	margin-top: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .futureplans {
 	margin: 0 auto;
 	text-align: center;
+	width: 81%;
 }
 
 p {
