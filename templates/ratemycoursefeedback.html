@@ -22,6 +22,7 @@
             <!-- <input type="text" id="abbreviation" name="abbreviation"><br><br>
             <input type="text" id="course" name="course"><br><br>
             <textarea id="professor" name="professor"></textarea><br><br> -->
+           
             <p>Course Abbreviation <input type="text" id="abbreviation" name="abbreviation" style="width: 15em;" placeholder="Enter course ID (e.g. CSC212)"></p><br>
             <p>Course Name <input type="text" id="course" name="course" style="width: 26em;" placeholder="Enter course name (e.g. Human Computer Interaction)"></p><br>
             <p>Department
@@ -170,7 +171,7 @@
     <p><input type="checkbox" name="tag" value="Graded By Few Things"> Graded By Few Things</p>
     <br>
     <div class="review-panel">
-        <p>Write a Review</p>
+        <h4>Write a Review</h4>
         {{ form.review(cols = "50", rows = "10", placeholder = "What do you want other students to know about this course?  Avoid profanity or derogatory terms.") }}
         <!-- <textarea cols="50" rows="10" name="review" placeholder="What do you want other students to know about this course?  Avoid profanity or derogatory terms."></textarea><br> -->
         <!-- <input type="submit" style="display: none" /> -->
