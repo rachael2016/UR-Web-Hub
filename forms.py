@@ -70,5 +70,6 @@ class HomeForm(FlaskForm):
     submit = SubmitField("Submit",)
 
 class RateThisForm(FlaskForm):
-    submit = SubmitField("Submit")
+    courseAbbrev = StringField("Abbreviation")
+    submit = SubmitField("Submit",)
 

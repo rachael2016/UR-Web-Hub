@@ -154,7 +154,7 @@ textBox.addEventListener("keyup", function (event) {
 });
 
 document.getElementById("rateThis").onclick = function () {
-    location.href = "/coursefeedbackform";
+    location.href = "rmc_feedback";
     //Need to also send courseID
 };
 

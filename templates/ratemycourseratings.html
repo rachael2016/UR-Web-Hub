@@ -48,7 +48,9 @@
 
 {% block content %}
 <div class="back">
-<center><h3><b>{{ courseID }}</b></h3>
+<center><form action="" method="POST">
+<!-- <input type="text" value="{{ courseID }}" placeholder="{{ courseID }}" readonly> -->
+<h3><b>{{ courseID }}</b></h3>
 <p>{{ courseName }}</p>
 <div class="float-container">
 <div class="float-child">
@@ -82,8 +84,8 @@
         <td>{{one_star}}</td>
     </tr>
 </table>
-<form action="" method="POST">
-<input type="submit" id="submit" name="submit" /><br><br>
+
+<!-- <input type="submit" id="rateThis" name="submit" /><br><br> -->
 </form>
 <div class="float-child">
 <p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
@@ -98,7 +100,7 @@
 <p>Top Reviews</p>
 <!--Loop through reviews-->
     {%for review in reviews%}
-<div class="comment">QUALITY: <b>{{ review.rating }}</b> &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
+<div class="comment">QUALITY: {{ review.rating }} &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
 <br>
 {%endfor%}
 </center>

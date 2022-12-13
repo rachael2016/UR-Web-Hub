@@ -67,7 +67,7 @@ def ratemycourse():
     return render_template("ratemycourse.html", form = form, bool = False)
 
 # @app.route("/ratemycoursefeedback/<courseAbbrev>", methods = ["GET", "POST"])
-@app.route("/ratemycoursefeedback", methods = ["GET", "POST"])
+@app.route("/ratemycoursefeedback", methods = ["GET", "POST"], endpoint='rmc_feedback')
 def coursefeedbackform():
     form = CourseFeedbackForm()
     # conn = getdbconnection()      
@@ -113,10 +113,9 @@ def coursefeedbackform():
 @app.route("/ratemycourseratings/<courseID>", methods = ["GET", "POST"])
 def ratemycourseratings(courseID):
     form = RateThisForm()
-    if form.validate_on_submit():
-        feedback = CourseFeedbackForm()
+    if False:
         print("Ratings to Feedback Form")
-        return redirect(url_for("ratemycoursefeedback", form = form))
+        return redirect(url_for('rmc_feedback'))
     else:
         conn = getdbconnection()
         reviews = conn.execute('SELECT * FROM CourseRatingsReceived WHERE courseID = ?', (courseID,)).fetchall()
