@@ -271,6 +271,16 @@ h3 {
 	color: #003366;
 }
 
+.futureplans h3 {
+	background-color: #ADD8E6;
+	margin: 0 auto;
+}
+
+.futureplans {
+	margin: 0 auto;
+	text-align: center;
+}
+
 p {
 	font-family: "Trebuchet MS";
 	font-size: 20px;
