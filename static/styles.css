@@ -327,7 +327,7 @@ footer h4 {
 
 .form, form, fieldset {
 	margin: 0 auto;
-	width: 100%
+	max-width: 90%;
 }
 
 fieldset {
