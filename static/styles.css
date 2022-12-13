@@ -147,7 +147,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h2.full-width {
 	width: 100%;
-	padding-top: 1em;
 }
 
 h2.dining-link {
@@ -364,6 +363,10 @@ fieldset {
 
 	h2 {
 		margin-bottom: 1em;
+	}
+
+	h2.full-width {
+		padding-top: 1em;
 	}
 
 	#accordion {
