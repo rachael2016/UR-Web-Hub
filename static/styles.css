@@ -193,6 +193,15 @@ fieldset {
     .full-text { 
     	display: none; 
     }
+
+	.futureplans span {
+		display: block;
+	}
+
+	.futureplans em {
+		padding-right: .5em;
+		padding-left: .5em;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
