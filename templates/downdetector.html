@@ -40,11 +40,6 @@
         text-align: center;
     }
 
-    .highlight h3 {
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-
     label{
         font-size: 75%;
         color: #003366;
@@ -60,8 +55,8 @@
 <div style="display: flex;">
 <div class="one" style="flex: 1;">
     <div class="highlight">
-    <h3>{{ name }}</h3>
-    <h3>Recent Outage Reports: {{ reportcount }}</h3>
+    <h3 style="padding-top: 1em;">{{ name }}</h3>
+    <h3 style="padding-bottom: 1em;">Recent Outage Reports: {{ reportcount }}</h3>
 </div>
     </br>
 <h4>Report the Current Status:</h4>
