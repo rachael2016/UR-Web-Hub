@@ -92,7 +92,7 @@ input[type=submit] {
 		max-width: 90%;
 	}
 
-.form, form {
+.form, form, fieldset {
 	margin: 0 auto;
 }
 
@@ -193,6 +193,15 @@ fieldset {
     .full-text { 
     	display: none; 
     }
+
+	.futureplans span {
+		display: block;
+	}
+
+	.futureplans em {
+		padding-right: .5em;
+		padding-left: .5em;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -430,7 +439,7 @@ nav li {
 @media screen and (max-width: 930px) {
 	.menu {
     	text-align: center;
-   	 padding: 0em;
+   	 	padding: 0em;
 	}
 
 	.menu a {
