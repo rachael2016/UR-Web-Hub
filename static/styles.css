@@ -92,7 +92,7 @@ input[type=submit] {
 		max-width: 90%;
 	}
 
-.form, form {
+.form, form, fieldset {
 	margin: 0 auto;
 }
 
@@ -439,7 +439,7 @@ nav li {
 @media screen and (max-width: 930px) {
 	.menu {
     	text-align: center;
-   	 padding: 0em;
+   	 	padding: 0em;
 	}
 
 	.menu a {
