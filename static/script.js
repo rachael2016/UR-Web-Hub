@@ -12,7 +12,7 @@ function openAccordion(id) {
 const img = document.getElementById('hoursofop');
 
 img.addEventListener('dblclick', (e) => {
-    window.open("/hoursofoperation.png")
+    window.open("/static/hoursofoperation.png")
 });
 
 // display the current date/time 
