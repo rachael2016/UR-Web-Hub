@@ -16,6 +16,8 @@
         align-items: center;
         justify-content: center;
         margin: 0 auto;
+        margin-left: 2em;
+        margin-right: 2em;
     }
 
     div.two {
@@ -26,6 +28,16 @@
         justify-content: center;
         margin: 0 auto;
         padding: 2em;
+    }
+
+    div.highlight {
+        background-color: #ffdb4d;
+        align-items: center;
+        justify-content: center;
+        margin-left: 3em;
+        margin-right: 3em;
+        border-radius: 1em;
+        text-align: center;
     }
 
     label{
@@ -42,8 +54,10 @@
 {% block content %}
 <div style="display: flex;">
 <div class="one" style="flex: 1;">
+    <div class="highlight">
     <h3>{{ name }}</h3>
     <h3>Recent Outage Reports: {{ reportcount }}</h3>
+</div>
     </br>
 <h4>Report the Current Status:</h4>
     <form method="post">
