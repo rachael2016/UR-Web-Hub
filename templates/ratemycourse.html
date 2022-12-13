@@ -9,6 +9,18 @@
 <link rel="stylesheet" href="../static/styles.css">
 
 <script src="/static/script.js"></script>
+<style>
+    .button {
+        background-color: #333333;
+        color: #ffdb4d;
+        border-radius: 5px;
+        padding: .5em;
+        border-color: #333333;
+        margin-bottom: 1em;
+        font-size: 1em;
+    }
+
+</style>
 {% endblock %}
 
 {% block content %}
@@ -51,8 +63,8 @@
 					<option value="Women's Studies">Women's Studies</option>
 					<option value="Writing">Writing</option>
 				</select>&nbsp; -->
-				<input id="abbreviation" type="text" placeholder="Search" name="abbreviation"> &nbsp;
-				<input type="submit" id="submit" name="submit">
+				<input id="abbreviation" type="text" placeholder="Course Abbr." name="abbreviation"> &nbsp;
+				<input type="submit" id="submit" name="submit" value="Search">
 				<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
 			</center>
 
@@ -60,7 +72,7 @@
 				<h1>This course doesn't exist in our database yet! Add a review to include it.</h1>
 			{% endif %}
 
-			<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
+			<center><input type="button" class="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 			<!--<input type="submit" style="display: none" />-->
 
 		</form>
