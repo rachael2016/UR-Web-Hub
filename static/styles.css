@@ -29,7 +29,7 @@ li {
 .lead {
 	background-color: #999999;
 	color: #323131;
-	padding: 30px;
+	padding: 3em;
 	border-radius: 15px 15px 15px 15px;
 	margin: 0 auto;
 	margin-top: 4em;
@@ -39,6 +39,10 @@ li {
 }
 
 /* form styles */
+
+.form {
+	padding: 3em;
+}
 
 .form h2 {
 	margin-bottom: .5em;

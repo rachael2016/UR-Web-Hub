@@ -31,6 +31,15 @@
         width: 45%;
         margin: 0 auto;
     }
+
+    label{
+        font-size: 75%;
+        color: #003366;
+    }
+
+    input[type="submit"] {
+        font-size: 1em;
+    }
 </style>
 {% endblock %}
 
@@ -38,9 +47,9 @@
 <div style="display: flex;">
 <div class="one" style="flex: 1;">
     <h3>{{ name }}</h3>
+    <h3>Recent Outage Reports: {{ reportcount }}</h3>
     </br>
-    <h3>Recent Reports: {{ reportcount }}</h3>
-    </br>
+<h4>Report the Current Status:</h4>
     <form method="post">
         {{ form.csrf_token }}
         <input type="radio" id="down" name="status" value="true">
@@ -48,6 +57,7 @@
         </br>
         <input type="radio" id="up" name="status" value="false">
         <label for="up">The Elevator is Working</label>
+    </br>
         <input type="submit" value="Submit">
     </form>
     </br>
@@ -56,6 +66,7 @@
 
     <h3>24h Outage Records</h3>
     <canvas id="barChart"></canvas>
+    <p>Time is displayed in military time. Most recent reports begin on the left-hand side.</p>
 </div>
 </div>
 <script>
@@ -66,8 +77,8 @@
     var container = document.getElementById("two");
 
     // Set the width and height of the canvas to the width and height of the div
-    canvas.width = container.offsetWidth;
-    canvas.height = container.offsetHeight;
+    canvas.width = container.offsetWidth * 0.75;
+    canvas.height = container.offsetHeight * 0.40;
     //IGNORE RED UNDERLINES, jinja will populate data before the js script runs
     const ctx = document.getElementById('barChart');
 
