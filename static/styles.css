@@ -29,7 +29,8 @@ li {
 .lead {
 	background-color: #999999;
 	color: #323131;
-	padding: 3em;
+	padding-left: 3em;
+	padding-right: 3em;
 	border-radius: 15px 15px 15px 15px;
 	margin: 0 auto;
 	margin-top: 4em;
