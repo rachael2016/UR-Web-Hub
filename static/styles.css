@@ -375,7 +375,8 @@ fieldset {
 		width: 100%;
 		margin-left: 0 auto;
 		margin-right: 0 auto;
-		padding: 0%
+		padding: 0%;
+		border-radius: 0px;
 	}
 
 	fieldset {
