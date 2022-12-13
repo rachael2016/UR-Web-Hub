@@ -54,6 +54,8 @@ def ratemycourse():
     if form.validate_on_submit():
         conn = getdbconnection()
         ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
+        conn.commit()
+        conn.close()
         for rating in ratings:
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
@@ -173,7 +175,6 @@ def ratemycourseratings(courseID):
         numRatings = len(reviews), five_stars = fiveStars, four_stars = fourStars, 
         three_stars = threeStars, two_stars = twoStars, one_star = oneStar,difficulty = averageDiff, 
         usefulness = averageUse, tags = spam_list, reviews = reviewDict)
-
 
 @app.route("/downdetector/<int:buildingid>", methods = ["GET", "POST"])
 def downdetector(buildingid):

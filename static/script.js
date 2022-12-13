@@ -8,6 +8,13 @@ function openAccordion(id) {
   }
 }
 
+// open image in new tab with big dimensions 
+const img = document.getElementById('hoursofop');
+
+img.addEventListener('dblclick', (e) => {
+    window.open("/static/hoursofoperation.png")
+});
+
 // display the current date/time 
 const dayoftheweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthoftheyear = ["January","February","March","April","May","June","July","August","September","October","November","December"];

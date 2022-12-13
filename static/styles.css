@@ -209,7 +209,7 @@ h2.full-width {
 h2.dining-link {
 	width: 100%;
 	margin-bottom: 1em;
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 header, footer, nav, .lead, .full-width, .whatisopen {
@@ -279,7 +279,6 @@ h3 {
 }
 
 .futureplans p {
-	font-family: "Century Gothic","Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
 	background-color: #dff; 
 	font-weight: normal;
 	margin-top: 0;
