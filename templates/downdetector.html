@@ -34,9 +34,9 @@
         background-color: #ffdb4d;
         align-items: center;
         justify-content: center;
-        margin-left: 3em;
-        margin-right: 3em;
-        border-radius: 1em;
+        margin-left: 4em;
+        margin-right: 4em;
+        border-radius: .5em;
         text-align: center;
     }
 
@@ -55,28 +55,27 @@
 <div style="display: flex;">
 <div class="one" style="flex: 1;">
     <div class="highlight">
-    <h3>{{ name }}</h3>
-    <h3>Recent Outage Reports: {{ reportcount }}</h3>
+    <h3 style="padding-top: 1em;">{{ name }}</h3>
+    <h3 style="padding-bottom: 1em;">Recent Outage Reports: {{ reportcount }}</h3>
 </div>
-    </br>
 <h4>Report the Current Status:</h4>
     <form method="post">
         {{ form.csrf_token }}
         <input type="radio" id="down" name="status" value="true">
         <label for="down">This Elevator is Down</label>
-        </br>
+        <br>
         <input type="radio" id="up" name="status" value="false">
         <label for="up">The Elevator is Working</label>
-    </br>
+        <br>
         <input type="submit" value="Submit">
     </form>
-    </br>
+    <br>
 </div>
 <div class="two" id="two" style="flex: 1;">
 
     <h3>24h Outage Records</h3>
     <canvas id="barChart"></canvas>
-    <p>Time is displayed in military time. Most recent reports begin on the left-hand side. Only down records are displayed.</p>
+    <p>Time is displayed in hours from current time. Most recent reports begin on the left-hand side. Only down records are displayed.</p>
 </div>
 </div>
 <script>

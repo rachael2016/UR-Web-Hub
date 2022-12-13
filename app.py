@@ -191,7 +191,7 @@ def downdetector(buildingid):
     graphedrecords = []
     iteratetime = datetime.now()
     reportcount = 0
-    for i in range(0, 24):
+    for i in range(1, 24):
         minusHour = iteratetime - timedelta(hours=1)
         downstatus = True
         temprecords = conn.execute('SELECT * FROM ElevatorDownRecords WHERE buildingid = ? AND datetime >= ? AND datetime < ? AND down = ?', (buildingid, minusHour, iteratetime, downstatus)).fetchall()
@@ -202,7 +202,7 @@ def downdetector(buildingid):
                 reportcount += 1
 
         tographedrecords = {
-            "datetime": minusHour,
+            "datetime": "-" + str(i) + "h",
             "reportAmount": recordcount
         }
         graphedrecords.append(tographedrecords)
@@ -211,8 +211,7 @@ def downdetector(buildingid):
     labels = []
     values = []
     for record in graphedrecords:
-        time = "%s:%s" % (record["datetime"].hour, record["datetime"].minute)
-        labels.append(time)
+        labels.append(record["datetime"])
         values.append(record["reportAmount"])
     
     conn.close()
