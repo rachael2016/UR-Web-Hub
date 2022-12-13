@@ -74,15 +74,15 @@ label {
 
 input {
     margin-left: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     background-color: #f0f0f0;
 }
 
 textarea {
-    margin-top: 2em;
+    margin-top: 1em;
     resize: none;
     overflow: hidden;
-    padding: 5em;
+    padding: 1em;
 }
 
 fieldset {
@@ -98,6 +98,9 @@ input[type=submit] {
     border-color: #333333;
     margin-bottom: 1em;
     font-size: 1em;
+    height: 3em;
+    padding: 0.5em;
+    margin-top: 0.5em;
 }
 
 /* end of form styles */
@@ -452,17 +455,59 @@ nav {
     }
 }
 
-input[type=checkbox] {
-    margin-inline: 1em;
+input {
+    margin-inline: 0.5em;
 }
 
 .back {
+    display: block;
     background-color: #999999;
-    padding: 2em;
+    padding: 1em;
     border-radius: 15px 15px 15px 15px;
-    margin: 0 auto;
-    margin-top: 2em;
-    margin-bottom: 3em;
-    max-width: 90%;
+    margin: auto;
+    max-width: 70%;
 }
 
+
+.departments {
+    font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, sans-serif;
+    color: #ADD8E6;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+/*.container img {
+    padding-bottom: 0em;
+}*/
+
+
+.table {
+
+    border-collapse: collapse;
+}
+progress {
+    height: 2rem;
+    text-align: center;
+    color: white;
+    background-image: green;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.comment {
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #e4e4e4;
+    padding: 0.5em;
+}
+
+.tag {
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: #bfbfbf;
+    display: inline-block;
+    padding: 0.5em;
+}

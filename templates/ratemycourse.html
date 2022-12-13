@@ -24,12 +24,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-	<div class="lead">
+<center>
+<div>
+	
+	<div class="back">
 		<h2 class="full-width">Rate My Course</h2>
 		<form method="POST">
 			<center>
-				<b>Department</b>
+				<p class="departments">Department</p>
 				{{ form.department }}
 				<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 					<option value="Accounting">Accounting</option>
@@ -77,5 +79,6 @@
 		</form>
 		<br>
 	</div>
-</div>
+
+</div></center>
 {% endblock %}
