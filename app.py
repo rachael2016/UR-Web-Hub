@@ -54,6 +54,8 @@ def ratemycourse():
     if form.validate_on_submit():
         conn = getdbconnection()
         ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
+        conn.commit()
+        conn.close()
         for rating in ratings:
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
@@ -153,6 +155,7 @@ def ratemycourseratings(courseID):
         average = totalRatings / len(reviews)
         averageDiff = totalDifficulty / len(reviews)
         averageUse = totalUsefulness / len(reviews)
+    conn.commit()
     conn.close()
     # print(messages)
     return render_template("ratemycourseratings.html", courseID = courseID, overall = average,
