@@ -455,3 +455,14 @@ nav {
 input[type=checkbox] {
     margin-inline: 1em;
 }
+
+.back {
+    background-color: #999999;
+    padding: 2em;
+    border-radius: 15px 15px 15px 15px;
+    margin: 0 auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    max-width: 90%;
+}
+

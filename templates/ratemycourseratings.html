@@ -48,61 +48,62 @@
 
 {% block content %}
 <div class="back">
-<center><div id="courseID" style="font-size: 2em;"><p><b>{{ courseID }}</b></p></div>
+<center><h3><b>{{ courseID }}</b></h3>
 <p>{{ courseName }}</p>
-    Overall Rating: {{ overall }}/5
-<br>
-{{ numRatings }} ratings
-<br>
+<div class="float-container">
+<div class="float-child">
+<p>Overall Rating: {{ overall }}/5</p>
+<p>{{ numRatings }} ratings</p>
 <br>
 <table>
     <tr>
         <td>5 stars</td>
-        <td><progress value="{{ five_stars }}" max="100"></progress></td>
+        <td><progress value="{{ five_stars }}" max="{{ numRatings }}"></progress></td>
         <td>{{ five_stars}}</td>
     </tr>
     <tr>
         <td>4 stars</td>
-        <td><progress value="{{ four_stars }}" max="100"></progress></td>
+        <td><progress value="{{ four_stars }}" max="{{ numRatings }}"></progress></td>
         <td>{{four_stars}}</td>
     </tr>
     <tr>
         <td>3 stars</td>
-        <td><progress value="{{ three_stars }}" max="100"></progress></td>
+        <td><progress value="{{ three_stars }}" max="{{ numRatings }}"></progress></td>
         <td>{{three_stars}}</td>
     </tr>
     <tr>
         <td>2 stars</td>
-        <td><progress value="{{ two_stars }}" max="100"></progress></td>
+        <td><progress value="{{ two_stars }}" max="{{ numRatings }}"></progress></td>
         <td>{{two_stars}}</td>
     </tr>
     <tr>
         <td>1 star</td>
-        <td><progress value="{{ one_star }}" max="100"></progress></td>
+        <td><progress value="{{ one_star }}" max="{{ numRatings }}"></progress></td>
         <td>{{one_star}}</td>
     </tr>
 </table>
 
-<p>Difficulty: {{ difficulty }}/5</p>
-<p>Usefulness: {{ usefulness }}/5</p>
+<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse', courseID=courseID)}}';">Rate this Course</button><br><br>
 
-<button id= "rateThis" onclick= "location.href='{{ url_for('ratemycourse', courseID = {{ courseID }})}}';">Rate this Course</button>
-<br>
-<br>
+<div class="float-child">
+<p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
 
 <p>Top Tags</p>
     {%for tag in tags %}
 <div class="tag">{{ tag }}</div>
     {%endfor%}
+</div>
+</div>
 
 <p>Top Reviews</p>
 <!--Loop through reviews-->
     {%for review in reviews%}
 <div class="comment">QUALITY: <b>{{ review.rating }}</b> &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
 <br>
+{%endfor%}
 </center>
 </div>
-    {%endfor%}
+    
 
 
 
