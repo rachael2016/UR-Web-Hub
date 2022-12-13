@@ -58,19 +58,17 @@
     <h3 style="padding-top: 1em;">{{ name }}</h3>
     <h3 style="padding-bottom: 1em;">Recent Outage Reports: {{ reportcount }}</h3>
 </div>
-    </br>
 <h4>Report the Current Status:</h4>
     <form method="post">
         {{ form.csrf_token }}
         <input type="radio" id="down" name="status" value="true">
         <label for="down">This Elevator is Down</label>
-        </br>
         <input type="radio" id="up" name="status" value="false">
         <label for="up">The Elevator is Working</label>
-    </br>
+    <br>
         <input type="submit" value="Submit">
     </form>
-    </br>
+    <br>
 </div>
 <div class="two" id="two" style="flex: 1;">
 
