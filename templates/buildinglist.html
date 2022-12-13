@@ -8,36 +8,34 @@
 <link rel="stylesheet" href="../static/styles.css">
 <style>
     li {
-        text-align: left;
         font-size: 24px;
-        margin-left: 1%;
+        padding-bottom: .5em;
+    }
+    
+    ol {
+        margin: 0 auto;
+        color: #003366;
     }
 
     nav li {
         font-size: 30px;
     }
-
-    h5 {
-        font-family: "Trebuchet MS";
-        font-size: 20px;
-        font-weight: bold;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
 </style>
 {% endblock %}
 
 {% block content %}
-    <h1>Down Detector Building List</h1>
-    <h5>Select your building to view the status</h5>
+<div class="container">
     <section class="lead">
-    <ol>
-        {% for building in buildings %}
+        <h2 class="full-width">Down Detector Building List</h2>
+            <h2 class="full-width" style="color: #ADD8E6; margin-bottom: 1em;">Select your building to view the status</h2>
+            <ol>
+            {% for building in buildings %}
 
-        <li><a href="/downdetector/{{ building.buildingid }}"><u>{{ building.name }}</u></a></li>
+            <li><a href="/downdetector/{{ building.buildingid }}"><u>{{ building.name }}</u></a></li>
 
-        {% endfor %}
-    </ol>
-    </section>
-
+            {% endfor %}
+            </ol>
+        </section>
+    </div>
+</div>
 {% endblock %}

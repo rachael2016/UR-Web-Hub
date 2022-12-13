@@ -11,6 +11,7 @@
 {% block content %}
       <div class="container">
          <div class = "whatisopen">
+            <h2>What's Open Right Now?</h2>
             <div id="current_date"></div>
             <div id="fall_schedule"></div>
             <div class="dininglocations">
@@ -22,6 +23,7 @@
             <p id="douglassbrunch_schedule"></p>
             <p id="douglasslunch_schedule"></p>
             <p id="douglassdinner_schedule"></p>
+            <p id="eastmandinner_schedule"></p>
             <p id="grabngo_schedule"></p>
             <p id="peets_schedule"></p>
             <p id="danforthlunch_schedule"></p>
@@ -34,26 +36,16 @@
       </div>
             <section class="lead">
          <h2 class="full-width">Dining Locations</h2>
-         <div class="zoom">
+         <figure>
             <img src="../static/hoursofoperation.png" alt="Fall Hours of Operation">
+            <figcaption>Chart made by &nbsp;<a href="https://dining.rochester.edu/">UR Dining Services</a>, double press image to open in new tab (not working yet, fyi for any beta testers)</figcaption>
+         </figure>
+         <div class="futureplans">
+         <h3><em>Ideas for Future Features</em></h3>
+            <span class="full-text"><p>This will contain a short description and an image of a mockup for a feature that could be implemented in the future</p></span>
+            <span class="short-text"><p>This is a test text</p></span>
          </div>
-         <div id="accordion">
-            <button onclick="openAccordion('downdetector')" class="w3-btn w3-block w3-aqua"><h3><em>Douglass Dining Hall</em></h3></button>
-         <div id="downdetector" class="w3-hide w3-container w3-center w3-pale-blue">
-            <span class="full-text"><p>There are many students on campus that rely on accessibility points on campus such as ramps and elevators. When an elevator is down, or a ramp is blocked off due to construction, this can completely alter the student’s route, or even prevent them from getting to a location in the first place. This is where the down detector comes in. Inspired by website down detectors and the frequent Anderson Hall elevator outages, the UR Hub will allow students to report blocked ramps or non-functional elevators. Then, students who rely on this information to get place-to-place can plan accordingly if they see a recent report has been made. While the current plan is to rely fully on crowdsourced data from students, if time permits, functionality to allow facilities to report maintenance in a particular area is a feature we would like to add. This feature can help speed up the rate in which mechanical problems are fixed, in addition to being an informative resource to users. <br><br><br> Click here to learn more: <a href="downdetector.html">Down Detector</a></p></span>
-            <span class="short-text"><p>Find or report malfunctioning things on campus! Include picture here!</p></span>
-        </div>
-         <button onclick="openAccordion('dining')" class="w3-btn w3-block w3-aqua"><h3><em>Danforth Dining Hall</em></h3></button>
-         <div id="dining" class="w3-hide w3-container w3-center w3-pale-blue">
-            <span class="full-text"><p>Continuing with the crowdsourcing theme, we would like to expand on the current Dining Menu Feature and allow for students to report inaccuracies in the dining menu published online. This feature would pull data from the UR Dining Services website to display what is available at different locations. Through our new feature, students will be able to filter by dietary restrictions to find places that will accommodate those needs. In addition, besides each dining option, there will be a section for students to report the accuracy of the current menu. Students will not only be able to report if a station does not have the menu items listed, but will be able to make comments to inform other students of what the station is actually offering. Our improved implementation of the dining menus will also include food items at locations that aren’t typically listed on the menu of the dining website. This is important because although the school lists some dietary restrictions, they don’t include a more expansive list, and they sometimes advertise a station as having food that isn't actually served since they often run out of certain menu items and don’t update. That can lead to a student with dietary restrictions paying to go to a dining hall and then not even being able to eat anything. In addition, we hope by expanding the list of menus to reach even more locations beyond the three major dining halls, we will enable more of the student body to feel confident obtaining food and drink at every location. <br><br><br> Click here to learn more: <a href="dining.html">Dining</a></p></span>
-            <span class="short-text"><p>Find extensive nutrition information for locations on campus and give feedback to dining services! Insert picture here.</p></span>
-        </div>
-              <button onclick="openAccordion('ratemyclass')" class="w3-btn w3-block w3-aqua"><h3><em>The Pit</em></h3></button>
-         <div id="ratemyclass" class="w3-hide w3-container w3-center w3-pale-blue">
-            <span class="full-text"><p>One feature we would be interested in building a minor working beta for is a way for students to rate and discuss classes. Instead of being professor-specific like ratemyprofessor, this feature would enable students to discuss a general class and whether they think it is too difficult, too easy, how it has helped them learn (or not), helpful tips, overview of topics covered (so you don’t have to hunt down the syllabi anymore), etc., and may also contain general studying tips.<br><br><br>Learn more here: <a href="ratemyclass.html">Academics</a></p></span>
-            <span class="short-text"><p>Want to know more about a course than just the professor? Check out RateMyCourse! Insert picture here.</p></span>
-        </div>
-    </div>
+    <h2 class="dining-link">Want to share your feedback about dining? <a href="/diningfeedbackform">Click here!</a></h2>
       </section>
    </div>
    <script src="../static/zoom-by-ironex.min.js"></script>

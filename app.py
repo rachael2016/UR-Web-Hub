@@ -60,6 +60,7 @@ def ratemycourse():
             if form.abbreviation.data in rating['abbreviation']:
                 return redirect(url_for("ratemycourseratings", courseID = form.abbreviation.data))
                 # return redirect(url_for('dashboard', abbreviation = form.abbreviation.data))
+        conn.close()
         return render_template("ratemycourse.html", form = form, bool = True)
     else:
         print("invalid form")
@@ -75,27 +76,27 @@ def coursefeedbackform():
         if len(request.form.getlist('tag')) > 0:
             str1 = ','.join(request.form.getlist('tag'))
             print(str1)
-            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, tags) VALUES (?, ?, ?, ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, str1))
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, tags, semester, professor) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, str1, form.semester.data, form.professor.data))
         else:
-            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness) VALUES (?, ?, ?, ?, ?)', 
-        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data))
+            conn.execute('INSERT INTO CourseRatingsReceived (courseid, rating, message, difficulty, usefulness, semester, professor) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+        (form.abbreviation.data, form.rating.data, form.review.data, form.difficulty.data, form.usefulness.data, form.semester.data, form.professor.data))
 
         ratings = conn.execute("SELECT * FROM CourseRatingsReceived").fetchall()
         ratingsList = []
         for rating in ratings:
             ratingsList.append({'tags': rating['tags']})
-        print(ratingsList)
+        # print(ratingsList)
         conn.commit()
         conn.close()
-        print(form.rating.data)
-        print(form.difficulty.data)
-        print(form.usefulness.data)
-        print(form.online.data)
-        print(form.review.data)
+        # print(form.rating.data)
+        # print(form.difficulty.data)
+        # print(form.usefulness.data)
+        # print(form.online.data)
+        # print(form.review.data)
         # print(request.form.get('dropMenu'))
-        print(request.form.getlist('tag'))
-        print(request.form.getlist('tag')[0])
+        # print(request.form.getlist('tag'))
+        # print(request.form.getlist('tag')[0])
         print(form.review.data)
         temp = form.abbreviation.data
         form.course.data = ''
@@ -125,13 +126,19 @@ def ratemycourseratings(courseID):
     reviewDict = []
     spam_list = []
     for review in reviews:
-        reviewDict.append({'rating': review['rating'], 'message': review['message']})
+        reviewDict.append({'rating': review['rating'], 'message': review['message'], 'semester' : review['semester'], \
+            'professor' : review['professor'], 'difficulty' : review['difficulty'], 'usefulness' : review['usefulness']})
         # print(review['rating'])
         # print(review['message'])
         rating = int(review['rating'])
         difficulty = int(review['difficulty'])
         usefulness = int(review['usefulness'])
-        spam_list = review['tags'].split(',')
+        # temp = list(review['tags'])
+        # if(len(review['tags']) == 1):
+        #     spam_list.append(review['tags'][0])
+        # else:
+        spam_list = str(review['tags']).split(',')
+        print(spam_list)
         if(rating == 5):
             fiveStars += 1
         elif rating == 4:
