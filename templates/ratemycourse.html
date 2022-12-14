@@ -9,28 +9,16 @@
 <link rel="stylesheet" href="../static/rate.css">
 
 <script src="/static/script.js"></script>
-<style>
-    .button {
-        background-color: #333333;
-        color: #ffdb4d;
-        border-radius: 5px;
-        padding: .5em;
-        border-color: #333333;
-        margin-bottom: 1em;
-        font-size: 1em; 
-    }
-
-</style>
 {% endblock %}
 
 {% block content %}
-<center>
-<div>
-	
-	<div class="back">
+<div class="container">
+	<div class="lead">
 		<h2 class="full-width">Rate My Course</h2>
 		<form method="POST">
-				<b style="color: #ADD8E6; font-size: 1.5em">Department</b> &nbsp;
+			<center>
+				{{ form.csrf_token }}
+				<p class="departments">Department</p>
 				{{ form.department }}
 				<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 					<option value="Accounting">Accounting</option>
@@ -63,20 +51,20 @@
 					<option value="Women's Studies">Women's Studies</option>
 					<option value="Writing">Writing</option>
 				</select>&nbsp; -->
-				<input id="abbreviation" type="text" placeholder="Course Abbr." name="abbreviation"> &nbsp;
-				<input type="submit" id="submit" name="submit" value="Search">
+				<input id="abbreviation" type="text" placeholder="Search" name="abbreviation"> &nbsp;
+				<input type="submit" id="submit" name="submit">
 				<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
+			</center>
 
 			{% if bool : %}
 				<h1>This course doesn't exist in our database yet! Add a review to include it.</h1>
 			{% endif %}
 
-			<center><input type="button" class="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
+			<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 			<!--<input type="submit" style="display: none" />-->
 
 		</form>
 		<br>
 	</div>
-
-</div></center>
+</div>
 {% endblock %}

@@ -13,20 +13,48 @@
     header {
         width: auto;
     }
+
+    .table {
+        border-collapse: collapse;
+    }
+    progress {
+        height: 2rem;
+        text-align: center;
+        color: white;
+        background-image: green;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .comment {
+        border-radius: 15px 15px 15px 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: #e4e4e4;
+        padding: 0.5em;
+    }
+
+    .tag {
+        border-radius: 15px 15px 15px 15px;
+        margin-left: 1%;
+        margin-right: 1%;
+        background-color: #bfbfbf;
+        display: inline-block;
+        padding: 0.5em;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="back">
-<center><form action="" method="POST">
-<!-- <input type="text" value="{{ courseID }}" placeholder="{{ courseID }}" readonly> -->
-<h3><b>{{ courseID }}</b></h3>
+<center><h3><b>{{ courseID }}</b></h3>
 <p>{{ courseName }}</p>
 <div class="float-container">
 <div class="float-child">
-<p>Overall Rating: <b>{{ overall }}</b>/5</p>  
+<p>Overall Rating: {{ overall }}/5</p>
 <p>{{ numRatings }} ratings</p>
-
+<br>
 <table>
     <tr>
         <td>5 stars</td>
@@ -54,8 +82,8 @@
         <td>{{one_star}}</td>
     </tr>
 </table>
-
-<!-- <input type="submit" id="rateThis" name="submit" /><br><br> -->
+<form action="" method="POST">
+<input type="submit" id="submit" name="submit" /><br><br>
 </form>
 <div class="float-child">
 <p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
@@ -70,7 +98,7 @@
 <p>Top Reviews</p>
 <!--Loop through reviews-->
     {%for review in reviews%}
-<div class="comment">QUALITY: {{ review.rating }} &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
+<div class="comment">QUALITY: <b>{{ review.rating }}</b> &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
 <br>
 {%endfor%}
 </center>
