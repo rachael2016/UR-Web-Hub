@@ -54,7 +54,6 @@ def ratemycourse():
     if form.validate_on_submit():
         conn = getdbconnection()
         ratings = conn.execute("SELECT * FROM Courses WHERE department = ?", (form.department.data,)).fetchall()
-        conn.commit()
         conn.close()
         for rating in ratings:
             if form.abbreviation.data in rating['abbreviation']:

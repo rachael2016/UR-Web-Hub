@@ -4,8 +4,7 @@
 <!--Emersyn, Rachael, Sarah, Kelly, Grant-->
 <title>{{ courseID }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/static/script.js"></script>
-<!-- bar stuff is from w3schools.com/howto/tryit.asp?filename=tryhow_css_user_rating-->
+<!-- <script src="/static/script.js"></script> -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../static/rate.css">
@@ -24,8 +23,8 @@
 <p>{{ courseName }}</p>
 <div class="float-container">
 <div class="float-child">
-<p>Overall Rating: <b>{{ overall }}</b>/5</p>  
-<p>{{ numRatings }} ratings</p>
+<p>Overall Rating: <b>{{ overall |round(1) }}</b>/5</p><br>  
+<p>{{ numRatings }} ratings</p><br><br>
 
 <table>
     <tr>
@@ -54,20 +53,20 @@
         <td>{{one_star}}</td>
     </tr>
 </table>
-
+<br>
 <!-- <input type="submit" id="rateThis" name="submit" /><br><br> -->
 </form>
 <div class="float-child">
-<p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
+<p>Difficulty: {{ difficulty |round(1) }}/5 &emsp; Usefulness: {{ usefulness |round(1) }}/5</p><br><br>
 
-<p>Top Tags</p>
+<p>Top Tags</p><br>
     {%for tag in tags %}
 <div class="tag">{{ tag }}</div>
     {%endfor%}
 </div>
-</div>
+</div><br>
 
-<p>Top Reviews</p>
+<p>Top Reviews</p><br>
 <!--Loop through reviews-->
     {%for review in reviews%}
 <div class="comment">QUALITY: {{ review.rating }} &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>

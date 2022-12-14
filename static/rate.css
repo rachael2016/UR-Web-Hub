@@ -251,9 +251,7 @@ h3 {
 p {
     font-family: "Trebuchet MS";
     font-size: 1.5em;
-    
-    padding-left: 1em;
-    padding-right: 1em;
+    display: inline;
 }
 
 ul {
@@ -491,16 +489,16 @@ progress {
 
 .comment {
     border-radius: 15px 15px 15px 15px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 1em 1em 1em 1em;
     background-color: #e4e4e4;
-    padding: 0.5em;
+    padding: 1em;
+    min-height: 3em;
+    text-align: left;
 }
 
 .tag {
     border-radius: 15px 15px 15px 15px;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin: 1em 1em 1em 1em;
     background-color: #bfbfbf;
     display: inline-block;
     padding: 0.5em;
