@@ -118,7 +118,7 @@ if ((dateschedule.getMonth() > 08) || (dateschedule.getMonth() == 07 && datesche
     }
 }
 // new schedule for finals week hours
-if ((dateschedule.getMonth() == 12) && (dateschedule.getDate() >= 15 && <= 23)) {
+if ((dateschedule.getMonth() == 12) && (dateschedule.getDate() >= 15 && dateschedule.getDate() <= 23)) {
     document.getElementById("finalsweek_schedule").innerHTML = "Reading Period/Final Exam Week Hours of Operation";
     //thursday 
     if ((dateschedule.getHours() < 23 && (dateschedule.getHours() > 10 || (dateschedule.getHours() = 10 && dateschedule.getMinutes() >= 30)))) {
