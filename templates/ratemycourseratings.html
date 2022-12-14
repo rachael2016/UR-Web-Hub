@@ -13,36 +13,6 @@
     header {
         width: auto;
     }
-
-    .table {
-        border-collapse: collapse;
-    }
-    progress {
-        height: 2rem;
-        text-align: center;
-        color: white;
-        background-image: green;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
-
-    .comment {
-        border-radius: 15px 15px 15px 15px;
-        margin-left: 5%;
-        margin-right: 5%;
-        background-color: #e4e4e4;
-        padding: 0.5em;
-    }
-
-    .tag {
-        border-radius: 15px 15px 15px 15px;
-        margin-left: 1%;
-        margin-right: 1%;
-        background-color: #bfbfbf;
-        display: inline-block;
-        padding: 0.5em;
-    }
 </style>
 {% endblock %}
 
@@ -52,10 +22,10 @@
 <p>{{ courseName }}</p>
 <div class="float-container">
 <div class="float-child">
-<p>Overall Rating: {{ overall }}/5</p>
+<p>Overall Rating: {{ overall | round(1) }}/5</p><br>
 <p>{{ numRatings }} ratings</p>
 <br>
-<table>
+<table id="stars">
     <tr>
         <td>5 stars</td>
         <td><progress value="{{ five_stars }}" max="{{ numRatings }}"></progress></td>
@@ -82,23 +52,23 @@
         <td>{{one_star}}</td>
     </tr>
 </table>
-<form action="" method="POST">
-<input type="submit" id="submit" name="submit" /><br><br>
-</form>
+<!-- <form action="" method="POST">
+    <input type="submit" id="submit" name="submit" value="Rate this Course"/><br><br>
+</form> -->
 <div class="float-child">
-<p>Difficulty: {{ difficulty }}/5 &emsp; Usefulness: {{ usefulness }}/5</p>
+<p>Difficulty: {{ difficulty | round(1) }}/5 &emsp; Usefulness: {{ usefulness | round(1) }}/5</p><br><br>
 
-<p>Top Tags</p>
+<p>Top Tags</p><br>
     {%for tag in tags %}
 <div class="tag">{{ tag }}</div>
     {%endfor%}
 </div>
-</div>
+</div><br>
 
-<p>Top Reviews</p>
+<p>Top Reviews</p><br>
 <!--Loop through reviews-->
     {%for review in reviews%}
-<div class="comment">QUALITY: <b>{{ review.rating }}</b> &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}<br> {{ review.message }}</div>
+<div class="comment"><p>QUALITY: {{ review.rating }} &emsp; DIFFICULTY: {{ review.difficulty }} &emsp; USEFULNESS: {{ review.usefulness }} &emsp; {{ review.semester }} &emsp; Professor: {{ review.professor }}</p><br> <p>{{ review.message }}</p></div>
 <br>
 {%endfor%}
 </center>

@@ -474,7 +474,6 @@ input {
 
 
 .table {
-
     border-collapse: collapse;
 }
 progress {
@@ -489,16 +488,18 @@ progress {
 
 .comment {
     border-radius: 15px 15px 15px 15px;
-    margin: 1em 1em 1em 1em;
+    margin: 0.5em 1em 0.5em 1em;
     background-color: #e4e4e4;
     padding: 1em;
     min-height: 3em;
     text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .tag {
     border-radius: 15px 15px 15px 15px;
-    margin: 1em 1em 1em 1em;
+    margin: 0.5em 1em 0.5em 1em;
     background-color: #bfbfbf;
     display: inline-block;
     padding: 0.5em;
@@ -509,4 +510,18 @@ input[type=text] {
 }
 input[type=select] {
     width: 20%;
+}
+
+.button {
+    background-color: #333333;
+    color: #ffdb4d;
+    border-radius: 5px;
+    padding: .5em;
+    border-color: #333333;
+    margin-bottom: 1em;
+    font-size: 1em; 
+}
+
+#stars { 
+    margin: 2em 2em 2em 2em;
 }

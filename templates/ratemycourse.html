@@ -12,13 +12,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-	<div class="lead">
+<center>
+	<div class="back">
 		<h2 class="full-width">Rate My Course</h2>
 		<form method="POST">
-			<center>
 				{{ form.csrf_token }}
-				<p class="departments">Department</p>
+				<b style="color: #ADD8E6; font-size: 2em;">Department</b> &nbsp;
 				{{ form.department }}
 				<!-- <select id="dropMenu" class="dropdown-content" name = "dropMenu">
 					<option value="Accounting">Accounting</option>
@@ -51,20 +50,19 @@
 					<option value="Women's Studies">Women's Studies</option>
 					<option value="Writing">Writing</option>
 				</select>&nbsp; -->
-				<input id="abbreviation" type="text" placeholder="Search" name="abbreviation"> &nbsp;
-				<input type="submit" id="submit" name="submit">
+				<input id="abbreviation" type="text" placeholder="Search course abbrev." name="abbreviation"> &nbsp;
+				<input type="submit" id="submit" name="submit" value="Search">
 				<!-- <input type="button" id="submitSearch" onclick="location.href='ratemycourse';" value="Submit" /> -->
-			</center>
 
 			{% if bool : %}
-				<h1>This course doesn't exist in our database yet! Add a review to include it.</h1>
+				<h4>This course doesn't exist in our database yet! Add a review to include it.</h4>
 			{% endif %}
 
-			<center><input type="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
+			<center><input type="button" class="button" onclick="location.href='ratemycoursefeedback';" value="Add a Review" /></center>
 			<!--<input type="submit" style="display: none" />-->
 
 		</form>
 		<br>
 	</div>
-</div>
+</center>
 {% endblock %}
