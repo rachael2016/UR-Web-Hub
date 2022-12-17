@@ -88,7 +88,7 @@ input[type=submit] {
 
 /* end of form styles */
 
-#current_date, #fall_schedule {
+#current_date, #fall_schedule, #finalsweek_schedule {
 	font-size: larger;
 	color: #ffdb4d;
 	font-family: "Century Gothic", "Avant Garde", AppleGothic, Futura, Geneva, "Trebuchet MS", sans-serif; 
