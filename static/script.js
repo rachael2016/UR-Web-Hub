@@ -29,7 +29,7 @@ document.getElementById("current_date").innerHTML = day + "," + "&nbsp;" + month
 //then check against the dining schedule hours
 const dateschedule = new Date();
 // new schedule for finals week hours
-if ((dateschedule.getMonth() == 12) && (dateschedule.getDate() >= 15 && dateschedule.getDate() <= 23)) {
+if (((dateschedule.getMonth() == 11) && (dateschedule.getDate() >= 15 && dateschedule.getDate() <= 23))) {
     document.getElementById("finalsweek_schedule").innerHTML = "Reading Period/Final Exam Week Hours of Operation";
     if (dateschedule.getDay() == 4) {
     //thursday 
@@ -54,17 +54,14 @@ if ((dateschedule.getMonth() == 12) && (dateschedule.getDate() >= 15 && datesche
         if (((dateschedule.getHours() > 11 && dateschedule.getHours() < 15) || (dateschedule.getHours() = 11 && dateschedule.getMinutes() >= 30) || (dateschedule.getHours() = 15 && dateschedule.getMinutes() <= 30))) {
             document.getElementById("douglasslunch_schedule").innerHTML = "Douglass - Lunch Until 3:30";
         }
-        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 21)) {
-            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 9PM";
-        }
         if ((dateschedule.getHours() >= 7 && dateschedule.getHours() < 21)) {
             document.getElementById("connections_schedule").innerHTML = "Connections - Until 9PM";
         }
         if ((dateschedule.getHours() >= 11 && dateschedule.getHours() <= 13) || (dateschedule.getHours() = 13 && dateschedule.getMinutes() <= 30)) {
             document.getElementById("danforthlunch_schedule").innerHTML = "Danforth - Lunch Until 1:30PM";
         }
-        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 19)) {
-            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 7PM";
+        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
+            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 8PM";
         } else {
             document.getElementById("nothing").innerHTML = "Nothing open";
         }
@@ -106,14 +103,14 @@ if ((dateschedule.getMonth() == 12) && (dateschedule.getDate() >= 15 && datesche
         if ((dateschedule.getHours() < 2 || (dateschedule.getHours() >= 12 && dateschedule.getHours() <= 23))) {
             document.getElementById("hillside_schedule").innerHTML = "Hillside - Until 2AM";
         }
+        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
+            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 8PM";
+        }
         if ((dateschedule.getHours() >= 8 && dateschedule.getHours() < 10) || (dateschedule.getHours() = 10 && dateschedule.getMinutes() <= 30)) {
             document.getElementById("danforthbreak_schedule").innerHTML = "Danforth - Breakfast Until 10AM";
         }
         if (((dateschedule.getHours() >= 11 && dateschedule.getHours() < 14) || (dateschedule.getHours() = 10 && dateschedule.getMinutes() >= 30) || (dateschedule.getHours() = 14 && dateschedule.getMinutes() <= 30))) {
             document.getElementById("danforthlunch_schedule").innerHTML = "Danforth - Brunch Until 2:30PM";
-        }
-        if ((dateschedule.getHours() >= 17 && dateschedule.getHours() < 20)) {
-            document.getElementById("danforthdinner_schedule").innerHTML = "Danforth - Dinner Until 8PM";
         } else {
             document.getElementById("nothing").innerHTML = "Nothing open";
         }
